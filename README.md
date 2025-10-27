@@ -7,6 +7,8 @@ I will update the codebase to include:
 1. data processing to extract from existing VLM reasoning benchmarks: (1) text captions as our prompts; (2) input videos as our first frame and reference ground truth. 
 2. more video generation providers (beyond Sora, and Replicate).
 
+feel free to make your own branch and PR for more features!
+
 ## Usage
 
 launch video generation:
