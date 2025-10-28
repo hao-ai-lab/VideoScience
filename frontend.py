@@ -1,6 +1,11 @@
-# frontend.py
 import argparse
 import json
+
+import os, sys
+from pathlib import Path
+path_root = Path(__file__).parents[1]
+sys.path.append(str(path_root))
+    
 from backend.api_manager import generate_video
 
 def main():
@@ -16,7 +21,7 @@ def main():
     parser.add_argument("--height", type=int, default=720, help="Output height.")
     parser.add_argument("--out", default="output.mp4", help="Path to save video (if file output).")
     parser.add_argument("--extra", default="{}", help="JSON of extra provider/model params.")
-    parser.add_argument("--timeout_s", type=int, default=600, help="Max wait (polling) seconds.")
+    parser.add_argument("--timeout_s", type=int, default=1200, help="Max wait (polling) seconds.")
 
     args = parser.parse_args()
     extra = json.loads(args.extra)
