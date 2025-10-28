@@ -1,3 +1,4 @@
 replicate
 requests
 google-genai
+PyJWT

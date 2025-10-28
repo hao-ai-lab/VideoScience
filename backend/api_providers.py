@@ -5,10 +5,29 @@ import requests
 from dataclasses import dataclass
 from urllib.parse import urlencode
 
+import jwt
+
 import replicate
 
 from google import genai as google_genai
 from google.genai import types as google_types
+
+import time, json, base64, hmac, hashlib
+
+# helper functions
+def _b64u(b: bytes) -> str:
+    return base64.urlsafe_b64encode(b).rstrip(b"=").decode()
+
+def kling_jwt(access_key: str, secret_key: str, ttl_s: int = 1800) -> str:
+    # Header and payload must be EXACTLY HS256 + {iss, exp, nbf}
+    now = int(time.time())
+    header = {"alg": "HS256", "typ": "JWT"}
+    payload = {"iss": access_key, "exp": now + ttl_s, "nbf": now - 5}
+    h = _b64u(json.dumps(header, separators=(",", ":")).encode())
+    p = _b64u(json.dumps(payload, separators=(",", ":")).encode())
+    sig = hmac.new(secret_key.encode(), f"{h}.{p}".encode(), hashlib.sha256).digest()
+    return f"{h}.{p}.{_b64u(sig)}"
+
 
 @dataclass
 class ReplicateVideoAPI:
@@ -399,7 +418,8 @@ class GeminiVeoAPI:
                 raise TimeoutError(
                     f"Gemini Veo job timed out after {timeout_s}s (operation={operation.name})"
                 )
-            time.sleep(10)  # official samples poll every ~10s :contentReference[oaicite:9]{index=9}
+            print(f"API generation not done, continuing...")
+            time.sleep(60)
             operation = client.operations.get(operation)
 
         # Download the first result and save to output_path. :contentReference[oaicite:10]{index=10}
@@ -415,4 +435,283 @@ class GeminiVeoAPI:
             "raw": {
                 "response": operation.response,
             },
+        }
+
+
+# =========================
+#  WAN 2.5 (DashScope HTTP)
+# =========================
+@dataclass
+class WanDashScopeVideoAPI:
+    """
+    Alibaba Cloud Model Studio (DashScope) - WAN 2.5 Text-to-Video
+    Docs (official): Wan text-to-video API reference.
+    Regions:
+      - intl (Singapore): https://dashscope-intl.aliyuncs.com
+      - cn   (Beijing)  : https://dashscope.aliyuncs.com
+    Auth:
+      - export DASHSCOPE_API_KEY="sk-..."
+    """
+    region: str = os.getenv("DASHSCOPE_REGION", "intl")  # "intl" or "cn"
+
+    def _base(self) -> str:
+        return "https://dashscope-intl.aliyuncs.com" if self.region == "intl" else "https://dashscope.aliyuncs.com"
+
+    def _join(self, *parts: str) -> str:
+        return "/".join(p.strip("/") for p in parts)
+
+    def _download(self, url: str, dest: str) -> None:
+        # stream the response and write to disk in chunks
+        with requests.get(url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(dest, "wb") as f:
+                for chunk in r.iter_content(chunk_size=1 << 20):
+                    if chunk:
+                        f.write(chunk)
+
+
+    def generate(
+        self,
+        model: str,               # e.g. "wan2.5-t2v-preview"
+        prompt: str,
+        n_seconds: int,
+        width: int,
+        height: int,
+        output_path: str,
+        timeout_s: int,
+        extra: t.Dict[str, t.Any],
+    ) -> t.Dict[str, t.Any]:
+        api_key = os.environ.get("DASHSCOPE_API_KEY")
+        if not api_key:
+            raise RuntimeError("DASHSCOPE_API_KEY not set")
+
+        base = self._base()
+        create_url = self._join(base, "api/v1/services/aigc/video-generation/video-synthesis")
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "X-DashScope-Async": "enable",  # HTTP is async-only for this API
+            "Content-Type": "application/json",
+        }
+
+        # DashScope expects size as "WIDTH*HEIGHT" (string) and duration must be 5 or 10 for wan2.5
+        duration = 10 if n_seconds >= 10 else 5
+        size_str = f"{width}*{height}"
+
+        body = {
+            "model": model,  # "wan2.5-t2v-preview"
+            "input": {
+                "prompt": prompt,
+            },
+            "parameters": {
+                "size": size_str,
+                "duration": duration,
+            },
+        }
+
+        # Optional fields supported by docs: prompt_extend, watermark, audio, audio_url, seed, negative_prompt
+        if extra:
+            if "negative_prompt" in extra:
+                body["input"]["negative_prompt"] = extra["negative_prompt"]
+            # Merge known parameter keys
+            params = body["parameters"]
+            for k in ("prompt_extend", "watermark", "audio", "audio_url", "seed"):
+                if k in extra:
+                    params[k] = extra[k]
+
+        # Create task
+        resp = requests.post(create_url, headers=headers, json=body, timeout=120)
+        resp.raise_for_status()
+        create_payload = resp.json()
+        task_id = (create_payload.get("output") or {}).get("task_id")
+        if not task_id:
+            raise RuntimeError(f"Unexpected DashScope create response: {create_payload}")
+
+        # Poll task
+        status_url = self._join(base, "api/v1/tasks", task_id)
+        t0 = time.time()
+        final = None
+        while True:
+            if time.time() - t0 > timeout_s:
+                raise TimeoutError(f"WAN job timed out after {timeout_s}s (task_id={task_id})")
+            s = requests.get(status_url, headers={"Authorization": f"Bearer {api_key}"}, timeout=60)
+            s.raise_for_status()
+            payload = s.json()
+            out = payload.get("output") or {}
+            state = out.get("task_status")
+            if state in ("SUCCEEDED", "FAILED", "CANCELED", "UNKNOWN"):
+                final = payload
+                break
+            time.sleep(15)
+
+        if (final.get("output") or {}).get("task_status") != "SUCCEEDED":
+            raise RuntimeError(f"WAN task not successful: {final}")
+
+        video_url = (final.get("output") or {}).get("video_url")
+        if not video_url:
+            raise RuntimeError(f"No video_url in WAN result: {final}")
+        # Download immediately (links expire ~24h)
+        with requests.get(video_url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(output_path, "wb") as f:
+                for chunk in r.iter_content(1 << 20):
+                    if chunk:
+                        f.write(chunk)
+
+        return {
+            "provider": "wan-dashscope",
+            "model": model,
+            "task_id": task_id,
+            "video_url": video_url,
+            "video_path": output_path,
+            "raw": {"create": create_payload, "final": final},
+        }
+
+
+# ========================================
+#  Kling (official)
+# ========================================
+@dataclass
+class KlingVideoAPI:
+    """
+    Official Kling Text-to-Video.
+
+    Base: https://api-singapore.klingai.com
+      POST /v1/videos/text2video         (create)
+      GET  /v1/videos/text2video/{id}    (poll)
+    Token: Authorization: Bearer <JWT>  (HS256 with iss/exp/nbf)
+    """
+    base_url: str = os.environ.get(
+        "KLING_API_BASE_URL", "https://api-singapore.klingai.com"
+    ).rstrip("/")
+
+    # ---- internal helpers ----
+    def _bearer(self) -> str:
+        # Prefer a pre-generated token, otherwise synthesize from AK/SK.
+        tok = os.environ.get("KLING_JWT")
+        if tok:
+            return tok
+        ak = os.environ.get("KLING_ACCESS_KEY")
+        sk = os.environ.get("KLING_SECRET_KEY")
+        if not (ak and sk):
+            raise RuntimeError(
+                "Set KLING_JWT or KLING_ACCESS_KEY & KLING_SECRET_KEY"
+            )
+        ttl = int(os.environ.get("KLING_TOKEN_EXPIRATION", "1800"))
+        return kling_jwt(ak, sk, ttl_s=ttl)
+
+    def _headers(self) -> dict:
+        return {"Authorization": f"Bearer {self._bearer()}",
+                "Content-Type": "application/json"}
+
+    def _join(self, path: str, q: dict | None = None) -> str:
+        return f"{self.base_url}{path}" + (f"?{urlencode(q)}" if q else "")
+
+    @staticmethod
+    def _snap_aspect(w: int, h: int) -> str:
+        r = w / max(h, 1)
+        if abs(r - (16/9)) < 0.05: return "16:9"
+        if abs(r - (9/16)) < 0.05: return "9:16"
+        if abs(r - 1.0)   < 0.05: return "1:1"
+        return "16:9"
+
+    @staticmethod
+    def _snap_duration(n: int) -> int:
+        return 10 if n >= 10 else 5
+
+    def _download(self, url: str, dest: str) -> None:
+        with requests.get(url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(dest, "wb") as f:
+                for chunk in r.iter_content(1 << 20):
+                    if chunk: f.write(chunk)
+
+    # ---- public API ----
+    def generate(
+        self,
+        model: str,            # e.g., "kling-v2-master" or "kling-v1"
+        prompt: str,
+        n_seconds: int,
+        width: int,
+        height: int,
+        output_path: str,
+        timeout_s: int,
+        extra: t.Dict[str, t.Any],
+    ) -> t.Dict[str, t.Any]:
+
+        # Build minimal, valid body
+        body: dict = {
+            "prompt": prompt,
+            "duration": self._snap_duration(int(n_seconds)),             # 5 or 10
+            "aspect_ratio": self._snap_aspect(width, height),            # 16:9 / 9:16 / 1:1
+        }
+
+        # Heuristic: `model_name` only for V1; omit for V2 unless caller insists.
+        # Some V2 endpoints reject body containing model_name (400/“model not supported”).
+        # Ref: community test notes.  :contentReference[oaicite:4]{index=4}
+        force_model = (extra or {}).get("force_model_name")
+        if force_model or ("v1" in (model or "").lower()):
+            body["model_name"] = model  # e.g., "kling-v1"
+        elif model and ("v2" in model.lower()):
+            # omit to let server pick the default v2 variant
+            pass
+        elif model:
+            # If you pass a concrete v2 string that the API accepts (e.g., "kling-v2-master"),
+            # it’s fine to include; otherwise omit to be safe.
+            if "v2" not in model.lower():
+                body["model_name"] = model
+
+        # Pass through supported optional knobs if provided.
+        # Common ones seen in public UIs: negative_prompt, cfg_scale, mode, camera_control...
+        for k in ("negative_prompt", "cfg_scale", "mode", "camera_control"):
+            if extra and (k in extra):
+                body[k] = extra[k]
+
+        # Create task
+        create_url = self._join("/v1/videos/text2video")
+        resp = requests.post(create_url, headers=self._headers(), json=body, timeout=60)
+        try:
+            resp.raise_for_status()
+        except requests.HTTPError as e:
+            # make debugging easier
+            raise requests.HTTPError(f"{e} :: {resp.text}", response=resp) from None
+
+        c = resp.json()
+        task_id = c.get("task_id") or (c.get("data") or {}).get("task_id") or c.get("id")
+        if not task_id:
+            raise RuntimeError(f"Unexpected Kling create response: {c}")
+
+        # Poll status
+        poll_url = self._join(f"/v1/videos/text2video/{task_id}")
+        t0 = time.time()
+        while True:
+            if time.time() - t0 > timeout_s:
+                raise TimeoutError(f"Kling job timed out after {timeout_s}s (task_id={task_id})")
+            s = requests.get(poll_url, headers=self._headers(), timeout=45)
+            s.raise_for_status()
+            status_payload = s.json()
+            data_obj = status_payload.get("data") or {}
+            st = data_obj.get("task_status") or status_payload.get("status")
+            if st in ("succeed", "failed", "cancelled"):
+                if st != "succeed":
+                    raise RuntimeError(f"Kling task failed or cancelled: {status_payload}")
+                # success --> grab result
+                break
+            print(f"API generation state: {st}")
+            time.sleep(60)
+
+        # Download first video
+        result = (status_payload.get("data") or {}).get("task_result") or {}
+        videos = result.get("videos") or []
+        if not videos or not videos[0].get("url"):
+            raise RuntimeError(f"Kling task succeeded but no video URL found: {status_payload}")
+        video_url = videos[0]["url"]
+        self._download(video_url, output_path)
+
+        return {
+            "provider": "kling-official",
+            "model": model,
+            "task_id": task_id,
+            "video_url": video_url,
+            "video_path": output_path,
+            "raw": {"create": c, "final_status": status_payload},
         }

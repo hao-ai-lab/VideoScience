@@ -4,6 +4,8 @@ from backend.api_providers import (
     ReplicateVideoAPI,
     SoraVideoAPI,
     GeminiVeoAPI,
+    WanDashScopeVideoAPI,
+    KlingVideoAPI,
 )
 
 import os, sys
@@ -32,25 +34,43 @@ def generate_video(
             timeout_s=timeout_s, extra=extra,
         )
 
-    if p in ("sora-openai", "sora"):
+    elif p in ("sora-openai", "sora"):
         return SoraVideoAPI(backend="openai").generate(
             model=model, prompt=prompt, n_seconds=n_seconds,
             width=width, height=height, output_path=output_path,
             timeout_s=timeout_s, extra=extra,
         )
 
-    if p == "sora-azure":
+    elif p == "sora-azure":
         return SoraVideoAPI(backend="azure").generate(
             model=model, prompt=prompt, n_seconds=n_seconds,
             width=width, height=height, output_path=output_path,
             timeout_s=timeout_s, extra=extra,
         )
 
-    if p in ("gemini", "veo", "google-veo", "veo-gemini"):
+    elif p in ("gemini", "veo", "google-veo", "veo-gemini"):
         return GeminiVeoAPI().generate(
             model=model, prompt=prompt, n_seconds=n_seconds,
             width=width, height=height, output_path=output_path,
             timeout_s=timeout_s, extra=extra,
         )
+        
+    elif provider.lower() in ("wan", "wan-dashscope", "dashscope-wan"):
+        return WanDashScopeVideoAPI().generate(
+            model=model, prompt=prompt, n_seconds=n_seconds,
+            width=width, height=height, output_path=output_path,
+            timeout_s=timeout_s, extra=extra,
+        )
+
+
+    elif provider.lower() == "kling":
+        return KlingVideoAPI().generate(
+            model=model, prompt=prompt, n_seconds=n_seconds,
+            width=width, height=height, output_path=output_path,
+            timeout_s=timeout_s, extra=extra,
+        )
+
+    else:
+        raise ValueError(f"Unknown provider: {provider}")
 
     raise ValueError(f"Unknown provider: {provider}")
