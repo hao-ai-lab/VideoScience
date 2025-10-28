@@ -1,2 +1,3 @@
 sci-atlas/
 config/*
+*/__pycache__/
