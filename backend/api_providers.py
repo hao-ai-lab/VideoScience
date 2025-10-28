@@ -28,6 +28,8 @@ def kling_jwt(access_key: str, secret_key: str, ttl_s: int = 1800) -> str:
     sig = hmac.new(secret_key.encode(), f"{h}.{p}".encode(), hashlib.sha256).digest()
     return f"{h}.{p}.{_b64u(sig)}"
 
+from google import genai as google_genai
+from google.genai import types as google_types
 
 @dataclass
 class ReplicateVideoAPI:
