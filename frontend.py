@@ -15,7 +15,6 @@ def generate_video_wrapper(task):
     """Wrapper function to call generate_video with task parameters"""
     try:
         print(f"\n[Task {task['id']}] Starting generation...")
-        #print(f"  Prompt: {task['prompt']}...")
 
         result = generate_video(
             provider=task['provider'],
@@ -29,7 +28,7 @@ def generate_video_wrapper(task):
             extra=task['extra'],
         )
 
-        print(f"\n[Task {task['id']}] ✓ Completed: {task['output_path']}")
+        print(f"\n[Task {task['id']}]; Completed: {task['output_path']}")
         return {
             'id': task['id'],
             'status': 'success',
@@ -37,7 +36,7 @@ def generate_video_wrapper(task):
             'result': result
         }
     except Exception as e:
-        print(f"\n[Task {task['id']}] ✗ Failed: {str(e)}")
+        print(f"\n[Task {task['id']}]; Failed: {str(e)}")
         return {
             'id': task['id'],
             'status': 'error',
