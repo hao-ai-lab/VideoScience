@@ -80,7 +80,7 @@ echo ""
 
 # Run the async frontend
 cd "$PROJECT_ROOT"
-python3 frontend_async.py --json "$EXPERIMENTS_JSON" --workers "$WORKERS"
+python3 frontend.py --json "$EXPERIMENTS_JSON" --workers "$WORKERS"
 
 exit_code=$?
 
