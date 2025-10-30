@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Script to extract experiments from CSV and prepare JSON configuration
-Usage: python3 prepare_experiments.py --author "Author Name" --csv file.csv
+Usage: python3 prepare_experiments.py --author "Author Name" --csv file.csv --output-dir custom_dir
+Or: python3 prepare_experiments.py "Author Name" file.csv custom_dir
 """
 
 import csv
@@ -12,7 +13,7 @@ import argparse
 from pathlib import Path
 
 
-def prepare_experiments(author, csv_file):
+def prepare_experiments(author, csv_file, output_dir=None):
     """Extract experiments for a specific author and create JSON config"""
 
     # Video generation parameters (defaults)
@@ -30,7 +31,10 @@ def prepare_experiments(author, csv_file):
     }
 
     # Create output directory
-    output_dir = Path("out") / author.replace(" ", "_")
+    if output_dir is None:
+        output_dir = Path("out") / author.replace(" ", "_")
+    else:
+        output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     output_json = output_dir / "experiments.json"
@@ -138,6 +142,10 @@ def main():
         default="test.csv",
         help="Path to CSV file (default: test.csv)"
     )
+    parser.add_argument(
+        "--output-dir",
+        help="Output directory (default: out/<author_name>)"
+    )
 
     # Also support positional arguments for backward compatibility
     parser.add_argument(
@@ -150,14 +158,20 @@ def main():
         nargs="?",
         help="CSV file path (positional, overrides --csv)"
     )
+    parser.add_argument(
+        "output_dir_pos",
+        nargs="?",
+        help="Output directory (positional, overrides --output-dir)"
+    )
 
     args = parser.parse_args()
 
     # Use positional args if provided, otherwise use named args
     author = args.author_pos if args.author_pos else args.author
     csv_file = args.csv_pos if args.csv_pos else args.csv
+    output_dir = args.output_dir_pos if args.output_dir_pos else args.output_dir
 
-    exit_code = prepare_experiments(author, csv_file)
+    exit_code = prepare_experiments(author, csv_file, output_dir)
     sys.exit(exit_code)
 
 

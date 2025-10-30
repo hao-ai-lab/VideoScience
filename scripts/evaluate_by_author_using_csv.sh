@@ -12,9 +12,12 @@
 # Set your API keys directly here
 export DASHSCOPE_API_KEY="sk-xxxxxxxxxxxxxxxx"     # For Alibaba/Wan models
 export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxx"        # For OpenAI/Sora models
-export REPLICATE_API_TOKEN="r8_xxxxxxxxxxxxxxxx"   # 
+export REPLICATE_API_TOKEN="r8_xxxxxxxxxxxxxxxx"   #
+
+# Experiment Configuration
 AUTHOR="Yujie Zhao"
 CSV_FILE="test.csv"
+OUT_DIR=""                                          # Custom output directory (leave empty for default: out/<author_name>)
 WORKERS=
 
 ################################################################################
@@ -23,7 +26,14 @@ WORKERS=
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-OUTPUT_DIR="$PROJECT_ROOT/out/${AUTHOR// /_}"
+
+# Set output directory
+if [ -z "$OUT_DIR" ]; then
+    OUTPUT_DIR="$PROJECT_ROOT/out/${AUTHOR// /_}"
+else
+    OUTPUT_DIR="$OUT_DIR"
+fi
+
 EXPERIMENTS_JSON="$OUTPUT_DIR/experiments.json"
 
 echo "============================================================"
@@ -39,7 +49,11 @@ echo ""
 # Step 1: Prepare experiments
 echo "Step 1/2: Preparing experiments..."
 echo "------------------------------------------------------------"
-python3 "$SCRIPT_DIR/prepare_experiments.py" "$AUTHOR" "$CSV_FILE"
+if [ -z "$OUT_DIR" ]; then
+    python3 "$SCRIPT_DIR/prepare_experiments.py" "$AUTHOR" "$CSV_FILE"
+else
+    python3 "$SCRIPT_DIR/prepare_experiments.py" "$AUTHOR" "$CSV_FILE" "$OUT_DIR"
+fi
 
 if [ $? -ne 0 ]; then
     echo ""

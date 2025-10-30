@@ -43,9 +43,17 @@ AUTHOR="Yujie Zhao"
 # CSV file path (change if using a different file)
 CSV_FILE="test.csv"
 
+# Custom output directory (leave empty for default: out/<author_name>)
+OUT_DIR=""
+
 # Number of parallel workers (3-5 recommended, 1-2 for free tier)
 WORKERS=5
 ```
+
+**Examples:**
+- Default: `OUT_DIR=""` → outputs to `out/Author_Name/`
+- Custom: `OUT_DIR="my_experiments"` → outputs to `my_experiments/`
+- Absolute path: `OUT_DIR="/path/to/results"` → outputs to `/path/to/results/`
 
 ## Step 3: Run the Script
 

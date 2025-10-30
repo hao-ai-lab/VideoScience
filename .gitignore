@@ -2,3 +2,5 @@ sci-atlas/
 config/*
 */__pycache__/
 out/
+*.csv
+*.json
