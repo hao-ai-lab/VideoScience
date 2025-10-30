@@ -10,7 +10,7 @@ Quick start guide: from Notion export to video generation.
 4. Choose format: **CSV**
 5. Enable: **Include subpages** (if needed)
 6. Click **Export**
-7. Download and save as `test.csv` in the project root directory
+7. Download and save as `{data_file_name}.csv` in the project destinated path
 
 **Required CSV Columns:**
 - `Example Title` - Experiment name
@@ -38,12 +38,12 @@ export REPLICATE_API_TOKEN="r8_xxxxxxxxxxxxxxxx"   # For Replicate models
 
 ```bash
 # Author to filter (must match exactly with the Author column in CSV)
-AUTHOR="Yujie Zhao"
+AUTHOR="Your Name"
 
 # CSV file path (change if using a different file)
-CSV_FILE="test.csv"
+CSV_FILE="{data_file_name}.csv"
 
-# Custom output directory (leave empty for default: out/<author_name>)
+# Custom your output directory (leave empty for default: out/<author_name>)
 OUT_DIR=""
 
 # Number of parallel workers (3-5 recommended, 1-2 for free tier)

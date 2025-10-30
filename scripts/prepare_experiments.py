@@ -147,29 +147,12 @@ def main():
         help="Output directory (default: out/<author_name>)"
     )
 
-    # Also support positional arguments for backward compatibility
-    parser.add_argument(
-        "author_pos",
-        nargs="?",
-        help="Author name (positional, overrides --author)"
-    )
-    parser.add_argument(
-        "csv_pos",
-        nargs="?",
-        help="CSV file path (positional, overrides --csv)"
-    )
-    parser.add_argument(
-        "output_dir_pos",
-        nargs="?",
-        help="Output directory (positional, overrides --output-dir)"
-    )
-
     args = parser.parse_args()
 
     # Use positional args if provided, otherwise use named args
-    author = args.author_pos if args.author_pos else args.author
-    csv_file = args.csv_pos if args.csv_pos else args.csv
-    output_dir = args.output_dir_pos if args.output_dir_pos else args.output_dir
+    author = args.author
+    csv_file = args.csv
+    output_dir = args.output_dir
 
     exit_code = prepare_experiments(author, csv_file, output_dir)
     sys.exit(exit_code)
