@@ -15,7 +15,7 @@ def generate_video_wrapper(task):
     """Wrapper function to call generate_video with task parameters"""
     try:
         print(f"\n[Task {task['id']}] Starting generation...")
-        print(f"  Prompt: {task['prompt']}...")
+        #print(f"  Prompt: {task['prompt']}...")
 
         result = generate_video(
             provider=task['provider'],
