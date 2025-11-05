@@ -1,4 +1,4 @@
-python3 frontend.py \
+python3 single_generation_frontend.py \
   --provider gemini \
   --model veo-3.1-generate-preview \
   --prompt "a tiny robot chef flipping pancakes in zero gravity, soft cinematic lighting" \

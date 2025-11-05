@@ -1,5 +1,10 @@
 from typing import Dict, Any
 
+import os, sys
+from pathlib import Path
+path_root = Path(__file__).parents[1]
+sys.path.append(str(path_root))
+
 from backend.api_providers import (
     ReplicateVideoAPI,
     SoraVideoAPI,
@@ -7,11 +12,6 @@ from backend.api_providers import (
     WanDashScopeVideoAPI,
     KlingVideoAPI,
 )
-
-import os, sys
-from pathlib import Path
-path_root = Path(__file__).parents[1]
-sys.path.append(str(path_root))
 
 def generate_video(
     provider: str,

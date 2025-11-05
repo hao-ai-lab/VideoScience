@@ -1,6 +1,6 @@
 # WAN 2.5 (intl region)
 
-python3 frontend.py \
+python3 single_generation_frontend.py \
   --provider wan \
   --model wan2.5-t2v-preview \
   --prompt "a tiny robot chef flipping pancakes in zero gravity, soft cinematic lighting" \
