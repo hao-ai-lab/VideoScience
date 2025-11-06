@@ -5,3 +5,4 @@ out/
 data/curated_expvid/*
 *.csv
 *.json
+*.mp4

@@ -2,3 +2,6 @@ replicate
 requests
 google-genai
 PyJWT
+opencv-python
+Pillow
+anthropic

@@ -38,13 +38,13 @@ class ReplicateVideoAPI:
 
     Auth:
       - export REPLICATE_API_TOKEN="xxx" (bearer token)
-        (The Python client automatically reads this env var.) :contentReference[oaicite:3]{index=3}
+        (The Python client automatically reads this env var.)
 
     Notes:
       - `model` can be "owner/model" or "owner/model:version".
       - `input` shape is model-specific (we pass prompt + optional extras).
       - Outputs are often file URLs or FileOutput objects.
-      - Reference: "Run a model" + HTTP API docs. :contentReference[oaicite:4]{index=4}
+      - Reference: "Run a model" + HTTP API docs.
     """
 
     def _save_url_to_file(self, url: str, dest: str) -> None:
@@ -88,7 +88,7 @@ class ReplicateVideoAPI:
         if extra:
             inp.update(extra)
 
-        # Example from docs: replicate.run("owner/model[:version]", input={...}) :contentReference[oaicite:5]{index=5}
+        # Example from docs: replicate.run("owner/model[:version]", input={...})
         output = replicate.run(model, input=inp)
         
         # many video models return a list of URLs (strings) or FileOutput objects.
@@ -327,10 +327,10 @@ class GeminiVeoAPI:
     Gemini API (Veo 3.1)
 
     - Model IDs (examples): "veo-3.1-generate-preview", "veo-3.1-fast-generate-preview".
-      (See "Model versions" table.) :contentReference[oaicite:0]{index=0}
-    - Auth: set environment variable GEMINI_API_KEY and the SDK reads it automatically. :contentReference[oaicite:1]{index=1}
+      (See "Model versions" table.)
+    - Auth: set environment variable GEMINI_API_KEY and the SDK reads it automatically.
     - Basic flow: client.models.generate_videos(...), poll operation until done, then
-      client.files.download(...) and save(). :contentReference[oaicite:2]{index=2}
+      client.files.download(...) and save().
     """
 
     def _ensure_client(self):
@@ -338,7 +338,7 @@ class GeminiVeoAPI:
             raise RuntimeError(
                 "google-genai not installed. Run: pip install google-genai"
             )
-        # SDK auto-uses GEMINI_API_KEY if set. :contentReference[oaicite:3]{index=3}
+        # SDK auto-uses GEMINI_API_KEY if set.
         if not os.environ.get("GEMINI_API_KEY"):
             raise RuntimeError("GEMINI_API_KEY not set in environment")
         return google_genai.Client()
@@ -349,7 +349,7 @@ class GeminiVeoAPI:
         aspect = extra.get("aspect_ratio") or extra.get("aspectRatio")
         if aspect in ("16:9", "9:16"):
             return aspect
-        # Heuristic from width/height. Veo supports 16:9 and 9:16. :contentReference[oaicite:4]{index=4}
+        # Heuristic from width/height. Veo supports 16:9 and 9:16.
         if height > width * 1.2:
             return "9:16"
         return "16:9"
@@ -359,7 +359,7 @@ class GeminiVeoAPI:
         res = extra.get("resolution")
         if res in ("720p", "1080p"):
             return res
-        # Veo 3.1 supports 720p and 1080p (1080p is only 8s). :contentReference[oaicite:5]{index=5}
+        # Veo 3.1 supports 720p and 1080p (1080p is only 8s).
         return "1080p" if max(width, height) >= 1080 else "720p"
 
     @staticmethod
@@ -368,7 +368,7 @@ class GeminiVeoAPI:
         dur = extra.get("duration_seconds") or extra.get("durationSeconds")
         if dur is None:
             dur = n_seconds
-        # Veo 3.1 supports 4 / 6 / 8 seconds. Clamp to nearest allowed. :contentReference[oaicite:6]{index=6}
+        # Veo 3.1 supports 4 / 6 / 8 seconds. Clamp to nearest allowed.
         allowed = [4, 6, 8]
         return min(allowed, key=lambda x: abs(int(dur) - x))
 
@@ -387,7 +387,7 @@ class GeminiVeoAPI:
         client = self._ensure_client()
 
         # Build config with snake_case keys for the Python SDK. Examples show
-        # number_of_videos, resolution, aspect_ratio, negative_prompt, duration_seconds. :contentReference[oaicite:7]{index=7}
+        # number_of_videos, resolution, aspect_ratio, negative_prompt, duration_seconds.
         cfg_kwargs: dict = {
             "number_of_videos": int(extra.get("number_of_videos", 1)),
             "resolution": self._infer_resolution(width, height, extra),
@@ -407,7 +407,6 @@ class GeminiVeoAPI:
         #   image=<google_types.Image(...)> or video=<google_types.Video(...)>,
         #   and/or reference_images=[google_types.VideoGenerationReferenceImage(...)]
         # as shown in docs. 
-        # :contentReference[oaicite:8]{index=8}
         operation = client.models.generate_videos(
             model=model,
             prompt=prompt,
@@ -424,7 +423,7 @@ class GeminiVeoAPI:
             time.sleep(60)
             operation = client.operations.get(operation)
 
-        # Download the first result and save to output_path. :contentReference[oaicite:10]{index=10}
+        # Download the first result and save to output_path.
         generated_video = operation.response.generated_videos[0]
         client.files.download(file=generated_video.video)
         generated_video.video.save(output_path)
@@ -649,7 +648,7 @@ class KlingVideoAPI:
 
         # Heuristic: `model_name` only for V1; omit for V2 unless caller insists.
         # Some V2 endpoints reject body containing model_name (400/“model not supported”).
-        # Ref: community test notes.  :contentReference[oaicite:4]{index=4}
+        # Ref: community test notes.
         force_model = (extra or {}).get("force_model_name")
         if force_model or ("v1" in (model or "").lower()):
             body["model_name"] = model  # e.g., "kling-v1"
@@ -671,11 +670,7 @@ class KlingVideoAPI:
         # Create task
         create_url = self._join("/v1/videos/text2video")
         resp = requests.post(create_url, headers=self._headers(), json=body, timeout=60)
-        try:
-            resp.raise_for_status()
-        except requests.HTTPError as e:
-            # make debugging easier
-            raise requests.HTTPError(f"{e} :: {resp.text}", response=resp) from None
+        resp.raise_for_status()
 
         c = resp.json()
         task_id = c.get("task_id") or (c.get("data") or {}).get("task_id") or c.get("id")
@@ -716,4 +711,348 @@ class KlingVideoAPI:
             "video_url": video_url,
             "video_path": output_path,
             "raw": {"create": c, "final_status": status_payload},
+        }
+
+@dataclass
+class Veo3GenVideoAPI:
+    """
+    Veo3 Gen (third-party VEO3 access)
+
+    Endpoints:
+      - POST {base}/api/generate   (start a job)
+      - GET  {base}/api/status/{taskId}  (poll status)
+    Auth:
+      - Authorization: Bearer <VEO3GEN_API_KEY> (recommended)
+        Alternatively: X-API-Key, or ?api_key=... (not recommended).
+    Docs: https://www.veo3gen.app/api-docs
+    """
+    base_url: str = os.environ.get("VEO3GEN_BASE_URL", "https://api.veo3gen.app").rstrip("/")
+
+    # ---- internals ----
+    def _api_key(self) -> str:
+        key = (
+            os.environ.get("VEO3GEN_API_KEY")
+            or os.environ.get("VEO3GEN_KEY")
+            or os.environ.get("VEO3GEN_TOKEN")
+        )
+        if not key:
+            raise RuntimeError("VEO3GEN_API_KEY not set")
+        return key
+
+    def _headers(self) -> dict:
+        # Docs recommend Authorization: Bearer
+        return {"Authorization": f"Bearer {self._api_key()}", "Content-Type": "application/json"}
+
+    def _join(self, path: str, q: dict | None = None) -> str:
+        return f"{self.base_url}{path}" + (f"?{urlencode(q)}" if q else "")
+
+    def _download(self, url: str, dest: str) -> None:
+        with requests.get(url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(dest, "wb") as f:
+                for chunk in r.iter_content(1 << 20):
+                    if chunk:
+                        f.write(chunk)
+
+    @staticmethod
+    def _infer_aspect_ratio(width: int, height: int, extra: t.Dict[str, t.Any]) -> str:
+        # Allow override via aspect_ratio / aspectRatio
+        ar = (extra or {}).get("aspect_ratio") or (extra or {}).get("aspectRatio")
+        if ar in ("16:9", "9:16"):
+            return ar
+        return "9:16" if height > width * 1.2 else "16:9"
+
+    @staticmethod
+    def _infer_resolution(width: int, height: int, extra: t.Dict[str, t.Any]) -> str:
+        # Allow override via resolution
+        res = (extra or {}).get("resolution")
+        if res in ("720p", "1080p"):
+            return res
+        return "1080p" if max(width, height) >= 1080 else "720p"
+
+    # ---- public API ----
+    def generate(
+        self,
+        model: str,             # "veo3-fast" or "veo3-quality"
+        prompt: str,
+        n_seconds: int,         # NOTE: Veo3Gen API doesn't accept duration; it's fixed per model/version
+        width: int,
+        height: int,
+        output_path: str,
+        timeout_s: int,
+        extra: t.Dict[str, t.Any],
+    ) -> t.Dict[str, t.Any]:
+
+        # Build request body per docs
+        # POST /api/generate with: model, prompt, optional modelVersion, audio, options{resolution,aspectRatio,seed,negativePrompt,enhancePrompt}
+        # (Auth via Authorization: Bearer <api_key>)
+        # Ref: Quick Start / API Endpoints.
+        aspect = self._infer_aspect_ratio(width, height, extra or {})
+        resolution = self._infer_resolution(width, height, extra or {})
+        options: dict = {"resolution": resolution, "aspectRatio": aspect}
+
+        # pass through optional knobs if present
+        if extra:
+            if "seed" in extra:
+                options["seed"] = extra["seed"]
+            # allow either key spelling
+            if "negative_prompt" in extra:
+                options["negativePrompt"] = extra["negative_prompt"]
+            if "negativePrompt" in extra:
+                options["negativePrompt"] = extra["negativePrompt"]
+            if "enhancePrompt" in extra:
+                options["enhancePrompt"] = extra["enhancePrompt"]
+            # let users shove raw options in a dict key
+            if "veo3Options" in extra and isinstance(extra["veo3Options"], dict):
+                options.update(extra["veo3Options"])
+
+        body: dict = {
+            "model": model or "veo3-fast",
+            "prompt": prompt,
+            # audio defaults to true in the API; let user override
+            "audio": bool((extra or {}).get("audio", True)),
+            "options": options,
+        }
+        # Only add modelVersion if explicitly provided (API default is "3.0")
+        mv = (extra or {}).get("modelVersion") or (extra or {}).get("model_version")
+        if mv:
+            body["modelVersion"] = mv
+
+        create_url = self._join("/api/generate")
+        resp = requests.post(create_url, headers=self._headers(), json=body, timeout=120)
+        resp.raise_for_status()
+
+        create_payload = resp.json()
+        task_id = create_payload.get("taskId")
+        if not task_id:
+            raise RuntimeError(f"Unexpected Veo3Gen create response: {create_payload}")
+
+        # Poll status: GET /api/status/{taskId}; completed -> result.videoUrl
+        # Typical statuses: pending/processing/completed/failed.
+        status_url = self._join(f"/api/status/{task_id}")
+        t0 = time.time()
+        final = None
+        while True:
+            if time.time() - t0 > timeout_s:
+                raise TimeoutError(f"Veo3Gen job timed out after {timeout_s}s (taskId={task_id})")
+            s = requests.get(status_url, headers=self._headers(), timeout=60)
+            s.raise_for_status()
+            st_payload = s.json()
+            st = st_payload.get("status")
+            if st in ("completed", "failed"):
+                final = st_payload
+                break
+
+            print(f"API generation state: {st}")
+            time.sleep(10)
+
+        if not final or final.get("status") != "completed":
+            raise RuntimeError(f"Veo3Gen task failed or did not complete: {final}")
+
+        result = final.get("result") or {}
+        video_url = result.get("videoUrl")
+        if not video_url:
+            raise RuntimeError(f"No videoUrl in Veo3Gen result: {final}")
+
+        # Download the MP4 immediately
+        self._download(video_url, output_path)
+
+        return {
+            "provider": "veo3gen",
+            "model": model,
+            "task_id": task_id,
+            "video_url": video_url,
+            "video_path": output_path,
+            "raw": {"create": create_payload, "final_status": final},
+        }
+
+@dataclass
+class LumaRayVideoAPI:
+    """
+    Luma Labs Ray (Ray 2 / Ray 2 Flash)
+
+    Models:
+      - Ray 2          -> model="ray-2"
+      - Ray 2 Flash    -> model="ray-flash-2"
+      - (also Ray 1.6: "ray-1-6")
+      Docs list/usage and cURL examples.
+
+    Endpoints:
+      - POST https://api.lumalabs.ai/dream-machine/v1/generations         (create)
+      - GET  https://api.lumalabs.ai/dream-machine/v1/generations/{id}    (status)
+      Auth: Authorization: Bearer <LUMA_API_KEY>
+    """
+
+    base_url: str = os.environ.get(
+        "LUMA_API_BASE_URL", "https://api.lumalabs.ai"
+    ).rstrip("/")
+
+    # ---------- internals ----------
+    def _api_key(self) -> str:
+        key = os.environ.get("LUMA_API_KEY") or os.environ.get("LUMA_TOKEN")
+        if not key:
+            raise RuntimeError("LUMA_API_KEY not set")
+        return key
+
+    def _headers(self) -> dict:
+        return {
+            "Authorization": f"Bearer {self._api_key()}",
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        }
+
+    def _join(self, path: str, q: dict | None = None) -> str:
+        return f"{self.base_url}{path}" + (f"?{urlencode(q)}" if q else "")
+
+    def _download(self, url: str, dest: str) -> None:
+        with requests.get(url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(dest, "wb") as f:
+                for chunk in r.iter_content(1 << 20):
+                    if chunk:
+                        f.write(chunk)
+
+    @staticmethod
+    def _infer_aspect_ratio(width: int, height: int, extra: t.Dict[str, t.Any]) -> t.Optional[str]:
+        # API supports "aspect_ratio": e.g., "16:9" or "9:16"
+        ar = (extra or {}).get("aspect_ratio") or (extra or {}).get("aspectRatio")
+        if ar:
+            return ar
+        if width and height:
+            return "9:16" if height > width * 1.2 else "16:9"
+        return None
+
+    @staticmethod
+    def _infer_resolution(width: int, height: int, extra: t.Dict[str, t.Any]) -> t.Optional[str]:
+        # Resolutions: "540p", "720p", "1080", "4k" (optional)
+        res = (extra or {}).get("resolution")
+        if res:
+            return str(res)
+        if max(width, height) >= 2160:
+            return "4k"
+        if max(width, height) >= 1080:
+            return "1080"   # docs show 1080 without 'p' as valid
+        if max(width, height) >= 720:
+            return "720p"
+        return "540p"
+
+    @staticmethod
+    def _format_duration(n_seconds: int, extra: t.Dict[str, t.Any]) -> t.Optional[str]:
+        # API expects duration as string like "5s" (optional)
+        if (extra or {}).get("duration"):
+            d = str(extra["duration"])
+            return d if d.endswith("s") else f"{d}s"
+        if n_seconds:
+            return f"{int(n_seconds)}s"
+        return None
+
+    # ---------- public ----------
+    def generate(
+        self,
+        model: str,            # e.g., "ray-2" or "ray-flash-2"
+        prompt: str,
+        n_seconds: int,
+        width: int,
+        height: int,
+        output_path: str,
+        timeout_s: int,
+        extra: t.Dict[str, t.Any],
+    ) -> t.Dict[str, t.Any]:
+
+        model = model or "ray-2"
+
+        body: dict = {
+            "prompt": prompt,
+            "model": model,
+        }
+
+        # Optional knobs per docs (we add only if defined)
+        ar = self._infer_aspect_ratio(width, height, extra or {})
+        if ar:
+            body["aspect_ratio"] = ar
+
+        res = self._infer_resolution(width, height, extra or {})
+        if res:
+            body["resolution"] = res
+
+        dur = self._format_duration(n_seconds, extra or {})
+        if dur:
+            body["duration"] = dur
+
+        if extra:
+            # Loop flag
+            if "loop" in extra:
+                body["loop"] = bool(extra["loop"])
+            # Concepts array
+            if "concepts" in extra:
+                body["concepts"] = extra["concepts"]
+
+            # Keyframes (image-to-video / extend / interpolate)
+            if "keyframes" in extra and isinstance(extra["keyframes"], dict):
+                body["keyframes"] = extra["keyframes"]
+            else:
+                # Convenience shorthands:
+                if "start_image_url" in extra:
+                    body["keyframes"] = {
+                        "frame0": {"type": "image", "url": extra["start_image_url"]}
+                    }
+                if "end_image_url" in extra:
+                    kf = body.setdefault("keyframes", {})
+                    kf["frame1"] = {"type": "image", "url": extra["end_image_url"]}
+                if "start_generation_id" in extra:
+                    kf = body.setdefault("keyframes", {})
+                    kf["frame0"] = {"type": "generation", "id": extra["start_generation_id"]}
+                if "end_generation_id" in extra:
+                    kf = body.setdefault("keyframes", {})
+                    kf["frame1"] = {"type": "generation", "id": extra["end_generation_id"]}
+
+            # Callback (webhook) if you want server pushes (optional)
+            if "callback_url" in extra:
+                body["callback_url"] = extra["callback_url"]
+
+        # Create generation
+        create_url = self._join("/dream-machine/v1/generations")
+        r = requests.post(create_url, headers=self._headers(), json=body, timeout=120)
+        r.raise_for_status()
+
+
+        create_payload = r.json()
+        gen_id = create_payload.get("id")
+        if not gen_id:
+            raise RuntimeError(f"Unexpected Luma create response: {create_payload}")
+
+        # Poll status until "completed" (states: dreaming/completed/failed)
+        status_url = self._join(f"/dream-machine/v1/generations/{gen_id}")
+        t0 = time.time()
+        final = None
+        while True:
+            if time.time() - t0 > timeout_s:
+                raise TimeoutError(f"Luma Ray job timed out after {timeout_s}s (id={gen_id})")
+            s = requests.get(status_url, headers=self._headers(), timeout=60)
+            s.raise_for_status()
+            payload = s.json()
+            state = payload.get("state")
+            if state in ("completed", "failed"):
+                final = payload
+                break
+            print(f"API generation state: {state}")
+            time.sleep(10)
+
+        if not final or final.get("state") != "completed":
+            raise RuntimeError(f"Luma generation failed or not completed: {final}")
+
+        video_url = ((final.get("assets") or {}).get("video"))
+        if not video_url:
+            raise RuntimeError(f"No 'assets.video' in Luma result: {final}")
+
+        # Download video
+        self._download(video_url, output_path)
+
+        return {
+            "provider": "luma-ray",
+            "model": model,
+            "generation_id": gen_id,
+            "video_url": video_url,
+            "video_path": output_path,
+            "raw": {"create": create_payload, "final_status": final},
         }

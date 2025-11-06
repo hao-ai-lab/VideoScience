@@ -2,9 +2,9 @@ import argparse
 import json
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
+
 from pathlib import Path
 import sys
-
 path_root = Path(__file__).parents[1]
 sys.path.append(str(path_root))
 

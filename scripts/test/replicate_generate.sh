@@ -14,9 +14,9 @@ OUTPUT_PATH="out/replicate-minimax/replicate_hailuo_1280x720_8s.mp4"
 EXTRA='{"guidance":7.5, "seed":12345}'  # model-specific parameters
 # ----------------------
 
-echo "Running frontend.py with provider=$PROVIDER, model=$MODEL"
+echo "Running single_generation_frontend.py with provider=$PROVIDER, model=$MODEL"
 
-python3 frontend.py \
+python3 single_generation_frontend.py \
   --provider "${PROVIDER}" \
   --model "${MODEL}" \
   --prompt "${PROMPT}" \
