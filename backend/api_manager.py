@@ -11,6 +11,8 @@ from backend.api_providers import (
     GeminiVeoAPI,
     WanDashScopeVideoAPI,
     KlingVideoAPI,
+    Veo3GenVideoAPI,
+    LumaRayVideoAPI,
 )
 
 def generate_video(
@@ -55,7 +57,7 @@ def generate_video(
             timeout_s=timeout_s, extra=extra,
         )
         
-    elif provider.lower() in ("wan", "wan-dashscope", "dashscope-wan"):
+    elif p in ("wan", "wan-dashscope", "dashscope-wan"):
         return WanDashScopeVideoAPI().generate(
             model=model, prompt=prompt, n_seconds=n_seconds,
             width=width, height=height, output_path=output_path,
@@ -63,8 +65,22 @@ def generate_video(
         )
 
 
-    elif provider.lower() == "kling":
+    elif p == "kling":
         return KlingVideoAPI().generate(
+            model=model, prompt=prompt, n_seconds=n_seconds,
+            width=width, height=height, output_path=output_path,
+            timeout_s=timeout_s, extra=extra,
+        )
+    
+    elif p == "veo3gen":
+        return Veo3GenVideoAPI().generate(
+            model=model, prompt=prompt, n_seconds=n_seconds,
+            width=width, height=height, output_path=output_path,
+            timeout_s=timeout_s, extra=extra,
+        )
+        
+    elif p in ("ray", "ray-2", "luma"):
+        return LumaRayVideoAPI().generate(
             model=model, prompt=prompt, n_seconds=n_seconds,
             width=width, height=height, output_path=output_path,
             timeout_s=timeout_s, extra=extra,
