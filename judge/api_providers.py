@@ -169,7 +169,7 @@ class OpenAIVLMAPI(_BaseVLM):
         ref = extract_frames(ref_video_path, max_frames=max_frames // 2, fps=fps) if ref_video_path else []
 
         # Keep content leaner to avoid 400s from oversize payloads.
-        max_imgs = int(extra.get("max_images", 12))  # was 20
+        max_imgs = int(extra.get("max_images", 20))
         content = [{"type": "input_text", "text": self._prompt(extra)}]
 
         for ts, im in cand[:max_imgs]:
@@ -194,11 +194,7 @@ class OpenAIVLMAPI(_BaseVLM):
         r = requests.post(url, headers=self._headers(), json=payload, timeout=timeout_s)
 
         if not r.ok:
-            try:
-                err = r.json()
-            except Exception:
-                err = r.text
-            raise RuntimeError(f"OpenAI /v1/responses error {r.status_code}: {err}")
+            err = r.json()
 
         resp = r.json()
         output_text = self._extract_output_text(resp)
@@ -323,7 +319,6 @@ class AnthropicVLMAPI(_BaseVLM):
         for ts, im in cand[:max_imgs]:
             content.append(_image_part(im))
             content.append({"type": "text", "text": f"Candidate frame t={ts:.1f}s"})
-
         if ref:
             content.append({"type": "text", "text": "Reference video frames:"})
             for ts, im in ref[: max(1, max_imgs // 2)]:
