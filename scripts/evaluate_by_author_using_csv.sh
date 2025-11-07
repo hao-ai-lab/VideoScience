@@ -1,24 +1,30 @@
 #!/bin/bash
 
 ################################################################################
-# Video Generation Evaluation Script
+# Multi-Model Video Generation Evaluation Script
 #
-# This script prepares experiments from CSV and runs parallel video generation.
+# This script prepares experiments from CSV and runs parallel video generation
+# across multiple models: Veo3Gen, Luma Ray 2, Wan 2.5, Kling 2.5, Sora-2, 
+# Hailuo-2.3, and Seedance-1-Pro.
 #
 # CONFIGURATION: Edit the variables below to customize
 ################################################################################
 
 # API Configuration
 # Set your API keys directly here
-export DASHSCOPE_API_KEY="sk-xxxxxxxxxxxxxxxx"     # For Alibaba/Wan models
-export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxx"        # For OpenAI/Sora models
-export REPLICATE_API_TOKEN="r8_xxxxxxxxxxxxxxxx"   #
+export VEO3GEN_API_KEY=""    # For Veo3Gen
+export LUMA_API_KEY=""  # For Luma Ray 2
+export DASHSCOPE_API_KEY=""        # For Wan 2.5
+export KLING_ACCESS_KEY=""             # For Kling 2.5
+export KLING_SECRET_KEY=""             # For Kling 2.5
+export OPENAI_API_KEY=""  # For Sora-2
+export REPLICATE_API_TOKEN=""  # For Hailuo-2.3 & Seedance-1-Pro
 
 # Experiment Configuration
-AUTHOR="Yujie Zhao"
-CSV_FILE="test.csv"
+AUTHOR="" # change this to author you want to review
+CSV_FILE=""
 OUT_DIR=""                                          # Custom output directory (leave empty for default: out/<author_name>)
-WORKERS=
+WORKERS=7                                                                                         # Parallel workers (7 models will be generated per prompt)
 
 ################################################################################
 # Do not edit below this line unless you know what you're doing
