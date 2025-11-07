@@ -21,9 +21,9 @@ export OPENAI_API_KEY=""  # For Sora-2
 export REPLICATE_API_TOKEN=""  # For Hailuo-2.3 & Seedance-1-Pro
 
 # Experiment Configuration
-AUTHOR="Daniel Zhao" # change this to author you want to review
-CSV_FILE="/workspace/ScienceAtlas/test.csv"
-OUT_DIR="/workspace/ScienceAtlas/out/crosseval"                                          # Custom output directory (leave empty for default: out/<author_name>)
+AUTHOR="" # change this to author you want to review
+CSV_FILE=""
+OUT_DIR=""                                          # Custom output directory (leave empty for default: out/<author_name>)
 WORKERS=7                                                                                         # Parallel workers (7 models will be generated per prompt)
 
 ################################################################################

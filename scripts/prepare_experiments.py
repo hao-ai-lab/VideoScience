@@ -257,7 +257,7 @@ def main():
         description="Extract experiments from CSV and prepare JSON configuration for video generation"
     )
     
-    AUTHOR = "Daniel Zhao" # change this to author you want to review
+    AUTHOR = "" # change this to author you want to review
     # Support both positional and named arguments
     parser.add_argument(
         "author",
