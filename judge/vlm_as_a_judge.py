@@ -1,10 +1,11 @@
+# judge/frontend.py
 from __future__ import annotations
 
 import argparse
 import json
 import re
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 import sys
 from typing import Any, Dict, Tuple
 
@@ -13,13 +14,13 @@ sys.path.append(str(path_root))
 
 from judge.api_manager import judge_experiment
 
-# ---------- Scoring config (frontend owns parsing + scoring) ----------
-# All categories are 1–4. Expected phenomenon keeps higher weight.
+# ---------- scoring weighting (all 1–4) ----------
 WEIGHTS = {
-    "immutability": 0.2,
-    "correct_dynamism": 0.2,
-    "spatio_temporal_continuity": 0.2,
-    "expected_phenomenon": 0.4,
+    "prompt_consistency":  0.20,
+    "expected_phenomenon": 0.30,  # emphasize scientific reasoning
+    "coherence":           0.20,
+    "immutability":        0.15,
+    "dynamism":            0.15,
 }
 
 REPORT_MD = """# VLM Judge Report
@@ -53,10 +54,10 @@ def _try_json_loads(blob: str) -> Dict[str, Any]:
 def _extract_json_from_text(text: str) -> Dict[str, Any]:
     """
     Try, in order:
-    1) direct JSON
-    2) fenced ```json ... ```
-    3) fenced ``` ... ```
-    4) longest {...} substring that parses
+      1) direct JSON
+      2) fenced ```json ... ```
+      3) fenced ``` ... ```
+      4) longest {...} substring that parses
     """
     obj = _try_json_loads(text)
     if obj:
@@ -84,11 +85,11 @@ def _extract_json_from_text(text: str) -> Dict[str, Any]:
 def _clamp(v: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, v))
 
-def _to_float(x: Any, default: float | None = None) -> float | None:
+def _to_float(x: Any) -> float | None:
     try:
         return float(x)
     except Exception:
-        return default
+        return None
 
 def _normalize_1to4(v: Any) -> float:
     """
@@ -100,32 +101,30 @@ def _normalize_1to4(v: Any) -> float:
     f = _to_float(v)
     if f is None:
         return 1.0
-    if f > 4.0 or f < 1.0:
-        # Assume a 0–100 style score
+    if f < 1.0 or f > 4.0:
+        # Assume 0–100 scale, map linearly to 1–4.
         f = _clamp(f, 0.0, 100.0)
         return 1.0 + 3.0 * (f / 100.0)
     return _clamp(f, 1.0, 4.0)
 
-def _compute_overall_1to4(rubric: Dict[str, Any], weights: Dict[str, float]) -> float:
-    im = _normalize_1to4(rubric.get("immutability"))
-    cd = _normalize_1to4(rubric.get("correct_dynamism"))
-    stc = _normalize_1to4(rubric.get("spatio_temporal_continuity"))
-    ep = _normalize_1to4(rubric.get("expected_phenomenon"))
+def _compute_overall_1to4(r: Dict[str, Any], w: Dict[str, float]) -> float:
     return (
-        weights.get("immutability", 0.25) * im
-        + weights.get("correct_dynamism", 0.25) * cd
-        + weights.get("spatio_temporal_continuity", 0.25) * stc
-        + weights.get("expected_phenomenon", 0.25) * ep
+        w["prompt_consistency"]  * _normalize_1to4(r.get("prompt_consistency"))
+      + w["expected_phenomenon"] * _normalize_1to4(r.get("expected_phenomenon"))
+      + w["immutability"]        * _normalize_1to4(r.get("immutability"))
+      + w["dynamism"]            * _normalize_1to4(r.get("dynamism"))
+      + w["coherence"]           * _normalize_1to4(r.get("coherence"))
     )
 
 def _parse_output_text(output_text: str) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     """
-    Returns (rubric_scores_1to4, explanations)
+    Returns (rubric_scores_1to4, explanations).
     rubric_scores_1to4 keys (all 1–4):
-        - immutability
-        - correct_dynamism
-        - spatio_temporal_continuity
-        - expected_phenomenon
+      - prompt_consistency
+      - expected_phenomenon
+      - immutability
+      - dynamism
+      - coherence
     explanations: {"summary": str, "issues": [str]}
     """
     data = _extract_json_from_text(output_text)
@@ -137,12 +136,13 @@ def _parse_output_text(output_text: str) -> Tuple[Dict[str, Any], Dict[str, Any]
         scores = data.get("scores", {}) or data.get("rubric", {}) or {}
         explanations = data.get("explanations", {}) or {}
 
-    # Tolerate case-variants
+    # Tolerate case/spacing variants
     raw = {
-        "immutability": scores.get("immutability") or scores.get("Immutability"),
-        "correct_dynamism": scores.get("correct_dynamism") or scores.get("Correct Dynamism"),
-        "spatio_temporal_continuity": scores.get("spatio_temporal_continuity") or scores.get("Spatio-Temporal Continuity"),
+        "prompt_consistency": scores.get("prompt_consistency") or scores.get("Prompt consistency"),
         "expected_phenomenon": scores.get("expected_phenomenon") or scores.get("Expected phenomenon"),
+        "immutability": scores.get("immutability") or scores.get("Immutability"),
+        "dynamism": scores.get("dynamism") or scores.get("Correct Dynamism") or scores.get("dynamism_other_laws"),
+        "coherence": scores.get("coherence") or scores.get("Spatio-Temporal Continuity") or scores.get("spatio_temporal_continuity"),
     }
 
     # Normalize to 1–4
@@ -163,19 +163,19 @@ def _format_rubric_section(r: dict, overall: float) -> str:
         return ""
     lines = [
         "## Rubric scores (1–4)",
-        f"- Immutability (each key element maintains original experiment setup): {float(r.get('immutability', 1.0)):.1f} / 4",
-        f"- Correct Dynamism (solidity, other common sense physical laws): {float(r.get('correct_dynamism', 1.0)):.1f} / 4",
-        f"- Spatio-Temporal Continuity (coherence across video frames): {float(r.get('spatio_temporal_continuity', 1.0)):.1f} / 4",
+        f"- Prompt consistency: {float(r.get('prompt_consistency', 1.0)):.1f} / 4",
         f"- Expected phenomenon: {float(r.get('expected_phenomenon', 1.0)):.1f} / 4",
-        f"- Overall (rubric-weighted): {overall:.1f} / 4",
+        f"- Immutability: {float(r.get('immutability', 1.0)):.1f} / 4",
+        f"- Dynamism (other physical laws): {float(r.get('dynamism', 1.0)):.1f} / 4",
+        f"- Coherence (across frames): {float(r.get('coherence', 1.0)):.1f} / 4",
+        f"- Overall (weighted): {overall:.1f} / 4",
     ]
     return "\n".join(lines) + "\n\n"
 
-
 def main():
     ap = argparse.ArgumentParser(description="Judge science experiment video quality with a VLM.")
-    ap.add_argument("--provider", required=True, help="openai | gemini | anthropic | replicate")
-    ap.add_argument("--model", required=True, help="Provider-specific model id (e.g., gpt-4o, gemini-2.5-flash, claude-3-5-sonnet, yorickvp/llava-13b)")
+    ap.add_argument("--provider", required=True, help="openai | gemini | anthropic")
+    ap.add_argument("--model", required=True, help="e.g., gpt-5-pro-2025-10-06, gpt-4o-2024-08-06, gemini-2.5-flash, claude-3-7-sonnet")
     ap.add_argument("--video", required=True, help="Path to candidate video (or image)")
     ap.add_argument("--phenomenon", required=True, help="Ground-truth phenomenon name")
     ap.add_argument("--description", required=True, help="Authoritative description of expected behavior")
@@ -198,16 +198,14 @@ def main():
         max_frames=args.max_frames,
         fps=args.fps,
         timeout_s=args.timeout_s,
-        extra={},  # rubric prompt/weights used only for prompting
+        extra={},  # judge_prompt is built inside manager
     )
 
     output_text = res.get("output_text", "") or ""
     evidence = res.get("evidence", {}) or {}
 
-    # Parse model output
+    # Parse model output and compute overall score (1–4)
     rubric_scores, explanations = _parse_output_text(output_text)
-
-    # Compute overall on 1–4 scale
     overall = _compute_overall_1to4(rubric_scores, WEIGHTS)
 
     # Build normalized JSON result for optional export
@@ -238,9 +236,9 @@ def main():
         Path(args.json_out).write_text(json.dumps(full_out, indent=2))
         print(f"Wrote JSON to: {args.json_out}")
 
-    # Render Markdown report
+    # Render Markdown report (timezone-aware UTC)
     md = REPORT_MD.format(
-        when=datetime.utcnow().isoformat() + "Z",
+        when=datetime.now(timezone.utc).isoformat(),
         provider=res.get("provider"),
         model=res.get("model"),
         phenomenon=args.phenomenon,
@@ -254,10 +252,9 @@ def main():
 
     if args.md_out:
         Path(args.md_out).write_text(md)
-        print(f"Wrote report -> {args.md_out}")
+        print(f"Wrote report --> {args.md_out}")
     else:
         print(md)
-
 
 if __name__ == "__main__":
     main()
