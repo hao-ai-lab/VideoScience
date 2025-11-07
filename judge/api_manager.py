@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 from typing import Dict, Any, Optional
 from dataclasses import dataclass
-
-import os, sys
+import sys
 from pathlib import Path
+
 path_root = Path(__file__).parents[1]
 sys.path.append(str(path_root))
 
@@ -10,6 +12,42 @@ from judge.api_providers import (
     OpenAIVLMAPI,
     GeminiVLMAPI,
     AnthropicVLMAPI,
+<<<<<<< HEAD
+)
+
+RUBRIC_TEXT = (
+    "You are VLM-Judge evaluating a generated science video.\n"
+    "Score each rubric from 1–4 (1=absent/contradictory, 2=weak/partly wrong, 3=mostly correct, 4=clearly correct):\n"
+    "a) prompt_consistency — follows instructions: correct setup and correct experiment execution.\n"
+    "b) expected_phenomenon — expected physical/chemical outcome is present and correct.\n"
+    "d) dynamism — other physical laws are obeyed.\n"
+    "e) coherence — natural transitions across frames; no flicker/teleport/identity swap.\n"
+)
+
+SCHEMA_HINT = (
+    "Return JSON with fields:\n"
+    '{ "scores": {\n'
+    '    "prompt_consistency":1-4,\n'
+    '    "expected_phenomenon":1-4,\n'
+    '    "immutability":1-4,\n'
+    '    "dynamism":1-4,\n'
+    '    "coherence":1-4\n'
+    '  },\n'
+    '  "explanations": {"summary": string, "issues": [string]},\n'
+    '  "evidence": {"candidate": [{"t":"0.0s","observation":""}],'
+    '               "reference": [{"t":"0.0s","observation":""}]}\n'
+    '}\n'
+)
+
+def _build_prompt(phenomenon: str, gt_description: str) -> str:
+    return (
+        RUBRIC_TEXT + "\n" +
+        SCHEMA_HINT + "\n" +
+        f"Ground-truth phenomenon: {phenomenon}\n\n" +
+        "Ground-truth description (authoritative):\n" +
+        gt_description.strip()
+    )
+=======
     ReplicateVLMAPI,
 )
 
@@ -17,32 +55,6 @@ from judge.api_providers import (
 _RUBRIC_PROMPT = (
     "You are VLM-Judge evaluating the generation quality of a video produced by a video model. "
     "Focus on scientific understanding and reasoning. Judge along four rubrics, each scored 1–4:\n"
-    "1) Immutability — each key element maintains the original experiment setup.\n"
-    "2) Correct Dynamism — motions obey common-sense physical laws (solidity/non-interpenetration, inertia, gravity, "
-    "   continuity of mass/energy, plausible collisions).\n"
-    "3) Spatio-Temporal Continuity — coherence across frames (no flicker/teleportation/jitter; identity continuity, "
-    "   smooth trajectories).\n"
-    "4) Expected phenomenon — degree to which the described scientific phenomenon is present and correct.\n"
-    " Rating Scheme: 1=absent/contradictory, 2=weak/partially wrong, 3=mostly correct, 4=clearly correct.\n"
-    "Return strict JSON if possible."
-)
-
-# Kept for provider hints only; frontend owns scoring.
-_DEFAULT_WEIGHTS = {
-    "immutability": 0.2,
-    "correct_dynamism": 0.2,
-    "spatio_temporal_continuity": 0.2,
-    "expected_phenomenon": 0.4,
-}
-
-
-def judge_experiment(
-    provider: str,
-    model: str,
-    video_path: str,
-    phenomenon: str,
-    gt_description: str,
-    ref_video_path: Optional[str] = None,
     *,
     max_frames: int = 24,
     fps: Optional[float] = None,
@@ -50,6 +62,21 @@ def judge_experiment(
     extra: Dict[str, Any] | None = None,
 ) -> Dict[str, Any]:
     """
+<<<<<<< HEAD
+    Dispatch to a VLM provider. Providers return unparsed `output_text` and minimal evidence.
+    The frontend is responsible for parsing/normalization/scoring.
+    """
+    extra = dict(extra or {})
+    extra["judge_prompt"] = _build_prompt(phenomenon, gt_description)
+
+    p = (provider or "").lower()
+    if p in ("openai", "gpt", "gpt-4o", "gpt-4.1", "o3", "omni", "gpt-5", "gpt-5-pro"):
+        api = OpenAIVLMAPI()
+    elif p in ("gemini", "google", "google-gemini", "gemini-2.5"):
+        api = GeminiVLMAPI()
+    elif p in ("anthropic", "claude"):
+        api = AnthropicVLMAPI()
+=======
     Dispatch to a VLM provider. Providers return unparsed `output_text` + minimal evidence.
     Parsing/normalization is performed in the frontend.
     """
@@ -66,6 +93,7 @@ def judge_experiment(
         api = AnthropicVLMAPI()
     elif p in ("replicate", "llava"):
         api = ReplicateVLMAPI()
+>>>>>>> main
     else:
         raise ValueError(f"Unknown provider: {provider}")
 
@@ -73,14 +101,22 @@ def judge_experiment(
         model=model,
         video_path=video_path,
         phenomenon=phenomenon,
+<<<<<<< HEAD
+=======
         gt_description=gt_description,
+>>>>>>> main
         ref_video_path=ref_video_path,
         max_frames=max_frames,
         fps=fps,
         timeout_s=timeout_s,
         extra=extra,
     )
+<<<<<<< HEAD
+
+    # DEBUGGING PRINT
+=======
     
+>>>>>>> main
     print("result:")
     print(result.get("output_text", ""))
 

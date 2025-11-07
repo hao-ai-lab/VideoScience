@@ -6,3 +6,7 @@ data/curated_expvid/*
 *.csv
 *.json
 *.mp4
+<<<<<<< HEAD
+judge/results
+=======
+>>>>>>> main
