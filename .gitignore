@@ -1,4 +1,5 @@
 sci-atlas/
+.DS_Store
 config/*
 */__pycache__/
 out/
@@ -6,6 +7,7 @@ data/curated_expvid/*
 *.csv
 *.json
 *.mp4
+scripts/*
 <<<<<<< HEAD
 judge/results
 =======
