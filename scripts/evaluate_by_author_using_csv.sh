@@ -11,20 +11,12 @@
 ################################################################################
 
 # API Configuration
-# Set your API keys directly here
-export VEO3GEN_API_KEY=""    # For Veo3Gen
-export LUMA_API_KEY=""  # For Luma Ray 2
-export DASHSCOPE_API_KEY=""        # For Wan 2.5
-export KLING_ACCESS_KEY=""             # For Kling 2.5
-export KLING_SECRET_KEY=""             # For Kling 2.5
-export OPENAI_API_KEY=""  # For Sora-2
-export REPLICATE_API_TOKEN=""  # For Hailuo-2.3 & Seedance-1-Pro
 
 # Experiment Configuration
-AUTHOR="" # change this to author you want to review
-CSV_FILE=""
-OUT_DIR=""                                          # Custom output directory (leave empty for default: out/<author_name>)
-WORKERS=7                                                                                         # Parallel workers (7 models will be generated per prompt)
+AUTHOR="Daniel Zhao"                                    # change this to author you want to review
+CSV_FILE="data/database/test_11_7_1350_pm.csv"
+OUT_DIR="out/crosseval"                                 # Custom output directory (leave empty for default: out/<author_name>)
+WORKERS=6                                               # Parallel workers (6 models will be generated per prompt)
 
 ################################################################################
 # Do not edit below this line unless you know what you're doing

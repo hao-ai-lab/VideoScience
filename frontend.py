@@ -13,6 +13,18 @@ from backend.api_manager import generate_video
 
 def generate_video_wrapper(task):
     """Wrapper function to call generate_video with task parameters"""
+    output_path = Path(task['output_path'])
+    
+    # Check if video already exists
+    if output_path.exists() and output_path.is_file():
+        print(f"\n[Task {task['id']}] Skipped (already exists): {task['output_path']}")
+        return {
+            'id': task['id'],
+            'status': 'skipped',
+            'output_path': task['output_path'],
+            'result': {'message': 'Video file already exists'}
+        }
+    
     try:
         print(f"\n[Task {task['id']}] Starting generation...")
 
@@ -96,9 +108,11 @@ def main():
     print("=== SUMMARY ===")
     print("="*60)
     success_count = sum(1 for r in results if r['status'] == 'success')
+    skipped_count = sum(1 for r in results if r['status'] == 'skipped')
     error_count = sum(1 for r in results if r['status'] == 'error')
     print(f"Total tasks: {len(results)}")
     print(f"Successful: {success_count}")
+    print(f"Skipped (already exist): {skipped_count}")
     print(f"Failed: {error_count}")
 
     if error_count > 0:

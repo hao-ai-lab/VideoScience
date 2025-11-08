@@ -1,0 +1,1456 @@
+============================================================
+Video Generation Evaluation Pipeline
+============================================================
+Author: Daniel Zhao
+CSV File: data/database/test_11_7_1350_pm.csv
+Workers: 6
+Output Directory: out/crosseval
+============================================================
+
+Step 1/2: Preparing experiments...
+------------------------------------------------------------
+============================================================
+Preparing Experiments
+Author: Daniel Zhao
+Reading from CSV: data/database/test_11_7_1350_pm.csv
+Output directory: out/crosseval
+Output JSON: out/crosseval/experiments.json
+============================================================
+
+Prepared prompt #1 with 7 models: Hand-crank Lightbulb
+Prepared prompt #2 with 7 models: Tuning forks
+Prepared prompt #3 with 7 models: Salt on vibration generator
+Prepared prompt #4 with 7 models: Spinning top
+Prepared prompt #5 with 7 models: Spinning coin
+Prepared prompt #6 with 7 models: Speakers and rotating bottles
+Prepared prompt #7 with 7 models: Blade and water - surface tension (float)
+Prepared prompt #8 with 7 models: Blade and water - surface tension (sink)
+Prepared prompt #9 with 7 models: Apple and hammer
+Prepared prompt #10 with 7 models: Rice and sound
+Prepared prompt #11 with 7 models: 3 soda cans and tablecloth
+Prepared prompt #12 with 7 models: Candle and water
+Prepared prompt #13 with 7 models: Water stream and sound
+Prepared prompt #14 with 7 models: Cloud in a bottle
+Prepared prompt #15 with 7 models: Newton’s cradle
+Prepared prompt #16 with 7 models: Tilting match
+Prepared prompt #17 with 7 models: Candle seesaw
+Prepared prompt #18 with 7 models: Oil and food coloring
+Prepared prompt #19 with 7 models: Lime juice dissolves rubber
+Prepared prompt #20 with 7 models: glass bottle, water, and hammer
+
+============================================================
+✓ Successfully prepared 140 tasks (20 prompts × 7 models)
+JSON configuration: out/crosseval/experiments.json
+============================================================
+
+Step 2/2: Running parallel video generation...
+------------------------------------------------------------
+Found 140 tasks to process
+
+
+=== Starting parallel processing of 140 tasks ===
+Max parallel workers: 6
+
+
+[Task 1] Starting generation...
+
+[Task 2] Starting generation...
+
+[Task 3] Starting generation...
+
+[Task 4] Starting generation...
+
+[Task 5] Starting generation...
+
+[Task 6] Starting generation...
+
+[Task 4]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 7] Starting generation...
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 5]; Failed: Sora job failed or cancelled: {'id': 'video_690e6b82a52481918d444f87d207d7c30fcd1633a582e09b', 'object': 'video', 'created_at': 1762552706, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 0, 'prompt': 'A person is standing next to a brown table with a hand-crank that is connected to a generator and a light bulb. He begins continuously turning the hand-crank.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+[Task 8] Starting generation...
+API generation state: pending
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/h9C3wz1uP3KLEFdYpXfPbUICbcAexeXxXPV7S7A2uV94uDOrA/tmpn4y4domo.mp4
+
+[Task 7]; Completed: out/crosseval/001/seedance1pro/video.mp4
+
+[Task 9] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 1]; Completed: out/crosseval/001/veo3gen/video.mp4
+
+[Task 10] Starting generation...
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/ndYwrz7CfwXeR0BnX3RDQARj9fSQvsWdVm6EM8uYLBYLxDOrA/tmpt46orbl7.mp4
+
+[Task 6]; Completed: out/crosseval/001/hailuo2.3/video.mp4
+
+[Task 11] Starting generation...
+
+[Task 11]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 12] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 12]; Failed: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos
+
+[Task 13] Starting generation...
+API generation state: pending
+
+[Task 2]; Completed: out/crosseval/001/luma_ray2/video.mp4
+
+[Task 14] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 8]; Completed: out/crosseval/002/veo3gen/video.mp4
+
+[Task 15] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+
+[Task 3]; Completed: out/crosseval/001/wan2.5/video.mp4
+
+[Task 16] Starting generation...
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/cYjlI9G6EQItDpUeosQKBia4b2no7VU0d2SQwijklwVJ9gzKA/tmpucnbo_sp.mp4
+
+[Task 14]; Completed: out/crosseval/002/seedance1pro/video.mp4
+
+[Task 17] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 9]; Completed: out/crosseval/002/luma_ray2/video.mp4
+
+[Task 18] Starting generation...
+
+[Task 18]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 19] Starting generation...
+API generation state: pending
+
+[Task 19]; Failed: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos
+
+[Task 20] Starting generation...
+API generation state: dreaming
+
+[Task 15]; Completed: out/crosseval/003/veo3gen/video.mp4
+
+[Task 21] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/PPOgSXBFLU5eEC5wXHXEP0KNoqmJ9B3FCPS2Sz4ehUhE8BnVA/tmpftfqjxzi.mp4
+
+[Task 13]; Completed: out/crosseval/002/hailuo2.3/video.mp4
+
+[Task 22] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 10]; Completed: out/crosseval/002/wan2.5/video.mp4
+
+[Task 23] Starting generation...
+API generation state: queued
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/RWuvTApdFqLHOVsxDSN3xqCAY3QMt8oQqk4kPWFWkbnUfgzKA/tmp_clhx5o8.mp4
+
+[Task 21]; Completed: out/crosseval/003/seedance1pro/video.mp4
+
+[Task 24] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/fBqoXBC8cQx3NS4LqAzBegJTqwwXe3WKhsI2NfJaHvwg4HcWB/tmpray72g8c.mp4
+
+[Task 20]; Completed: out/crosseval/003/hailuo2.3/video.mp4
+
+[Task 25] Starting generation...
+
+[Task 25]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 26] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 22]; Completed: out/crosseval/004/veo3gen/video.mp4
+
+[Task 27] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 17]; Completed: out/crosseval/003/wan2.5/video.mp4
+
+[Task 28] Starting generation...
+
+[Task 16]; Completed: out/crosseval/003/luma_ray2/video.mp4
+
+[Task 29] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 26]; Failed: Sora job failed or cancelled: {'id': 'video_690e6d8bb1e481919118d6e9a4457913011939748377d356', 'object': 'video', 'created_at': 1762553227, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 0, 'prompt': 'A metal spinning top is placed at the center of a smooth tabletop. It is set in rapid rotation by hand using a twist of the fingers, with the tip in contact with the surface.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+[Task 30] Starting generation...
+API generation state: queued
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/rZDNMEWahwZEKZhnR1lMosAjYXftsAAlmtgE35f9s0CRACnVA/tmpd72v7zxi.mp4
+
+[Task 28]; Completed: out/crosseval/004/seedance1pro/video.mp4
+
+[Task 31] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/FPEgxmsdToqXFJKRkXWHqIj7nAR6iHIufY90sfh5V5B4ACnVA/tmpva3kx6x0.mp4
+
+[Task 27]; Completed: out/crosseval/004/hailuo2.3/video.mp4
+
+[Task 32] Starting generation...
+
+[Task 32]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 33] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 29]; Completed: out/crosseval/005/veo3gen/video.mp4
+
+[Task 34] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 23]; Completed: out/crosseval/004/luma_ray2/video.mp4
+
+[Task 35] Starting generation...
+API generation state: dreaming
+
+[Task 24]; Completed: out/crosseval/004/wan2.5/video.mp4
+
+[Task 36] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 33]; Failed: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos/video_690e6e3a82108190a6defb979655bad2030c4d92c9ece207
+
+[Task 37] Starting generation...
+API generation state: queued
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+
+[Task 30]; Completed: out/crosseval/005/luma_ray2/video.mp4
+
+[Task 38] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/pNzarnMpip6TAFjIERJBkI0kiMLooTej0P63v224HwTbBhzKA/tmp4pef240e.mp4
+
+[Task 35]; Completed: out/crosseval/005/seedance1pro/video.mp4
+
+[Task 39] Starting generation...
+
+[Task 39]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 40] Starting generation...
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/NZFQUoCaDlK0B5f60rtzexdzbI64yQXgeefg2hxaWw9e5gwZF/tmpqkwzrblf.mp4
+
+[Task 34]; Completed: out/crosseval/005/hailuo2.3/video.mp4
+
+[Task 41] Starting generation...
+API generation state: dreaming
+
+[Task 36]; Completed: out/crosseval/006/veo3gen/video.mp4
+
+[Task 42] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 31]; Completed: out/crosseval/005/wan2.5/video.mp4
+
+[Task 43] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/ZWOCaW2gfd1kACZAV9zrkkSehEBkRBvnjpvIGPzfLorQKEOrA/tmp5l5vnz9y.mp4
+API generation state: dreaming
+
+[Task 42]; Completed: out/crosseval/006/seedance1pro/video.mp4
+
+[Task 44] Starting generation...
+API generation state: dreaming
+API generation state: pending
+
+[Task 37]; Completed: out/crosseval/006/luma_ray2/video.mp4
+
+[Task 45] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+
+[Task 40]; Failed: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos/video_690e6ebb338c8190a7e67d28bad9a59407f51244e40f7414
+
+[Task 46] Starting generation...
+
+[Task 46]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 47] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/dUOdFqRgdyLaGdZzfwRAUGewTP0WJdc4O8NYVrXvdesUMEOrA/tmpuov86y88.mp4
+
+[Task 41]; Completed: out/crosseval/006/hailuo2.3/video.mp4
+
+[Task 48] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 43]; Failed: Veo3Gen task failed or did not complete: {'success': True, 'taskId': 'veo_1762553651748_hlrnpd', 'status': 'failed', 'model': 'veo3-quality', 'prompt': 'Using tweezers, a thin metal blade is gently placed flat and horizontally on the surface of still wa...', 'audio': True, 'apiKey': {'id': '690d04806b29cec57149a45a', 'name': 'video_model_eval'}, 'timing': {'startedAt': '2025-11-07T22:14:11.756Z', 'elapsedSeconds': 138, 'completedAt': '2025-11-07T22:16:20.443Z', 'totalProcessingSeconds': 128}, 'credits': {'required': 20, 'charged': 0, 'refunded': 0}, 'error': {'type': 'CONTENT_POLICY_VIOLATION', 'message': "Your video was filtered by Google's content safety policies. Please try a different prompt.", 'retryable': False, 'details': {'raiFilteredCount': 1, 'raiFilteredReasons': ['Veo could not generate 1 videos based on the prompt provided. You will not be charged for this request. Try rephrasing the prompt. If you think this was an error, send feedback. Support codes: 42237218'], 'operationId': 'projects/main-454911/locations/us-central1/publishers/google/models/veo-3.1-generate-preview/operations/695ae274-d199-4ab6-8a55-7b54ca7df3fb'}}}
+
+[Task 49] Starting generation...
+
+[Task 38]; Completed: out/crosseval/006/wan2.5/video.mp4
+
+[Task 50] Starting generation...
+
+[Task 47]; Failed: Sora job failed or cancelled: {'id': 'video_690e6f82cbdc819098a027478104b789074e45bad8222240', 'object': 'video', 'created_at': 1762553730, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 0, 'prompt': 'Using tweezers, a thin metal blade is gently placed flat and horizontally on the surface of still water in a glass. The blade is carefully lowered until it just touches the water surface without breaking it and then it is let go.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+[Task 51] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+
+[Task 44]; Completed: out/crosseval/007/luma_ray2/video.mp4
+
+[Task 52] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: pending
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/yIdfNHuNMb2DCCMYhJBmMQ47xR1Qx9jvzGfTeF86tF38QEOrA/tmpl24ncb4s.mp4
+
+[Task 49]; Completed: out/crosseval/007/seedance1pro/video.mp4
+
+[Task 53] Starting generation...
+API generation state: pending
+API generation state: dreaming
+
+[Task 53]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 54] Starting generation...
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/AA1ieHQRxaTLPSfrQP3WVFZj6CzUtZTpS2gWNvxoFerKREOrA/tmpwkv1n4a9.mp4
+
+[Task 48]; Completed: out/crosseval/007/hailuo2.3/video.mp4
+
+[Task 55] Starting generation...
+
+[Task 50]; Failed: Veo3Gen task failed or did not complete: {'success': True, 'taskId': 'veo_1762553793048_5o6z20', 'status': 'failed', 'model': 'veo3-quality', 'prompt': 'A thin metal razor blade is held vertically with tweezers above a glass of still water. The tweezers...', 'audio': True, 'apiKey': {'id': '690d04806b29cec57149a45a', 'name': 'video_model_eval'}, 'timing': {'startedAt': '2025-11-07T22:16:33.050Z', 'elapsedSeconds': 107, 'completedAt': '2025-11-07T22:18:12.316Z', 'totalProcessingSeconds': 99}, 'credits': {'required': 20, 'charged': 0, 'refunded': 0}, 'error': {'type': 'CONTENT_POLICY_VIOLATION', 'message': "Your video was filtered by Google's content safety policies. Please try a different prompt.", 'retryable': False, 'details': {'raiFilteredCount': 1, 'raiFilteredReasons': ['Veo could not generate 1 videos based on the prompt provided. You will not be charged for this request. Try rephrasing the prompt. If you think this was an error, send feedback. Support codes: 42237218'], 'operationId': 'projects/main-454911/locations/us-central1/publishers/google/models/veo-3.1-generate-preview/operations/46136395-337d-44d7-a1f1-95646489d0c3'}}}
+
+[Task 56] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: queued
+API generation state: dreaming
+
+[Task 45]; Completed: out/crosseval/007/wan2.5/video.mp4
+
+[Task 57] Starting generation...
+API generation state: pending
+
+[Task 51]; Completed: out/crosseval/008/luma_ray2/video.mp4
+
+[Task 58] Starting generation...
+API generation state: queued
+API generation state: pending
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/fqVLQZUBu4QFN6UE9w1LJleU4qxoyFxUtblLsPJwb05FKCnVA/tmpn_tut_8q.mp4
+
+[Task 56]; Completed: out/crosseval/008/seedance1pro/video.mp4
+
+[Task 59] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: queued
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/Dtqtd1e2d63pASrBw6iyseJm2ftC1Lld4FOap5fZ96M2tIcWB/tmpybujmyxp.mp4
+
+[Task 55]; Completed: out/crosseval/008/hailuo2.3/video.mp4
+
+[Task 60] Starting generation...
+
+[Task 60]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 61] Starting generation...
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 57]; Completed: out/crosseval/009/veo3gen/video.mp4
+
+[Task 62] Starting generation...
+API generation state: dreaming
+
+[Task 52]; Completed: out/crosseval/008/wan2.5/video.mp4
+
+[Task 63] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: in_progress
+
+[Task 58]; Completed: out/crosseval/009/luma_ray2/video.mp4
+
+[Task 64] Starting generation...
+API generation state: pending
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/FHZp6y9r4ypcPR4SeVfffZ5e3TjcyrhGDp8IDLX5Da3atR4sC/tmp9ghhvmvr.mp4
+
+[Task 63]; Completed: out/crosseval/009/seedance1pro/video.mp4
+
+[Task 65] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+
+[Task 59]; Completed: out/crosseval/009/wan2.5/video.mp4
+
+[Task 66] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 64]; Completed: out/crosseval/010/veo3gen/video.mp4
+
+[Task 67] Starting generation...
+
+[Task 67]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 68] Starting generation...
+Result URL: https://replicate.delivery/xezq/bvcnfvTfAXgNRE6XVlNyqje8ZgYxqj6fpxsuuvf5PfLH7jwZF/tmp3koak_3w.mp4
+
+[Task 62]; Completed: out/crosseval/009/hailuo2.3/video.mp4
+
+[Task 69] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 61]; Completed: out/crosseval/009/sora2/video.mp4
+
+[Task 70] Starting generation...
+API generation state: dreaming
+
+[Task 65]; Completed: out/crosseval/010/luma_ray2/video.mp4
+
+[Task 71] Starting generation...
+API generation state: pending
+API generation state: in_progress
+API generation state: pending
+API generation state: pending
+API generation state: in_progress
+API generation state: pending
+API generation state: pending
+API generation state: pending
+API generation state: in_progress
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/AOUXDC5Nxxp7INwjQYOh0dmppTThrfwsEqXPsFlor9g3IhzKA/tmpufcp4gdy.mp4
+
+[Task 70]; Completed: out/crosseval/010/seedance1pro/video.mp4
+
+[Task 72] Starting generation...
+API generation state: pending
+API generation state: queued
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/MYLeZJwY953mJSKItcx2xsZjpIZCDr1jxCZeqXyQl7evkEOrA/tmprdbe4cwb.mp4
+
+[Task 69]; Completed: out/crosseval/010/hailuo2.3/video.mp4
+
+[Task 73] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 71]; Completed: out/crosseval/011/veo3gen/video.mp4
+
+[Task 74] Starting generation...
+
+[Task 74]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 75] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 66]; Completed: out/crosseval/010/wan2.5/video.mp4
+
+[Task 76] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 54]; Failed: Sora job failed or cancelled: {'id': 'video_690e702308748190b938be15fd3c46bd02995004af92f9ab', 'object': 'video', 'created_at': 1762553891, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A thin metal razor blade is held vertically with tweezers above a glass of still water. The tweezers then let go of the blade, dropping it edge-first into the still water.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+[Task 77] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/hrXcq6IemRXDSKUKUy6YElgcauyUFoUXARzbafRDqa4bUCnVA/tmpllkvnb_i.mp4
+
+[Task 77]; Completed: out/crosseval/011/seedance1pro/video.mp4
+
+[Task 78] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+
+[Task 72]; Completed: out/crosseval/011/luma_ray2/video.mp4
+
+[Task 79] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/yuVMD7PAJp4MJ9CeYzJ27GttymX20W1xbeayPmNvW3AUVCnVA/tmp79b5ez4r.mp4
+
+[Task 76]; Completed: out/crosseval/011/hailuo2.3/video.mp4
+
+[Task 80] Starting generation...
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+
+[Task 75]; Completed: out/crosseval/011/sora2/video.mp4
+
+[Task 81] Starting generation...
+
+[Task 81]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 82] Starting generation...
+API generation state: in_progress
+
+[Task 78]; Completed: out/crosseval/012/veo3gen/video.mp4
+
+[Task 83] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 73]; Completed: out/crosseval/011/wan2.5/video.mp4
+
+[Task 84] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 79]; Completed: out/crosseval/012/luma_ray2/video.mp4
+
+[Task 85] Starting generation...
+API generation state: in_progress
+API generation state: pending
+API generation state: pending
+API generation state: pending
+API generation state: pending
+API generation state: pending
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/RdVmfs8h3oQTKyw7weOwQfT9C5fhuGSkOywv2T8Acd3VhJcWB/tmpgct5u4u6.mp4
+API generation state: pending
+
+[Task 84]; Completed: out/crosseval/012/seedance1pro/video.mp4
+
+[Task 86] Starting generation...
+API generation state: queued
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/91o1Xb6cMKLTGBltdk90KffTXhwwWgJmbLtaLeeD2RQ2kJcWB/tmp4qct1mfy.mp4
+
+[Task 83]; Completed: out/crosseval/012/hailuo2.3/video.mp4
+
+[Task 87] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+
+[Task 80]; Completed: out/crosseval/012/wan2.5/video.mp4
+
+[Task 88] Starting generation...
+
+[Task 88]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 89] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 85]; Completed: out/crosseval/013/veo3gen/video.mp4
+
+[Task 90] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 68]; Failed: Sora job failed or cancelled: {'id': 'video_690e71ee914c8191a75586c4a5b64a9909c09b2838a83291', 'object': 'video', 'created_at': 1762554350, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A bowl is covered tightly with a thin plastic sheet so that the surface is smooth and stretched evenly across the rim. A small handful of uncooked rice grains lies evenly across the plastic surface. A metal gong is then struck once a short distance away from the setup while the bowl remains stationary on a flat table.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+[Task 91] Starting generation...
+API generation state: dreaming
+
+[Task 86]; Completed: out/crosseval/013/luma_ray2/video.mp4
+
+[Task 92] Starting generation...
+
+[Task 82]; Failed: Sora job failed or cancelled: {'id': 'video_690e73a47e9881908f097f20bbbc50900fd0ebd864a66f07', 'object': 'video', 'created_at': 1762554788, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A lit candle is placed upright in the center of a shallow bowl filled with a small amount of water. A clear glass bottle is then lowered upside-down over the candle, covering it while its mouth rests in the water.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+[Task 93] Starting generation...
+API generation state: pending
+API generation state: queued
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/53ft41QBJemNfpTHpeYXHzey9w3q8JhrSlxwLhRIPJ3fCnwZF/tmpv75sscg6.mp4
+
+[Task 90]; Completed: out/crosseval/013/hailuo2.3/video.mp4
+
+[Task 94] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/rQviuaS3pb4GHNs4eBEh4sH1xnnXJWHtyWue3OVuwy9jcCnVA/tmpdttz_id9.mp4
+
+[Task 91]; Completed: out/crosseval/013/seedance1pro/video.mp4
+
+[Task 95] Starting generation...
+
+[Task 95]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 96] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 92]; Completed: out/crosseval/014/veo3gen/video.mp4
+
+[Task 97] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 87]; Completed: out/crosseval/013/wan2.5/video.mp4
+
+[Task 98] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 93]; Completed: out/crosseval/014/luma_ray2/video.mp4
+
+[Task 99] Starting generation...
+API generation state: pending
+API generation state: pending
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/fSX98fLL7qiM5Eh7Q2iMAiIjWWWNM7uPa2VaRhvE3tIEfEOrA/tmpw6o422yc.mp4
+
+[Task 98]; Completed: out/crosseval/014/seedance1pro/video.mp4
+
+[Task 100] Starting generation...
+API generation state: queued
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/eQybzElpSowPbKRhKR8ODYVjCLegpzcPcMWnuXebzvSJAFOrA/tmpdeqxf521.mp4
+
+[Task 97]; Completed: out/crosseval/014/hailuo2.3/video.mp4
+
+[Task 101] Starting generation...
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+
+[Task 94]; Completed: out/crosseval/014/wan2.5/video.mp4
+
+[Task 102] Starting generation...
+
+[Task 102]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 103] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 99]; Completed: out/crosseval/015/veo3gen/video.mp4
+
+[Task 104] Starting generation...
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 100]; Completed: out/crosseval/015/luma_ray2/video.mp4
+
+[Task 105] Starting generation...
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/ecGUNgr49L2iOSn4zQ5MevtZED6ASUabCeHMG1lUyHS1GFOrA/tmpyfoko3bs.mp4
+
+[Task 104]; Completed: out/crosseval/015/hailuo2.3/video.mp4
+
+[Task 106] Starting generation...
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/NSzfllgzevma6k9CzJrTtclYfYxJyCo9X2MC61LyknyeNKcWB/tmpzlvyw394.mp4
+
+[Task 105]; Completed: out/crosseval/015/seedance1pro/video.mp4
+
+[Task 107] Starting generation...
+API generation state: queued
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+
+[Task 101]; Completed: out/crosseval/015/wan2.5/video.mp4
+
+[Task 108] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 106]; Completed: out/crosseval/016/veo3gen/video.mp4
+
+[Task 109] Starting generation...
+
+[Task 109]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 110] Starting generation...
+
+[Task 110]; Failed: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+
+[Task 111] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 107]; Completed: out/crosseval/016/luma_ray2/video.mp4
+
+[Task 112] Starting generation...
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/fCi3yLiNzUUVJKPK2Jte6yXlRuMLQ5GuWzDLF9ldeuNPPFOrA/tmpq_raqk55.mp4
+
+[Task 111]; Completed: out/crosseval/016/hailuo2.3/video.mp4
+
+[Task 113] Starting generation...
+API generation state: pending
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/VYC5co37oe1rbClNaFbUkF4VPU5fvm27bUV8DrMdJNnxnCnVA/tmp7578lpj_.mp4
+
+[Task 112]; Completed: out/crosseval/016/seedance1pro/video.mp4
+
+[Task 114] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+
+[Task 108]; Completed: out/crosseval/016/wan2.5/video.mp4
+
+[Task 115] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 113]; Completed: out/crosseval/017/veo3gen/video.mp4
+
+[Task 116] Starting generation...
+
+[Task 116]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 117] Starting generation...
+
+[Task 117]; Failed: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+
+[Task 118] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+
+[Task 114]; Completed: out/crosseval/017/luma_ray2/video.mp4
+
+[Task 119] Starting generation...
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/kCPOYE9lRwI9GlvSX8qZxRGZX1a8rJApiWa8jCiE0bueVhzKA/tmp3k93mj_2.mp4
+
+[Task 119]; Completed: out/crosseval/017/seedance1pro/video.mp4
+
+[Task 120] Starting generation...
+API generation state: pending
+API generation state: in_progress
+API generation state: pending
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/5YRIjYD2l0ZXP5RfLt2pGjKY66CYQqurqkQNaiTSY8NKWhzKA/tmp55p02kwl.mp4
+
+[Task 118]; Completed: out/crosseval/017/hailuo2.3/video.mp4
+
+[Task 121] Starting generation...
+API generation state: queued
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 115]; Completed: out/crosseval/017/wan2.5/video.mp4
+
+[Task 122] Starting generation...
+
+[Task 89]; Failed: Sora job failed or cancelled: {'id': 'video_690e7465c0f0819183f5398f229d23d105f2fbbc7de317ef', 'object': 'video', 'created_at': 1762554982, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A flexible transparent tube carrying a steady stream of water is taped to the front of a speaker so that the open end extends outward, and water pours out of the tube. Camera view from 10 feet away, looking towards the speaker. The speaker begins to play a low-frequency sound while water continues to flow from the tube.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+[Task 123] Starting generation...
+
+[Task 123]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 124] Starting generation...
+
+[Task 124]; Failed: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+
+[Task 125] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 120]; Completed: out/crosseval/018/veo3gen/video.mp4
+
+[Task 126] Starting generation...
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 121]; Completed: out/crosseval/018/luma_ray2/video.mp4
+
+[Task 127] Starting generation...
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/aDiP1l9BvtbFL9DM7HkI6APrtLK2n6y1GHfjRDS3C0ktXhzKA/tmpuk8_xolt.mp4
+
+[Task 126]; Completed: out/crosseval/018/seedance1pro/video.mp4
+
+[Task 128] Starting generation...
+API generation state: queued
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/91zeTjIgS70QKive0agoyBQf1X7X7vWQqkcoNrLHkxv0fKcWB/tmppkh_dkwg.mp4
+
+[Task 125]; Completed: out/crosseval/018/hailuo2.3/video.mp4
+
+[Task 129] Starting generation...
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+API generation state: dreaming
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+
+[Task 127]; Completed: out/crosseval/019/veo3gen/video.mp4
+
+[Task 130] Starting generation...
+
+[Task 130]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 131] Starting generation...
+
+[Task 131]; Failed: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+
+[Task 132] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 122]; Completed: out/crosseval/018/wan2.5/video.mp4
+
+[Task 133] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 128]; Completed: out/crosseval/019/luma_ray2/video.mp4
+
+[Task 134] Starting generation...
+API generation state: pending
+API generation state: in_progress
+API generation state: pending
+API generation state: pending
+API generation state: in_progress
+API generation state: pending
+API generation state: pending
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/8S9xqGwS6noUJZndkgfYJ6E4gSeaAW78Xdz669Umi6cRzCnVA/tmpqv1y66n3.mp4
+
+[Task 133]; Completed: out/crosseval/019/seedance1pro/video.mp4
+
+[Task 135] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: in_progress
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+API generation state: pending
+Result URL: https://replicate.delivery/xezq/WMir7hXbAWY7IRgSD7QI02sHisu44e34CzLuLc40bWz6ZhzKA/tmpvu_p60bo.mp4
+
+[Task 132]; Completed: out/crosseval/019/hailuo2.3/video.mp4
+
+[Task 136] Starting generation...
+API generation state: dreaming
+API generation state: pending
+API generation state: pending
+API generation state: dreaming
+API generation state: pending
+API generation state: dreaming
+API generation state: in_progress
+
+[Task 129]; Completed: out/crosseval/019/wan2.5/video.mp4
+
+[Task 137] Starting generation...
+API generation state: pending
+
+[Task 137]; Failed: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+
+[Task 138] Starting generation...
+
+[Task 138]; Failed: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+
+[Task 139] Starting generation...
+API generation state: dreaming
+
+[Task 134]; Completed: out/crosseval/020/veo3gen/video.mp4
+
+[Task 140] Starting generation...
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+
+[Task 96]; Failed: Sora job failed or cancelled: {'id': 'video_690e75287f588190af72aecb6775b2b40e4ac88b54c042e8', 'object': 'video', 'created_at': 1762555176, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A small amount of water is added to an empty plastic bottle, which is sealed with a cap. A person squeezes and twists the bottom of the bottle several times to increase internal pressure, then the cap is suddenly released.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+API generation state: dreaming
+API generation state: dreaming
+API generation state: in_progress
+API generation state: dreaming
+API generation state: dreaming
+API generation state: dreaming
+Result URL: https://replicate.delivery/xezq/ubwnnGkZvXIdNVaAvxhfgPQG9tkU50jeML4TeYUeG3SEYLcWB/tmpzxjy0aht.mp4
+
+[Task 140]; Completed: out/crosseval/020/seedance1pro/video.mp4
+
+[Task 135]; Completed: out/crosseval/020/luma_ray2/video.mp4
+API generation state: in_progress
+Result URL: https://replicate.delivery/xezq/Q0ON6NQ1r16tHRfeUywUgyN5hyKdKpPk9j51rOYqayW12CnVA/tmp5h3404xo.mp4
+
+[Task 139]; Completed: out/crosseval/020/hailuo2.3/video.mp4
+API generation state: in_progress
+
+[Task 136]; Completed: out/crosseval/020/wan2.5/video.mp4
+API generation state: in_progress
+
+[Task 103]; Failed: Sora job failed or cancelled: {'id': 'video_690e762f073881938057370108b2417002132a8d79489d6a', 'object': 'video', 'created_at': 1762555439, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'Five identical metal balls are suspended in a straight line by thin strings so that they hang just touching each other at rest. One ball on the end is pulled back and released, allowing it to swing and strike the others.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+
+============================================================
+=== SUMMARY ===
+============================================================
+Total tasks: 140
+Successful: 100
+Failed: 40
+
+Failed tasks:
+  Task 4: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 5: Sora job failed or cancelled: {'id': 'video_690e6b82a52481918d444f87d207d7c30fcd1633a582e09b', 'object': 'video', 'created_at': 1762552706, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 0, 'prompt': 'A person is standing next to a brown table with a hand-crank that is connected to a generator and a light bulb. He begins continuously turning the hand-crank.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 11: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 12: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos
+  Task 18: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 19: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos
+  Task 25: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 26: Sora job failed or cancelled: {'id': 'video_690e6d8bb1e481919118d6e9a4457913011939748377d356', 'object': 'video', 'created_at': 1762553227, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 0, 'prompt': 'A metal spinning top is placed at the center of a smooth tabletop. It is set in rapid rotation by hand using a twist of the fingers, with the tip in contact with the surface.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 32: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 33: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos/video_690e6e3a82108190a6defb979655bad2030c4d92c9ece207
+  Task 39: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 40: 500 Server Error: Internal Server Error for url: https://api.openai.com/v1/videos/video_690e6ebb338c8190a7e67d28bad9a59407f51244e40f7414
+  Task 43: Veo3Gen task failed or did not complete: {'success': True, 'taskId': 'veo_1762553651748_hlrnpd', 'status': 'failed', 'model': 'veo3-quality', 'prompt': 'Using tweezers, a thin metal blade is gently placed flat and horizontally on the surface of still wa...', 'audio': True, 'apiKey': {'id': '690d04806b29cec57149a45a', 'name': 'video_model_eval'}, 'timing': {'startedAt': '2025-11-07T22:14:11.756Z', 'elapsedSeconds': 138, 'completedAt': '2025-11-07T22:16:20.443Z', 'totalProcessingSeconds': 128}, 'credits': {'required': 20, 'charged': 0, 'refunded': 0}, 'error': {'type': 'CONTENT_POLICY_VIOLATION', 'message': "Your video was filtered by Google's content safety policies. Please try a different prompt.", 'retryable': False, 'details': {'raiFilteredCount': 1, 'raiFilteredReasons': ['Veo could not generate 1 videos based on the prompt provided. You will not be charged for this request. Try rephrasing the prompt. If you think this was an error, send feedback. Support codes: 42237218'], 'operationId': 'projects/main-454911/locations/us-central1/publishers/google/models/veo-3.1-generate-preview/operations/695ae274-d199-4ab6-8a55-7b54ca7df3fb'}}}
+  Task 46: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 47: Sora job failed or cancelled: {'id': 'video_690e6f82cbdc819098a027478104b789074e45bad8222240', 'object': 'video', 'created_at': 1762553730, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 0, 'prompt': 'Using tweezers, a thin metal blade is gently placed flat and horizontally on the surface of still water in a glass. The blade is carefully lowered until it just touches the water surface without breaking it and then it is let go.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 50: Veo3Gen task failed or did not complete: {'success': True, 'taskId': 'veo_1762553793048_5o6z20', 'status': 'failed', 'model': 'veo3-quality', 'prompt': 'A thin metal razor blade is held vertically with tweezers above a glass of still water. The tweezers...', 'audio': True, 'apiKey': {'id': '690d04806b29cec57149a45a', 'name': 'video_model_eval'}, 'timing': {'startedAt': '2025-11-07T22:16:33.050Z', 'elapsedSeconds': 107, 'completedAt': '2025-11-07T22:18:12.316Z', 'totalProcessingSeconds': 99}, 'credits': {'required': 20, 'charged': 0, 'refunded': 0}, 'error': {'type': 'CONTENT_POLICY_VIOLATION', 'message': "Your video was filtered by Google's content safety policies. Please try a different prompt.", 'retryable': False, 'details': {'raiFilteredCount': 1, 'raiFilteredReasons': ['Veo could not generate 1 videos based on the prompt provided. You will not be charged for this request. Try rephrasing the prompt. If you think this was an error, send feedback. Support codes: 42237218'], 'operationId': 'projects/main-454911/locations/us-central1/publishers/google/models/veo-3.1-generate-preview/operations/46136395-337d-44d7-a1f1-95646489d0c3'}}}
+  Task 53: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 54: Sora job failed or cancelled: {'id': 'video_690e702308748190b938be15fd3c46bd02995004af92f9ab', 'object': 'video', 'created_at': 1762553891, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A thin metal razor blade is held vertically with tweezers above a glass of still water. The tweezers then let go of the blade, dropping it edge-first into the still water.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 60: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 67: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 68: Sora job failed or cancelled: {'id': 'video_690e71ee914c8191a75586c4a5b64a9909c09b2838a83291', 'object': 'video', 'created_at': 1762554350, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A bowl is covered tightly with a thin plastic sheet so that the surface is smooth and stretched evenly across the rim. A small handful of uncooked rice grains lies evenly across the plastic surface. A metal gong is then struck once a short distance away from the setup while the bowl remains stationary on a flat table.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 74: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 81: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 82: Sora job failed or cancelled: {'id': 'video_690e73a47e9881908f097f20bbbc50900fd0ebd864a66f07', 'object': 'video', 'created_at': 1762554788, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A lit candle is placed upright in the center of a shallow bowl filled with a small amount of water. A clear glass bottle is then lowered upside-down over the candle, covering it while its mouth rests in the water.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 88: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 89: Sora job failed or cancelled: {'id': 'video_690e7465c0f0819183f5398f229d23d105f2fbbc7de317ef', 'object': 'video', 'created_at': 1762554982, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A flexible transparent tube carrying a steady stream of water is taped to the front of a speaker so that the open end extends outward, and water pours out of the tube. Camera view from 10 feet away, looking towards the speaker. The speaker begins to play a low-frequency sound while water continues to flow from the tube.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 95: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 96: Sora job failed or cancelled: {'id': 'video_690e75287f588190af72aecb6775b2b40e4ac88b54c042e8', 'object': 'video', 'created_at': 1762555176, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'A small amount of water is added to an empty plastic bottle, which is sealed with a cap. A person squeezes and twists the bottom of the bottle several times to increase internal pressure, then the cap is suddenly released.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 102: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 103: Sora job failed or cancelled: {'id': 'video_690e762f073881938057370108b2417002132a8d79489d6a', 'object': 'video', 'created_at': 1762555439, 'status': 'failed', 'completed_at': None, 'error': {'code': 'video_generation_failed', 'message': 'Video generation failed due to an internal error.'}, 'expires_at': None, 'model': 'sora-2', 'progress': 99, 'prompt': 'Five identical metal balls are suspended in a straight line by thin strings so that they hang just touching each other at rest. One ball on the end is pulled back and released, allowing it to swing and strike the others.', 'remixed_from_video_id': None, 'seconds': '8', 'size': '1280x720'}
+  Task 109: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 110: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+  Task 116: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 117: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+  Task 123: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 124: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+  Task 130: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 131: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+  Task 137: 429 Client Error: Too Many Requests for url: https://api-singapore.klingai.com/v1/videos/text2video
+  Task 138: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/videos
+============================================================
+
+============================================================
+Pipeline Complete
+============================================================
+Author: Daniel Zhao
+Total experiments: 140
+Status: ✓ All tasks completed successfully
+Output directory: out/crosseval
+============================================================
