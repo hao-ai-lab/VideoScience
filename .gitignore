@@ -10,4 +10,6 @@ data/curated_expvid/*
 scripts/*
 judge/results
 logs/
-
+.env
+*.txt
+generations/
