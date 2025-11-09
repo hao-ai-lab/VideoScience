@@ -5,3 +5,4 @@ PyJWT
 opencv-python
 Pillow
 anthropic
+beautifulsoup4

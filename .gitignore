@@ -8,7 +8,7 @@ data/curated_expvid/*
 *.json
 *.mp4
 scripts/*
-<<<<<<< HEAD
 judge/results
-=======
->>>>>>> main
+.env
+*.txt
+generations/
