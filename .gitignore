@@ -7,7 +7,6 @@ data/curated_expvid/*
 *.csv
 *.json
 *.mp4
-scripts/*
 judge/results
 logs/
 .env
