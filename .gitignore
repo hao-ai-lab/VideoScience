@@ -9,3 +9,5 @@ data/curated_expvid/*
 *.mp4
 scripts/*
 judge/results
+logs/
+
