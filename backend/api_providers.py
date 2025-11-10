@@ -819,7 +819,12 @@ class Veo3GenVideoAPI:
             body["modelVersion"] = mv
 
         create_url = self._join("/api/generate")
+        print(f"[DEBUG] Veo3Gen request URL: {create_url}")
+        print(f"[DEBUG] Veo3Gen request body: {json.dumps(body, indent=2)}")
         resp = requests.post(create_url, headers=self._headers(), json=body, timeout=120)
+        print(f"[DEBUG] Veo3Gen response status: {resp.status_code}")
+        if resp.status_code != 200:
+            print(f"[DEBUG] Veo3Gen response text: {resp.text}")
         resp.raise_for_status()
 
         create_payload = resp.json()
@@ -924,14 +929,14 @@ class LumaRayVideoAPI:
 
     @staticmethod
     def _infer_resolution(width: int, height: int, extra: t.Dict[str, t.Any]) -> t.Optional[str]:
-        # Resolutions: "540p", "720p", "1080", "4k" (optional)
+        # Resolutions: "540p", "720p", "1080p", "4k" (optional)
         res = (extra or {}).get("resolution")
         if res:
             return str(res)
         if max(width, height) >= 2160:
             return "4k"
         if max(width, height) >= 1080:
-            return "1080"   # docs show 1080 without 'p' as valid
+            return "1080p"   # Changed to include 'p' for consistency
         if max(width, height) >= 720:
             return "720p"
         return "540p"
@@ -1012,9 +1017,13 @@ class LumaRayVideoAPI:
 
         # Create generation
         create_url = self._join("/dream-machine/v1/generations")
+        print(f"[DEBUG] Luma Ray request URL: {create_url}")
+        print(f"[DEBUG] Luma Ray request body: {json.dumps(body, indent=2)}")
         r = requests.post(create_url, headers=self._headers(), json=body, timeout=120)
+        print(f"[DEBUG] Luma Ray response status: {r.status_code}")
+        if r.status_code != 200:
+            print(f"[DEBUG] Luma Ray error response: {r.text}")
         r.raise_for_status()
-
 
         create_payload = r.json()
         gen_id = create_payload.get("id")
