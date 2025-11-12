@@ -37,6 +37,8 @@ def _image_to_b64(img: "Image.Image", jpeg_quality: int = 80) -> str:
     return base64.b64encode(buf.getvalue()).decode("utf-8")
 
 def _extract_frames_cv2(path: str, max_frames: int = 24, fps: Optional[float] = None) -> List[Tuple[float, "Image.Image"]]:
+    if not path:
+        return []
     if cv2 is None:
         return []
     cap = cv2.VideoCapture(path)
@@ -68,6 +70,8 @@ def _extract_frames_cv2(path: str, max_frames: int = 24, fps: Optional[float] = 
     return frames
 
 def _extract_frames_ffmpeg(path: str, max_frames: int = 24) -> List[Tuple[float, "Image.Image"]]:
+    if not path:
+        return []
     if Image is None:
         return []
     # probe duration
@@ -96,6 +100,9 @@ def _extract_frames_ffmpeg(path: str, max_frames: int = 24) -> List[Tuple[float,
     return out_frames
 
 def extract_frames(path: str, max_frames: int = 24, fps: Optional[float] = None) -> List[Tuple[float, "Image.Image"]]:
+    if not path:
+        return []
+    
     suffix = Path(path).suffix.lower()
     if suffix in {".jpg", ".jpeg", ".png", ".webp"}:
         _require_pillow()

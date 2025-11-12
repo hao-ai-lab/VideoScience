@@ -12,7 +12,6 @@ from judge.api_providers import (
     OpenAIVLMAPI,
     GeminiVLMAPI,
     AnthropicVLMAPI,
-<<<<<<< HEAD
 )
 
 RUBRIC_TEXT = (
@@ -20,6 +19,7 @@ RUBRIC_TEXT = (
     "Score each rubric from 1–4 (1=absent/contradictory, 2=weak/partly wrong, 3=mostly correct, 4=clearly correct):\n"
     "a) prompt_consistency — follows instructions: correct setup and correct experiment execution.\n"
     "b) expected_phenomenon — expected physical/chemical outcome is present and correct.\n"
+    "c) immutability — objects remain intact/unchanged unless changes are explicitly expected.\n"
     "d) dynamism — other physical laws are obeyed.\n"
     "e) coherence — natural transitions across frames; no flicker/teleport/identity swap.\n"
 )
@@ -47,14 +47,14 @@ def _build_prompt(phenomenon: str, gt_description: str) -> str:
         "Ground-truth description (authoritative):\n" +
         gt_description.strip()
     )
-=======
-    ReplicateVLMAPI,
-)
 
-# ---------- Rubric configuration (prompting only) ----------
-_RUBRIC_PROMPT = (
-    "You are VLM-Judge evaluating the generation quality of a video produced by a video model. "
-    "Focus on scientific understanding and reasoning. Judge along four rubrics, each scored 1–4:\n"
+def judge_experiment(
+    provider: str,
+    model: str,
+    video_path: str,
+    phenomenon: str,
+    gt_description: str,
+    ref_video_path: Optional[str] = None,
     *,
     max_frames: int = 24,
     fps: Optional[float] = None,
@@ -62,7 +62,6 @@ _RUBRIC_PROMPT = (
     extra: Dict[str, Any] | None = None,
 ) -> Dict[str, Any]:
     """
-<<<<<<< HEAD
     Dispatch to a VLM provider. Providers return unparsed `output_text` and minimal evidence.
     The frontend is responsible for parsing/normalization/scoring.
     """
@@ -76,24 +75,6 @@ _RUBRIC_PROMPT = (
         api = GeminiVLMAPI()
     elif p in ("anthropic", "claude"):
         api = AnthropicVLMAPI()
-=======
-    Dispatch to a VLM provider. Providers return unparsed `output_text` + minimal evidence.
-    Parsing/normalization is performed in the frontend.
-    """
-    extra = dict(extra or {})
-    extra.setdefault("rubric_prompt", _RUBRIC_PROMPT)
-    extra.setdefault("rubric_weights", _DEFAULT_WEIGHTS)
-
-    p = (provider or "").lower()
-    if p in ("openai", "gpt", "gpt-4o", "gpt-4.1", "o3", "omni"):
-        api = OpenAIVLMAPI()
-    elif p in ("gemini", "google", "google-gemini"):
-        api = GeminiVLMAPI()
-    elif p in ("anthropic", "claude"):
-        api = AnthropicVLMAPI()
-    elif p in ("replicate", "llava"):
-        api = ReplicateVLMAPI()
->>>>>>> main
     else:
         raise ValueError(f"Unknown provider: {provider}")
 
@@ -101,22 +82,14 @@ _RUBRIC_PROMPT = (
         model=model,
         video_path=video_path,
         phenomenon=phenomenon,
-<<<<<<< HEAD
-=======
-        gt_description=gt_description,
->>>>>>> main
         ref_video_path=ref_video_path,
         max_frames=max_frames,
         fps=fps,
         timeout_s=timeout_s,
         extra=extra,
     )
-<<<<<<< HEAD
 
     # DEBUGGING PRINT
-=======
-    
->>>>>>> main
     print("result:")
     print(result.get("output_text", ""))
 

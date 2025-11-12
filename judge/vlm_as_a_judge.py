@@ -8,6 +8,8 @@ from datetime import datetime, timezone
 import sys
 from typing import Any, Dict, Tuple
 
+from urllib.parse import urlparse
+
 path_root = Path(__file__).parents[1]
 sys.path.append(str(path_root))
 
@@ -171,6 +173,18 @@ def _format_rubric_section(r: dict, overall: float) -> str:
     ]
     return "\n".join(lines) + "\n\n"
 
+# add somewhere above main()
+def _is_remote_or_missing(p: str | None) -> bool:
+    if not p:
+        return True
+    u = urlparse(p)
+    if u.scheme in {"http", "https", "gs"}:
+        return True
+    try:
+        return not Path(p).exists()
+    except Exception:
+        return True
+
 def main():
     ap = argparse.ArgumentParser(description="Judge science experiment video quality with a VLM.")
     ap.add_argument("--provider", required=True, help="openai | gemini | anthropic")
@@ -186,14 +200,24 @@ def main():
     ap.add_argument("--md_out", default=None, help="Where to write a Markdown report")
     args = ap.parse_args()
 
+    # --- Guard: if remote URL or missing path, pass None so providers can skip frame extraction ---
+    video_arg = "" if _is_remote_or_missing(args.video) else args.video
+    ref_arg = "" if _is_remote_or_missing(args.ref_video) else args.ref_video
+
+    # Optional: small log to stderr so you can see why frames are missing
+    if video_arg is None:
+        print(f"[vlm_as_a_judge] Skipping candidate frames (remote or missing): {args.video}", file=sys.stderr)
+    if ref_arg is None and args.ref_video:
+        print(f"[vlm_as_a_judge] Skipping reference frames (remote or missing): {args.ref_video}", file=sys.stderr)
+
     # Call provider via manager (returns raw output_text + evidence)
     res = judge_experiment(
         provider=args.provider,
         model=args.model,
-        video_path=args.video,
+        video_path=video_arg,
         phenomenon=args.phenomenon,
         gt_description=args.description,
-        ref_video_path=args.ref_video,
+        ref_video_path=ref_arg,
         max_frames=args.max_frames,
         fps=args.fps,
         timeout_s=args.timeout_s,
