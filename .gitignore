@@ -15,3 +15,6 @@ logs/
 *.txt
 generations/
 *.pth
+*.jpg
+*.png
+*.html
