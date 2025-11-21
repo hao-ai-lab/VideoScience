@@ -201,6 +201,7 @@ class OpenAIVLMAPI(_BaseVLM):
         r = requests.post(url, headers=self._headers(), json=payload, timeout=timeout_s)
 
         if not r.ok:
+            print(f"[VLM HTTP ERROR] {r.status_code} {r.reason} for {url}")
             err = r.json()
 
         resp = r.json()

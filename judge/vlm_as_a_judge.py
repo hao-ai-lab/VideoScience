@@ -47,10 +47,7 @@ REPORT_MD = """# VLM Judge Report
 
 # ---------- Parsing helpers ----------
 def _try_json_loads(blob: str) -> Dict[str, Any]:
-    try:
-        return json.loads(blob)
-    except Exception:
-        return {}
+    return json.loads(blob)
 
 def _extract_json_from_text(text: str) -> Dict[str, Any]:
     """
@@ -87,10 +84,7 @@ def _clamp(v: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, v))
 
 def _to_float(x: Any) -> float | None:
-    try:
-        return float(x)
-    except Exception:
-        return None
+    return float(x)
 
 def _normalize_1to4(v: Any) -> float:
     """
@@ -180,10 +174,50 @@ def _is_remote_or_missing(p: str | None) -> bool:
     u = urlparse(p)
     if u.scheme in {"http", "https", "gs"}:
         return True
-    try:
-        return not Path(p).exists()
-    except Exception:
-        return True
+
+    return not Path(p).exists()
+
+def _load_checklist(path: str | None) -> Dict[str, Any]:
+    """
+    Load a checklist JSON file if provided.
+
+    Expected structure (example):
+
+    {
+      "phenomenon_congruency": ["..."],
+      "correct_dynamism": ["..."],
+      "spatio_temporal_continuity": ["..."],
+      "immutability": ["..."],
+      "interaction_realism": ["..."]
+    }
+    """
+    if not path:
+        return {}
+
+    text = Path(path).read_text()
+    data = json.loads(text)
+    if isinstance(data, dict):
+        return data
+    else:
+        print(f"[vlm_as_a_judge] Checklist JSON at {path} is not an object; ignoring.", file=sys.stderr)
+
+    return {}
+
+def _load_cv_metrics(path: str | None) -> Dict[str, Any]:
+    """
+    Load CV-based metrics JSON produced by cv_metrics.py (optional).
+    """
+    if not path:
+        return {}
+
+    text = Path(path).read_text()
+    data = json.loads(text)
+
+    if isinstance(data, dict):
+        return data
+
+    print(f"[vlm_as_a_judge] CV metrics JSON at {path} is not an object; ignoring.", file=sys.stderr)
+    return {}
 
 def main():
     ap = argparse.ArgumentParser(description="Judge science experiment video quality with a VLM.")
@@ -198,6 +232,16 @@ def main():
     ap.add_argument("--timeout_s", type=int, default=900)
     ap.add_argument("--json_out", default=None, help="Where to write full JSON result")
     ap.add_argument("--md_out", default=None, help="Where to write a Markdown report")
+    ap.add_argument(
+        "--checklist_json",
+        default=None,
+        help="Optional checklist JSON file with expected visual items per category"
+    )
+    ap.add_argument(
+        "--cv_json",
+        default=None,
+        help="Optional CV metrics JSON (e.g., GroundingDINO/ByteTrack/RAFT/CLIP4Clip/LPIPS) for auxiliary evidence",
+    )
     args = ap.parse_args()
 
     # --- Guard: if remote URL or missing path, pass None so providers can skip frame extraction ---
@@ -210,6 +254,16 @@ def main():
     if ref_arg is None and args.ref_video:
         print(f"[vlm_as_a_judge] Skipping reference frames (remote or missing): {args.ref_video}", file=sys.stderr)
 
+    checklist = _load_checklist(args.checklist_json)
+    cv_metrics = _load_cv_metrics(args.cv_json)
+    
+    # Build extra payload
+    extra: Dict[str, Any] = {}
+    if checklist:
+        extra["checklist"] = checklist
+    if cv_metrics:
+        extra["cv_metrics"] = cv_metrics
+    
     # Call provider via manager (returns raw output_text + evidence)
     res = judge_experiment(
         provider=args.provider,
@@ -221,7 +275,7 @@ def main():
         max_frames=args.max_frames,
         fps=args.fps,
         timeout_s=args.timeout_s,
-        extra={},  # judge_prompt is built inside manager
+        extra=extra or None,
     )
 
     output_text = res.get("output_text", "") or ""
@@ -251,7 +305,10 @@ def main():
             "overall_weighted": overall,
             "weights": dict(WEIGHTS),
         },
-        "output_text": output_text,     # keep raw model text for debugging
+        # Include the checklist we used
+        "checklist": checklist or {},
+        "cv_metrics": cv_metrics or {},
+        "output_text": output_text,
         "raw": res.get("raw", {}),
     }
 

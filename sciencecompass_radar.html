@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Performance on ScienceCompass-Bench</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .wrap { max-width: 1120px; margin: 10px auto; padding: 0 8px; }
+    #chart { width: 100%; height: 760px; }  /* taller to accommodate larger fonts */
+    .toolbar { display: flex; gap: 10px; justify-content: center; margin-bottom: 6px; }
+    .toolbar button {
+      padding: 8px 12px; border: 1px solid #ccc; border-radius: 8px; background: #fff; cursor: pointer;
+      font-size: 16px; font-weight: 600;
+    }
+    .toolbar button:hover { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="toolbar">
+      <button id="btnPng">Download PNG</button>
+      <button id="btnPdf">Download PDF</button>
+    </div>
+    <div id="chart"></div>
+  </div>
+  <script>
+    const DATA = {"ORDERED_CATEGORIES": ["prompt_consistency", "expected_phenomenon", "dynamism", "immutability", "coherence"], "ORDERED_LABELS": ["Prompt Consistency", "Phenomenon\nCongruency", "Correct Dynamism", "Immutability", "Spatio-Temporal\nCoherence"], "WEIGHTS": {"prompt_consistency": 0.2, "expected_phenomenon": 0.3, "coherence": 0.2, "immutability": 0.15, "dynamism": 0.15}, "rmin": 0.0, "rmax": 4.0, "models": {"sora-2": {"coherence": {"mean": 3.7125, "n": 480, "variance": 0.5017223382045929}, "dynamism": {"mean": 3.3333333333333335, "n": 480, "variance": 0.9241475295755046}, "expected_phenomenon": {"mean": 2.560416666666667, "n": 480, "variance": 1.2155488865692416}, "immutability": {"mean": 3.73125, "n": 480, "variance": 0.39317588726513575}, "prompt_consistency": {"mean": 3.3208333333333333, "n": 480, "variance": 0.8237821851078635}}, "veo3": {"coherence": {"mean": 3.424107142857143, "n": 224, "variance": 0.80138933376041}, "dynamism": {"mean": 2.830357142857143, "n": 224, "variance": 1.3074151185137732}, "expected_phenomenon": {"mean": 2.3526785714285716, "n": 224, "variance": 1.188961402946829}, "immutability": {"mean": 3.3035714285714284, "n": 224, "variance": 0.9657270980140935}, "prompt_consistency": {"mean": 3.0089285714285716, "n": 224, "variance": 1.0223414477898782}}, "klingv2.5": {"coherence": {"mean": 3.6041666666666665, "n": 480, "variance": 0.5235734168406402}, "dynamism": {"mean": 2.754166666666667, "n": 480, "variance": 1.129418928322895}, "expected_phenomenon": {"mean": 1.90625, "n": 480, "variance": 1.0705245302713988}, "immutability": {"mean": 3.3625, "n": 480, "variance": 0.8871085594989562}, "prompt_consistency": {"mean": 2.76875, "n": 480, "variance": 1.1176017745302713}}, "wan2.5": {"coherence": {"mean": 3.45625, "n": 480, "variance": 0.7914013569937369}, "dynamism": {"mean": 2.83125, "n": 480, "variance": 1.15518006263048}, "expected_phenomenon": {"mean": 1.8354166666666667, "n": 480, "variance": 1.064713813500348}, "immutability": {"mean": 3.3604166666666666, "n": 480, "variance": 0.8614779053583855}, "prompt_consistency": {"mean": 2.8666666666666667, "n": 480, "variance": 1.0427279053583856}}, "seedance1": {"coherence": {"mean": 3.4625, "n": 480, "variance": 0.7125782881002087}, "dynamism": {"mean": 2.5166666666666666, "n": 480, "variance": 1.2773834377174669}, "expected_phenomenon": {"mean": 1.7791666666666666, "n": 480, "variance": 1.0701287404314543}, "immutability": {"mean": 3.1458333333333335, "n": 480, "variance": 1.1143876130828114}, "prompt_consistency": {"mean": 2.564583333333333, "n": 480, "variance": 1.0855906402226863}}, "hailuo2.3": {"coherence": {"mean": 3.45625, "n": 480, "variance": 0.6786664926931106}, "dynamism": {"mean": 2.5708333333333333, "n": 480, "variance": 1.3937195546276966}, "expected_phenomenon": {"mean": 1.66875, "n": 480, "variance": 0.9652009394572024}, "immutability": {"mean": 3.158333333333333, "n": 480, "variance": 1.2274878218510785}, "prompt_consistency": {"mean": 2.3854166666666665, "n": 480, "variance": 1.2018745650661098}}, "ray-2": {"coherence": {"mean": 2.925, "n": 480, "variance": 1.2720250521920666}, "dynamism": {"mean": 2.127083333333333, "n": 480, "variance": 1.1257785316631872}, "expected_phenomenon": {"mean": 1.2583333333333333, "n": 480, "variance": 0.3214335421016006}, "immutability": {"mean": 2.4375, "n": 480, "variance": 1.50339248434238}, "prompt_consistency": {"mean": 1.6458333333333333, "n": 480, "variance": 0.7260786360473208}}}};
+
+    const cats = DATA.ORDERED_CATEGORIES;
+    const labels = DATA.ORDERED_LABELS;
+    const weights = DATA.WEIGHTS;
+
+    function valuesFor(modelMetrics, categories) {
+      return categories.map(c => (modelMetrics[c]?.mean ?? 0.0));
+    }
+    function weightedAvg(modelMetrics, categories, weights) {
+      let sum = 0; let wsum = 0;
+      for (let i = 0; i < categories.length; i++) { sum += (modelMetrics[categories[i]]?.mean ?? 0) * weights[categories[i]]; wsum += weights[categories[i]]; }
+      return wsum > 0 ? sum : 0;
+    }
+    function parsePercent(x) {
+      if (typeof x === 'string' && x.endsWith('%')) return parseFloat(x)/100;
+      if (typeof x === 'number') return x;
+      return 0.5;
+    }
+
+    // Keep trace order by weighted avg (desc), without numbering in legend labels
+    const entries = Object.entries(DATA.models).map(([name, metrics]) => ({
+      name,
+      avg: weightedAvg(metrics, cats, weights),
+      vals: valuesFor(metrics, cats)
+    }));
+
+    // Fixed 0..4 axis (center at 0, rings at 1,2,3,4)
+    const indicators = labels.map(lbl => ({ name: lbl, min: DATA.rmin, max: DATA.rmax }));
+
+    // Legend labels: "model: score" (raw weighted avg)
+    const seriesData = entries.map((e) => ({
+      value: e.vals,
+      name: `${e.name}: ${e.avg.toFixed(2)}`
+    }));
+
+    // Split legend into two rows
+    const allNames = seriesData.map(s => s.name);
+    const mid = Math.ceil(allNames.length / 2);
+    const legendRow1 = allNames.slice(0, mid);
+    const legendRow2 = allNames.slice(mid);
+
+    const el = document.getElementById('chart');
+    const chart = echarts.init(el, null, { renderer: 'canvas' });
+
+    const option = {
+      title: {
+        text: 'Model Performance on ScienceCompass-Bench',
+        left: 'center',
+        top: 6,
+        textStyle: { fontSize: 38, fontWeight: 800 }   // larger title
+      },
+      legend: [
+        { type: 'scroll', orient: 'horizontal', bottom: 42, left: 'center',
+          data: legendRow1, textStyle: { fontSize: 28 }, itemWidth: 28, itemHeight: 12, padding: 0, itemGap: 8 },
+        { type: 'scroll', orient: 'horizontal', bottom: 10, left: 'center',
+          data: legendRow2, textStyle: { fontSize: 28 }, itemWidth: 28, itemHeight: 12, padding: 0, itemGap: 8 }
+      ],
+      tooltip: {
+        trigger: 'item', appendToBody: true, textStyle: { fontSize: 20 },
+        formatter: (p) => {
+          const name = p.seriesName || p.name;
+          const vals = p.value; // raw 1..4 values
+          let s = `<div style="font-weight:800;margin-bottom:6px;font-size:21px">${name}</div>`;
+          for (let i = 0; i < labels.length; i++) s += `${labels[i]} <b>${Number(vals[i]).toFixed(2)}</b><br/>`;
+          return s;
+        }
+      },
+      radar: [{
+        center: ['50%', '56%'],   // pushed down to avoid top overflow
+        radius: '74%',            // slightly smaller radius to accommodate larger axis labels
+        startAngle: 90,
+        splitNumber: 4,           // rings at 1, 2, 3, 4 (with center = 0)
+        shape: 'polygon',
+        axisNameGap: 12,          // a bit more space between axis and label
+        indicator: indicators,
+        axisName: { color: '#111', fontSize: 30, fontWeight: 700, lineHeight: 30 },  // larger axis labels
+        splitLine: { lineStyle: { color: 'rgba(0,0,0,0.24)' } },
+        splitArea: { areaStyle: { color: ['rgba(0,0,0,0.03)','rgba(0,0,0,0.08)'] } },
+        axisLine: { lineStyle: { color: 'rgba(0,0,0,0.28)' } }
+      }],
+      series: [{
+        type: 'radar',
+        name: 'Models (weighted avg)',
+        radarIndex: 0,
+        data: seriesData,
+        symbol: 'circle',
+        symbolSize: 7,
+        lineStyle: { width: 3.2 },
+        areaStyle: { opacity: 0.16 },
+        emphasis: { lineStyle: { width: 4.0 }, areaStyle: { opacity: 0.22 } }
+      }]
+    };
+
+    chart.setOption(option);
+
+    // ---- Draw the ring numbers (1..4) ON the chart (top radial, slight right offset)
+    function addRingLabels() {
+      const W = chart.getWidth();
+      const H = chart.getHeight();
+      const radarOpt = option.radar[0];
+      const cxPerc = parsePercent(radarOpt.center[0]);
+      const cyPerc = parsePercent(radarOpt.center[1]);
+      const radPerc = parsePercent(radarOpt.radius);
+
+      const cx = (typeof radarOpt.center[0] === 'string') ? cxPerc * W : radarOpt.center[0];
+      const cy = (typeof radarOpt.center[1] === 'string') ? cyPerc * H : radarOpt.center[1];
+      const r  = (typeof radarOpt.radius === 'string')  ? radPerc * Math.min(W, H) / 2 : radarOpt.radius;
+
+      const labels = ['1','2','3','4'];
+      const graphics = labels.map((txt, i) => ({
+        type: 'text',
+        left: cx + 14,                              // small right offset
+        top:  cy - r * ((i + 1) / 4),
+        style: { text: txt, fontSize: 18, fontWeight: 700, fill: '#555', align: 'left' }, // larger ring labels
+        z: 100
+      }));
+
+      chart.setOption({ graphic: graphics }, false);
+    }
+
+    addRingLabels();
+    window.addEventListener('resize', () => { chart.resize(); addRingLabels(); });
+
+    // ---- Exports
+    document.getElementById('btnPng').addEventListener('click', () => {
+      const url = chart.getDataURL({ type: 'png', pixelRatio: 3, backgroundColor: '#ffffff' });
+      const a = document.createElement('a'); a.href = url; a.download = 'sciencecompass_radar.png'; a.click();
+    });
+    document.getElementById('btnPdf').addEventListener('click', async () => {
+      const { jsPDF } = window.jspdf;
+      const url = chart.getDataURL({ type: 'png', pixelRatio: 3, backgroundColor: '#ffffff' });
+      const pdf = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' });
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const img = new Image();
+      img.onload = () => {
+        const imgW = pageWidth * 0.92;
+        const imgH = img.height * (imgW / img.width);
+        const x = (pageWidth - imgW) / 2;
+        const y = (pageHeight - imgH) / 2;
+        pdf.addImage(url, 'PNG', x, y, imgW, imgH);
+        pdf.save('sciencecompass_radar.pdf');
+      };
+      img.src = url;
+    });
+  </script>
+</body>
+</html>

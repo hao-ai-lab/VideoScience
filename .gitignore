@@ -9,7 +9,9 @@ data/curated_expvid/*
 *.mp4
 judge/results
 judge/data
+judge/legacy
 logs/
 .env
 *.txt
 generations/
+*.pth
