@@ -8,7 +8,13 @@ data/curated_expvid/*
 *.json
 *.mp4
 judge/results
+judge/data
+judge/legacy
 logs/
 .env
 *.txt
 generations/
+*.pth
+*.jpg
+*.png
+*.html

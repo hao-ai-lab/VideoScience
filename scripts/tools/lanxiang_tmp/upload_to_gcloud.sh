@@ -14,7 +14,7 @@ DRY_RUN="${4:-}"
 # local -> remote mapping
 declare -A MAP=(
   ["hailuo2.3"]="minimax-hailuo-2.3"
-  ["kling2.5"]="kling-v2.5-turbo-pro"
+  ["kling2.5"]="kling-v2-5-turbo-pro"
   ["luma_ray2"]="ray-2"
   ["sora2"]="sora-2"
   ["veo3gen"]="veo3-quality"

@@ -65,13 +65,14 @@ def parse_authors(author_arg: str | None) -> set[str]:
 # ============= main function ============= #
 
 def prepare_experiments(authors_csv: set[str],
-                        csv_file: str,
-                        output_dir: str | None = None,
-                        id_column: str = "Unique ID",
-                        name_by: str = "uid",  # 'uid' or 'seq'
-                        prefix: str = "vid_",
-                        pad: int = 3,
-                        mode: str = "ready"):   # 'ready' or 'all'
+        csv_file: str,
+        output_dir: str | None = None,
+        id_column: str = "Unique ID",
+        name_by: str = "uid",  # 'uid' or 'seq'
+        prefix: str = "vid_",
+        pad: int = 3,
+        mode: str = "ready"
+    ):   # 'ready' or 'all'
     """Extract experiments for given authors and create JSON config for all models."""
 
     MODELS = [

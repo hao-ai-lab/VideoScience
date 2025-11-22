@@ -6,3 +6,7 @@ opencv-python
 Pillow
 anthropic
 beautifulsoup4
+torch
+pip
+wheel
+setuptools

@@ -25,37 +25,27 @@ def generate_video_wrapper(task):
             'result': {'message': 'Video file already exists'}
         }
     
-    try:
-        print(f"\n[Task {task['id']}] Starting generation...")
+    print(f"\n[Task {task['id']}] Starting generation...")
 
-        result = generate_video(
-            provider=task['provider'],
-            model=task['model'],
-            prompt=task['prompt'],
-            n_seconds=task['seconds'],
-            width=task['width'],
-            height=task['height'],
-            output_path=task['output_path'],
-            timeout_s=task['timeout_s'],
-            extra=task['extra'],
-        )
+    result = generate_video(
+        provider=task['provider'],
+        model=task['model'],
+        prompt=task['prompt'],
+        n_seconds=task['seconds'],
+        width=task['width'],
+        height=task['height'],
+        output_path=task['output_path'],
+        timeout_s=task['timeout_s'],
+        extra=task['extra'],
+    )
 
-        print(f"\n[Task {task['id']}]; Completed: {task['output_path']}")
-        return {
-            'id': task['id'],
-            'status': 'success',
-            'output_path': task['output_path'],
-            'result': result
-        }
-    except Exception as e:
-        print(f"\n[Task {task['id']}]; Failed: {str(e)}")
-        return {
-            'id': task['id'],
-            'status': 'error',
-            'output_path': task['output_path'],
-            'error': str(e)
-        }
-
+    print(f"\n[Task {task['id']}]; Completed: {task['output_path']}")
+    return {
+        'id': task['id'],
+        'status': 'success',
+        'output_path': task['output_path'],
+        'result': result
+    }
 
 def process_tasks_parallel(tasks, max_workers=5):
     """Process multiple video generation tasks in parallel"""
