@@ -1,5 +1,47 @@
 # ScienceAtlas
 
+## Installation
+
+### Basic Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-org/ScienceAtlas.git
+cd ScienceAtlas
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### FastVideo Setup
+
+FastVideo is a video generation provider that supports two modes of operation:
+
+#### Option 1: Remote API Server (Recommended for Production)
+
+If you have a deployed FastVideo API server:
+
+```bash
+export FASTVIDEO_API_BASE="http://your-fastvideo-server:8000"
+export FASTVIDEO_API_KEY="your-api-key"  # Optional, if authentication is required
+```
+
+#### Option 2: Local Inference Mode
+
+For local GPU inference:
+
+```bash
+# Install FastVideo package
+pip install fastvideo
+
+# Set the model path (will be downloaded on first use)
+export FASTVIDEO_MODEL_PATH="FastVideo/FastWan2.1-T2V-1.3B-Diffusers"
+```
+
+**Requirements for local inference:**
+- CUDA-capable GPU with sufficient VRAM
+- PyTorch with CUDA support
+
 ## Usage
 
 ### launch batched video generation

@@ -13,6 +13,7 @@ from backend.api_providers import (
     KlingVideoAPI,
     Veo3GenVideoAPI,
     LumaRayVideoAPI,
+    FastVideoAPI,
 )
 
 def generate_video(
@@ -81,6 +82,13 @@ def generate_video(
         
     elif p in ("ray", "ray-2", "luma"):
         return LumaRayVideoAPI().generate(
+            model=model, prompt=prompt, n_seconds=n_seconds,
+            width=width, height=height, output_path=output_path,
+            timeout_s=timeout_s, extra=extra,
+        )
+    
+    elif p in ("fastvideo", "fast-video", "fv"):
+        return FastVideoAPI().generate(
             model=model, prompt=prompt, n_seconds=n_seconds,
             width=width, height=height, output_path=output_path,
             timeout_s=timeout_s, extra=extra,
