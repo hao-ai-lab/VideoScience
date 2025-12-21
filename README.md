@@ -1,4 +1,4 @@
-# ScienceAtlas
+# VideoScience
 
 ## Installation
 
@@ -6,7 +6,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/ScienceAtlas.git
+git clone https://github.com/hao-ai-lab/VideoScience.git
 cd ScienceAtlas
 
 # Install dependencies
