@@ -7,7 +7,7 @@
 ```bash
 # Clone the repository
 git clone https://github.com/hao-ai-lab/VideoScience.git
-cd ScienceAtlas
+cd VideoScience
 
 # Install dependencies
 pip install -r requirements.txt
