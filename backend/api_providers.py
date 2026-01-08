@@ -1065,3 +1065,254 @@ class LumaRayVideoAPI:
             "video_path": output_path,
             "raw": {"create": create_payload, "final_status": final},
         }
+
+@dataclass
+class FastVideoAPI:
+    """
+    FastVideo API provider for video generation.
+    
+    Supports two modes:
+    1. Direct local inference (when FASTVIDEO_API_BASE is not set)
+       - Uses VideoGenerator directly from fastvideo package
+       - Requires model_path to be set in extra or as model parameter
+    2. Remote API server (when FASTVIDEO_API_BASE is set)
+       - Makes HTTP requests to deployed FastVideo server
+       - Endpoint: POST {FASTVIDEO_API_BASE}/generate_video
+       
+    Environment variables:
+      - FASTVIDEO_API_BASE: Base URL for FastVideo API server (optional)
+      - FASTVIDEO_API_KEY: API key for authentication (optional, for remote mode)
+      - FASTVIDEO_MODEL_PATH: Default model path for local inference (optional)
+    """
+    
+    base_url: str = os.environ.get("FASTVIDEO_API_BASE", "").rstrip("/")
+    
+    def _headers(self) -> dict:
+        """Get headers for API requests."""
+        headers = {"Content-Type": "application/json"}
+        api_key = os.environ.get("FASTVIDEO_API_KEY")
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+        return headers
+    
+    def _join(self, path: str) -> str:
+        """Join base URL with path."""
+        return f"{self.base_url}{path}"
+    
+    def _generate_via_api(
+        self,
+        model: str,
+        prompt: str,
+        n_seconds: int,
+        width: int,
+        height: int,
+        output_path: str,
+        timeout_s: int,
+        extra: t.Dict[str, t.Any],
+    ) -> t.Dict[str, t.Any]:
+        """Generate video via remote FastVideo API server."""
+        
+        # Prepare request body matching FastVideo API format
+        body = {
+            "prompt": prompt,
+            "num_frames": int(n_seconds * 16),  # Default 16 fps
+            "width": width,
+            "height": height,
+            "model_path": model or extra.get("model_path"),
+            "seed": extra.get("seed", 42),
+            "guidance_scale": extra.get("guidance_scale", 7.5),
+            "randomize_seed": extra.get("randomize_seed", False),
+            "return_frames": False,
+        }
+        
+        # Add optional parameters
+        if extra.get("negative_prompt"):
+            body["negative_prompt"] = extra["negative_prompt"]
+            body["use_negative_prompt"] = True
+        
+        if extra.get("num_frames"):
+            body["num_frames"] = int(extra["num_frames"])
+        
+        # Handle image input for I2V
+        if extra.get("image_path"):
+            with open(extra["image_path"], "rb") as f:
+                image_data = base64.b64encode(f.read()).decode("utf-8")
+                body["image_data"] = f"data:image/png;base64,{image_data}"
+        
+        # Make API request
+        url = self._join("/generate_video")
+        print(f"[DEBUG] FastVideo API request URL: {url}")
+        print(f"[DEBUG] FastVideo API request body: {json.dumps({k: v for k, v in body.items() if k != 'image_data'}, indent=2)}")
+        
+        r = requests.post(url, headers=self._headers(), json=body, timeout=timeout_s)
+        
+        if r.status_code != 200:
+            error_msg = r.text
+            print(f"[DEBUG] FastVideo API error response: {error_msg}")
+            r.raise_for_status()
+        
+        response = r.json()
+        
+        if not response.get("success"):
+            error_msg = response.get("error_message", "Unknown error")
+            raise RuntimeError(f"FastVideo API generation failed: {error_msg}")
+        
+        # Decode video from base64
+        video_data = response.get("video_data")
+        if not video_data:
+            raise RuntimeError("No video_data in FastVideo API response")
+        
+        # Remove data URL prefix if present
+        if video_data.startswith("data:video/"):
+            video_data = video_data.split(",", 1)[1]
+        
+        # Save video to file
+        video_bytes = base64.b64decode(video_data)
+        os.makedirs(os.path.dirname(output_path) if os.path.dirname(output_path) else ".", exist_ok=True)
+        with open(output_path, "wb") as f:
+            f.write(video_bytes)
+        
+        return {
+            "provider": "fastvideo",
+            "model": model,
+            "video_path": output_path,
+            "seed": response.get("seed", body.get("seed", 42)),
+            "generation_time": response.get("generation_time"),
+            "inference_time": response.get("inference_time"),
+            "raw": response,
+        }
+    
+    def _generate_via_local(
+        self,
+        model: str,
+        prompt: str,
+        n_seconds: int,
+        width: int,
+        height: int,
+        output_path: str,
+        timeout_s: int,
+        extra: t.Dict[str, t.Any],
+    ) -> t.Dict[str, t.Any]:
+        """Generate video via local FastVideo VideoGenerator."""
+        try:
+            from fastvideo import VideoGenerator
+        except ImportError:
+            raise RuntimeError(
+                "fastvideo package not installed. Install via: pip install fastvideo\n"
+                "Or set FASTVIDEO_API_BASE to use remote API server."
+            )
+        
+        # Get model path from model parameter or extra or environment
+        model_path = model or extra.get("model_path") or os.environ.get("FASTVIDEO_MODEL_PATH")
+        if not model_path:
+            raise RuntimeError(
+                "Model path required for FastVideo local inference. "
+                "Set model parameter, extra['model_path'], or FASTVIDEO_MODEL_PATH environment variable."
+            )
+        
+        # Set attention backend based on model type
+        # FastWan DMD models need VIDEO_SPARSE_ATTN
+        model_lower = model_path.lower()
+        if "fastwan" in model_lower or "fast-wan" in model_lower:
+            if "fullattn" in model_lower:
+                os.environ["FASTVIDEO_ATTENTION_BACKEND"] = "FLASH_ATTN"
+            else:
+                os.environ["FASTVIDEO_ATTENTION_BACKEND"] = "VIDEO_SPARSE_ATTN"
+        
+        # Initialize generator following example.py pattern
+        print(f"[DEBUG] FastVideo initializing local generator with model: {model_path}")
+        print(f"[DEBUG] FASTVIDEO_ATTENTION_BACKEND: {os.environ.get('FASTVIDEO_ATTENTION_BACKEND', 'not set')}")
+        
+        generator = VideoGenerator.from_pretrained(
+            model_path,
+            num_gpus=extra.get("num_gpus", 1),
+        )
+        
+        # Generate video following example.py pattern
+        print(f"[DEBUG] FastVideo generating video with prompt: {prompt[:100]}...")
+        
+        # Build kwargs for generate_video
+        gen_kwargs = {
+            "return_frames": False,
+            "output_path": output_path,
+            "save_video": True,
+        }
+        
+        # Add optional parameters if provided
+        if extra.get("seed") is not None:
+            gen_kwargs["seed"] = int(extra["seed"])
+        if extra.get("guidance_scale") is not None:
+            gen_kwargs["guidance_scale"] = float(extra["guidance_scale"])
+        if extra.get("num_inference_steps") is not None:
+            gen_kwargs["num_inference_steps"] = int(extra["num_inference_steps"])
+        if extra.get("negative_prompt"):
+            gen_kwargs["negative_prompt"] = extra["negative_prompt"]
+        if extra.get("num_frames"):
+            gen_kwargs["num_frames"] = int(extra["num_frames"])
+        else:
+            gen_kwargs["num_frames"] = int(n_seconds * 16)  # Default 16 fps
+        if extra.get("fps"):
+            gen_kwargs["fps"] = float(extra["fps"])
+        if extra.get("height"):
+            gen_kwargs["height"] = int(extra["height"])
+        else:
+            gen_kwargs["height"] = height
+        if extra.get("width"):
+            gen_kwargs["width"] = int(extra["width"])
+        else:
+            gen_kwargs["width"] = width
+        
+        result = generator.generate_video(prompt, **gen_kwargs)
+        
+        # Cleanup
+        generator.shutdown()
+        
+        # Extract generation time if available
+        generation_time = None
+        if isinstance(result, dict):
+            generation_time = result.get("generation_time")
+        
+        return {
+            "provider": "fastvideo",
+            "model": model_path,
+            "video_path": output_path,
+            "seed": gen_kwargs.get("seed", 42),
+            "generation_time": generation_time,
+            "raw": result if isinstance(result, dict) else {"result": "success"},
+        }
+    
+    def generate(
+        self,
+        model: str,
+        prompt: str,
+        n_seconds: int,
+        width: int,
+        height: int,
+        output_path: str,
+        timeout_s: int,
+        extra: t.Dict[str, t.Any],
+    ) -> t.Dict[str, t.Any]:
+        """Generate video using FastVideo (either local or remote API)."""
+        # Use remote API if base_url is set, otherwise use local inference
+        if self.base_url:
+            return self._generate_via_api(
+                model=model,
+                prompt=prompt,
+                n_seconds=n_seconds,
+                width=width,
+                height=height,
+                output_path=output_path,
+                timeout_s=timeout_s,
+                extra=extra or {},
+            )
+        else:
+            return self._generate_via_local(
+                model=model,
+                prompt=prompt,
+                n_seconds=n_seconds,
+                width=width,
+                height=height,
+                output_path=output_path,
+                timeout_s=timeout_s,
+                extra=extra or {},
+            )
