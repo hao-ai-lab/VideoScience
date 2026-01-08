@@ -1,0 +1,5708 @@
+{
+  "complete_prompt_stats": {
+    "coherence": {
+      "mean": 3.435244845360825,
+      "n": 3104,
+      "variance": 0.805989111800685
+    },
+    "dynamism": {
+      "mean": 2.69909793814433,
+      "n": 3104,
+      "variance": 1.3003407909206588
+    },
+    "expected_phenomenon": {
+      "mean": 1.8721005154639174,
+      "n": 3104,
+      "variance": 1.1228565596645748
+    },
+    "immutability": {
+      "mean": 3.2068298969072164,
+      "n": 3104,
+      "variance": 1.1367113136273177
+    },
+    "prompt_consistency": {
+      "mean": 2.6221005154639174,
+      "n": 3104,
+      "variance": 1.2548256218624476
+    }
+  },
+  "completeness": {
+    "count_complete": 160,
+    "count_incomplete": 70,
+    "ids_complete": [
+      "1",
+      "10",
+      "100",
+      "101",
+      "102",
+      "103",
+      "104",
+      "105",
+      "106",
+      "107",
+      "108",
+      "109",
+      "11",
+      "110",
+      "111",
+      "112",
+      "113",
+      "114",
+      "115",
+      "116",
+      "117",
+      "118",
+      "119",
+      "12",
+      "120",
+      "121",
+      "122",
+      "123",
+      "124",
+      "125",
+      "126",
+      "128",
+      "129",
+      "13",
+      "130",
+      "131",
+      "132",
+      "133",
+      "134",
+      "135",
+      "136",
+      "137",
+      "138",
+      "139",
+      "14",
+      "140",
+      "141",
+      "142",
+      "143",
+      "144",
+      "145",
+      "146",
+      "147",
+      "148",
+      "149",
+      "15",
+      "150",
+      "151",
+      "152",
+      "153",
+      "154",
+      "155",
+      "156",
+      "157",
+      "158",
+      "159",
+      "16",
+      "160",
+      "161",
+      "162",
+      "163",
+      "164",
+      "165",
+      "166",
+      "169",
+      "17",
+      "171",
+      "172",
+      "173",
+      "174",
+      "175",
+      "176",
+      "177",
+      "178",
+      "179",
+      "18",
+      "180",
+      "181",
+      "182",
+      "183",
+      "184",
+      "185",
+      "186",
+      "187",
+      "188",
+      "189",
+      "19",
+      "190",
+      "2",
+      "20",
+      "21",
+      "211",
+      "212",
+      "213",
+      "214",
+      "215",
+      "216",
+      "217",
+      "218",
+      "219",
+      "220",
+      "221",
+      "222",
+      "223",
+      "224",
+      "225",
+      "226",
+      "227",
+      "228",
+      "229",
+      "230",
+      "3",
+      "36",
+      "38",
+      "4",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "5",
+      "50",
+      "51",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "6",
+      "60",
+      "61",
+      "64",
+      "7",
+      "8",
+      "87",
+      "88",
+      "89",
+      "9",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99"
+    ],
+    "ids_incomplete": [
+      "127",
+      "167",
+      "168",
+      "170",
+      "191",
+      "192",
+      "193",
+      "194",
+      "195",
+      "196",
+      "197",
+      "198",
+      "199",
+      "200",
+      "201",
+      "202",
+      "203",
+      "204",
+      "205",
+      "206",
+      "207",
+      "208",
+      "209",
+      "210",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "37",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "52",
+      "53",
+      "62",
+      "63",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86"
+    ],
+    "per_id_fail_reasons": {
+      "127": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "167": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "168": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "170": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "191": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "192": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "193": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "194": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "195": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "196": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "197": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "198": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "199": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "200": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "201": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "202": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "203": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "204": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "205": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "206": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "207": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "208": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "209": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "210": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "22": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "23": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "24": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "25": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "26": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "27": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "28": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "29": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "30": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "31": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "32": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "33": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "34": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "35": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "37": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "39": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "40": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "41": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "42": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "43": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "52": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "53": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "62": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "63": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "65": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "66": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing category 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "67": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "68": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "69": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "70": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "71": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "72": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "73": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "74": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "75": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "76": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "77": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "78": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "79": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "80": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "81": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "82": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "83": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "84": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "85": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ],
+      "86": [
+        "missing category 'prompt_consistency'",
+        "missing category 'immutability'",
+        "missing model 'seed-dance' in 'expected_phenomenon'",
+        "missing model 'ray-2' in 'expected_phenomenon'",
+        "missing model 'sora-2' in 'expected_phenomenon'",
+        "missing model 'klingv2.5' in 'expected_phenomenon'",
+        "missing model 'hailuo2.3' in 'expected_phenomenon'",
+        "missing model 'veo3' in 'expected_phenomenon'",
+        "missing model 'wan2.5' in 'expected_phenomenon'",
+        "missing category 'dynamism'",
+        "missing category 'coherence'"
+      ]
+    }
+  },
+  "metadata": {
+    "categories": [
+      "prompt_consistency",
+      "immutability",
+      "expected_phenomenon",
+      "dynamism",
+      "coherence"
+    ],
+    "expected_models": [
+      "seed-dance",
+      "ray-2",
+      "sora-2",
+      "klingv2.5",
+      "hailuo2.3",
+      "veo3",
+      "wan2.5"
+    ],
+    "nonveo_min": 3,
+    "total_ids": 230,
+    "veo_min": 1,
+    "veo_model": "veo3"
+  },
+  "model_stats": {
+    "hailuo2.3": {
+      "coherence": {
+        "mean": 3.45625,
+        "n": 480,
+        "variance": 0.6786664926931106
+      },
+      "dynamism": {
+        "mean": 2.5708333333333333,
+        "n": 480,
+        "variance": 1.3937195546276966
+      },
+      "expected_phenomenon": {
+        "mean": 1.66875,
+        "n": 480,
+        "variance": 0.9652009394572024
+      },
+      "immutability": {
+        "mean": 3.158333333333333,
+        "n": 480,
+        "variance": 1.2274878218510785
+      },
+      "prompt_consistency": {
+        "mean": 2.3854166666666665,
+        "n": 480,
+        "variance": 1.2018745650661098
+      }
+    },
+    "klingv2.5": {
+      "coherence": {
+        "mean": 3.6041666666666665,
+        "n": 480,
+        "variance": 0.5235734168406402
+      },
+      "dynamism": {
+        "mean": 2.754166666666667,
+        "n": 480,
+        "variance": 1.129418928322895
+      },
+      "expected_phenomenon": {
+        "mean": 1.90625,
+        "n": 480,
+        "variance": 1.0705245302713988
+      },
+      "immutability": {
+        "mean": 3.3625,
+        "n": 480,
+        "variance": 0.8871085594989562
+      },
+      "prompt_consistency": {
+        "mean": 2.76875,
+        "n": 480,
+        "variance": 1.1176017745302713
+      }
+    },
+    "ray-2": {
+      "coherence": {
+        "mean": 2.925,
+        "n": 480,
+        "variance": 1.2720250521920666
+      },
+      "dynamism": {
+        "mean": 2.127083333333333,
+        "n": 480,
+        "variance": 1.1257785316631872
+      },
+      "expected_phenomenon": {
+        "mean": 1.2583333333333333,
+        "n": 480,
+        "variance": 0.3214335421016006
+      },
+      "immutability": {
+        "mean": 2.4375,
+        "n": 480,
+        "variance": 1.50339248434238
+      },
+      "prompt_consistency": {
+        "mean": 1.6458333333333333,
+        "n": 480,
+        "variance": 0.7260786360473208
+      }
+    },
+    "seed-dance": {
+      "coherence": {
+        "mean": 3.4625,
+        "n": 480,
+        "variance": 0.7125782881002087
+      },
+      "dynamism": {
+        "mean": 2.5166666666666666,
+        "n": 480,
+        "variance": 1.2773834377174669
+      },
+      "expected_phenomenon": {
+        "mean": 1.7791666666666666,
+        "n": 480,
+        "variance": 1.0701287404314543
+      },
+      "immutability": {
+        "mean": 3.1458333333333335,
+        "n": 480,
+        "variance": 1.1143876130828114
+      },
+      "prompt_consistency": {
+        "mean": 2.564583333333333,
+        "n": 480,
+        "variance": 1.0855906402226863
+      }
+    },
+    "sora-2": {
+      "coherence": {
+        "mean": 3.7125,
+        "n": 480,
+        "variance": 0.5017223382045929
+      },
+      "dynamism": {
+        "mean": 3.3333333333333335,
+        "n": 480,
+        "variance": 0.9241475295755046
+      },
+      "expected_phenomenon": {
+        "mean": 2.560416666666667,
+        "n": 480,
+        "variance": 1.2155488865692416
+      },
+      "immutability": {
+        "mean": 3.73125,
+        "n": 480,
+        "variance": 0.39317588726513575
+      },
+      "prompt_consistency": {
+        "mean": 3.3208333333333333,
+        "n": 480,
+        "variance": 0.8237821851078635
+      }
+    },
+    "veo3": {
+      "coherence": {
+        "mean": 3.424107142857143,
+        "n": 224,
+        "variance": 0.80138933376041
+      },
+      "dynamism": {
+        "mean": 2.830357142857143,
+        "n": 224,
+        "variance": 1.3074151185137732
+      },
+      "expected_phenomenon": {
+        "mean": 2.3526785714285716,
+        "n": 224,
+        "variance": 1.188961402946829
+      },
+      "immutability": {
+        "mean": 3.3035714285714284,
+        "n": 224,
+        "variance": 0.9657270980140935
+      },
+      "prompt_consistency": {
+        "mean": 3.0089285714285716,
+        "n": 224,
+        "variance": 1.0223414477898782
+      }
+    },
+    "wan2.5": {
+      "coherence": {
+        "mean": 3.45625,
+        "n": 480,
+        "variance": 0.7914013569937369
+      },
+      "dynamism": {
+        "mean": 2.83125,
+        "n": 480,
+        "variance": 1.15518006263048
+      },
+      "expected_phenomenon": {
+        "mean": 1.8354166666666667,
+        "n": 480,
+        "variance": 1.064713813500348
+      },
+      "immutability": {
+        "mean": 3.3604166666666666,
+        "n": 480,
+        "variance": 0.8614779053583855
+      },
+      "prompt_consistency": {
+        "mean": 2.8666666666666667,
+        "n": 480,
+        "variance": 1.0427279053583856
+      }
+    }
+  },
+  "per_complete_prompt_stats": {
+    "1": {
+      "coherence": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.28654970760233917
+      },
+      "dynamism": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 1.5614035087719298
+      },
+      "expected_phenomenon": {
+        "mean": 2.0,
+        "n": 19,
+        "variance": 1.2222222222222223
+      },
+      "immutability": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 1.8888888888888888
+      },
+      "prompt_consistency": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.5847953216374269
+      }
+    },
+    "10": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.5964912280701755
+      },
+      "expected_phenomenon": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 1.6198830409356726
+      },
+      "immutability": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.473684210526316
+      },
+      "prompt_consistency": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 1.4327485380116958
+      }
+    },
+    "100": {
+      "coherence": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 0.7309941520467835
+      },
+      "dynamism": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 1.0994152046783627
+      },
+      "expected_phenomenon": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 0.5906432748538012
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "prompt_consistency": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.43274853801169594
+      }
+    },
+    "101": {
+      "coherence": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.6959064327485379
+      },
+      "dynamism": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.9415204678362572
+      },
+      "expected_phenomenon": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "immutability": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.0526315789473684
+      },
+      "prompt_consistency": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.6549707602339181
+      }
+    },
+    "102": {
+      "coherence": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 1.6198830409356726
+      },
+      "dynamism": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "expected_phenomenon": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 0.7076023391812867
+      },
+      "immutability": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.0526315789473684
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 1.2748538011695905
+      }
+    },
+    "103": {
+      "coherence": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.6549707602339181
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.7309941520467835
+      },
+      "expected_phenomenon": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 0.5789473684210527
+      },
+      "immutability": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.1461988304093567
+      },
+      "prompt_consistency": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.9415204678362572
+      }
+    },
+    "104": {
+      "coherence": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 0.8713450292397661
+      },
+      "dynamism": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.0292397660818713
+      },
+      "expected_phenomenon": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "immutability": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 0.7309941520467835
+      },
+      "prompt_consistency": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.39766081871345027
+      }
+    },
+    "105": {
+      "coherence": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 1.3567251461988306
+      },
+      "dynamism": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.5789473684210527
+      },
+      "expected_phenomenon": {
+        "mean": 2.6315789473684212,
+        "n": 19,
+        "variance": 0.6900584795321637
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "prompt_consistency": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.6549707602339181
+      }
+    },
+    "106": {
+      "coherence": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 1.2865497076023393
+      },
+      "dynamism": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.719298245614035
+      },
+      "expected_phenomenon": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 0.9532163742690059
+      },
+      "immutability": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.9181286549707602
+      },
+      "prompt_consistency": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.8304093567251462
+      }
+    },
+    "107": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 1.590643274853801
+      },
+      "expected_phenomenon": {
+        "mean": 2.6315789473684212,
+        "n": 19,
+        "variance": 1.912280701754386
+      },
+      "immutability": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.21052631578947367
+      },
+      "prompt_consistency": {
+        "mean": 3.5789473684210527,
+        "n": 19,
+        "variance": 0.5906432748538012
+      }
+    },
+    "108": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.3625730994152048
+      },
+      "expected_phenomenon": {
+        "mean": 1.7894736842105263,
+        "n": 19,
+        "variance": 1.39766081871345
+      },
+      "immutability": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.39766081871345027
+      },
+      "prompt_consistency": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 0.672514619883041
+      }
+    },
+    "109": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.526315789473684,
+        "n": 19,
+        "variance": 0.8187134502923976
+      },
+      "expected_phenomenon": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "immutability": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263158
+      },
+      "prompt_consistency": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 0.7017543859649122
+      }
+    },
+    "11": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 1.7309941520467838
+      },
+      "expected_phenomenon": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.7076023391812867
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.7836257309941521
+      },
+      "prompt_consistency": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.9239766081871348
+      }
+    },
+    "110": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.526315789473684,
+        "n": 19,
+        "variance": 0.8187134502923976
+      },
+      "expected_phenomenon": {
+        "mean": 1.4210526315789473,
+        "n": 19,
+        "variance": 0.8128654970760234
+      },
+      "immutability": {
+        "mean": 3.5789473684210527,
+        "n": 19,
+        "variance": 1.0350877192982457
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.7192982456140351
+      }
+    },
+    "111": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "dynamism": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.912280701754386
+      },
+      "expected_phenomenon": {
+        "mean": 1.0526315789473684,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "immutability": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "prompt_consistency": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.6549707602339181
+      }
+    },
+    "112": {
+      "coherence": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.39766081871345027
+      },
+      "dynamism": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 1.1754385964912282
+      },
+      "expected_phenomenon": {
+        "mean": 1.0526315789473684,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "immutability": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.9415204678362572
+      }
+    },
+    "113": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.8421052631578948
+      },
+      "expected_phenomenon": {
+        "mean": 2.0526315789473686,
+        "n": 19,
+        "variance": 2.052631578947368
+      },
+      "immutability": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "prompt_consistency": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 0.7602339181286549
+      }
+    },
+    "114": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 1.3157894736842106
+      },
+      "expected_phenomenon": {
+        "mean": 1.631578947368421,
+        "n": 19,
+        "variance": 1.134502923976608
+      },
+      "immutability": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.6491228070175439
+      },
+      "prompt_consistency": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 1.543859649122807
+      }
+    },
+    "115": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "expected_phenomenon": {
+        "mean": 1.4210526315789473,
+        "n": 19,
+        "variance": 0.5906432748538012
+      },
+      "immutability": {
+        "mean": 3.5789473684210527,
+        "n": 19,
+        "variance": 1.0350877192982457
+      },
+      "prompt_consistency": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 1.2280701754385965
+      }
+    },
+    "116": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "dynamism": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.912280701754386
+      },
+      "expected_phenomenon": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 2.134502923976608
+      },
+      "immutability": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.09941520467836257
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 1.0526315789473684
+      }
+    },
+    "117": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 1.2280701754385965
+      },
+      "expected_phenomenon": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "immutability": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 0.8187134502923977
+      }
+    },
+    "118": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.7309941520467836
+      },
+      "expected_phenomenon": {
+        "mean": 1.2105263157894737,
+        "n": 19,
+        "variance": 0.17543859649122806
+      },
+      "immutability": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.21052631578947367
+      },
+      "prompt_consistency": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.3157894736842105
+      }
+    },
+    "119": {
+      "coherence": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.09941520467836257
+      },
+      "dynamism": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 1.0935672514619883
+      },
+      "expected_phenomenon": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 2.0935672514619883
+      },
+      "immutability": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "prompt_consistency": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.6900584795321637
+      }
+    },
+    "12": {
+      "coherence": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.21052631578947367
+      },
+      "dynamism": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.6491228070175439
+      },
+      "expected_phenomenon": {
+        "mean": 1.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "immutability": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 1.654970760233918
+      },
+      "prompt_consistency": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.6491228070175439
+      }
+    },
+    "120": {
+      "coherence": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.09941520467836257
+      },
+      "dynamism": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 1.0994152046783625
+      },
+      "expected_phenomenon": {
+        "mean": 2.0526315789473686,
+        "n": 19,
+        "variance": 1.830409356725146
+      },
+      "immutability": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 1.1637426900584795
+      }
+    },
+    "121": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 3.6315789473684212,
+        "n": 19,
+        "variance": 0.35672514619883045
+      },
+      "expected_phenomenon": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 1.2631578947368418
+      },
+      "immutability": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.4269005847953216
+      },
+      "prompt_consistency": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.28654970760233917
+      }
+    },
+    "122": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.8304093567251462
+      },
+      "expected_phenomenon": {
+        "mean": 1.5263157894736843,
+        "n": 19,
+        "variance": 0.9298245614035088
+      },
+      "immutability": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "prompt_consistency": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.0292397660818713
+      }
+    },
+    "123": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.6491228070175439
+      },
+      "expected_phenomenon": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "immutability": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.39766081871345027
+      },
+      "prompt_consistency": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 1.0994152046783625
+      }
+    },
+    "124": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.4502923976608187
+      },
+      "expected_phenomenon": {
+        "mean": 1.2105263157894737,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "immutability": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263158
+      },
+      "prompt_consistency": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 0.7602339181286549
+      }
+    },
+    "125": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "dynamism": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.7660818713450293
+      },
+      "expected_phenomenon": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 1.695906432748538
+      },
+      "immutability": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "prompt_consistency": {
+        "mean": 3.6315789473684212,
+        "n": 19,
+        "variance": 0.4678362573099415
+      }
+    },
+    "126": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 2.1052631578947367,
+        "n": 19,
+        "variance": 1.3216374269005846
+      },
+      "expected_phenomenon": {
+        "mean": 1.2105263157894737,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "immutability": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.21052631578947367
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 0.37426900584795325
+      }
+    },
+    "128": {
+      "coherence": {
+        "mean": 3.05,
+        "n": 20,
+        "variance": 0.6815789473684211
+      },
+      "dynamism": {
+        "mean": 2.45,
+        "n": 20,
+        "variance": 0.36578947368421055
+      },
+      "expected_phenomenon": {
+        "mean": 2.05,
+        "n": 20,
+        "variance": 0.5763157894736842
+      },
+      "immutability": {
+        "mean": 3.65,
+        "n": 20,
+        "variance": 0.8710526315789474
+      },
+      "prompt_consistency": {
+        "mean": 3.4,
+        "n": 20,
+        "variance": 0.8842105263157896
+      }
+    },
+    "129": {
+      "coherence": {
+        "mean": 3.2,
+        "n": 20,
+        "variance": 0.6947368421052631
+      },
+      "dynamism": {
+        "mean": 2.75,
+        "n": 20,
+        "variance": 1.25
+      },
+      "expected_phenomenon": {
+        "mean": 1.6,
+        "n": 20,
+        "variance": 0.46315789473684216
+      },
+      "immutability": {
+        "mean": 3.45,
+        "n": 20,
+        "variance": 0.5763157894736842
+      },
+      "prompt_consistency": {
+        "mean": 2.7,
+        "n": 20,
+        "variance": 0.9578947368421052
+      }
+    },
+    "13": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 2.0526315789473686,
+        "n": 19,
+        "variance": 1.3859649122807016
+      },
+      "expected_phenomenon": {
+        "mean": 1.368421052631579,
+        "n": 19,
+        "variance": 0.9122807017543862
+      },
+      "immutability": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.912280701754386
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.5964912280701755
+      }
+    },
+    "130": {
+      "coherence": {
+        "mean": 2.75,
+        "n": 20,
+        "variance": 1.25
+      },
+      "dynamism": {
+        "mean": 2.15,
+        "n": 20,
+        "variance": 0.6605263157894737
+      },
+      "expected_phenomenon": {
+        "mean": 1.05,
+        "n": 20,
+        "variance": 0.05
+      },
+      "immutability": {
+        "mean": 3.45,
+        "n": 20,
+        "variance": 1.3131578947368423
+      },
+      "prompt_consistency": {
+        "mean": 2.9,
+        "n": 20,
+        "variance": 0.5157894736842106
+      }
+    },
+    "131": {
+      "coherence": {
+        "mean": 3.2,
+        "n": 20,
+        "variance": 0.5894736842105263
+      },
+      "dynamism": {
+        "mean": 2.4,
+        "n": 20,
+        "variance": 0.7789473684210527
+      },
+      "expected_phenomenon": {
+        "mean": 1.45,
+        "n": 20,
+        "variance": 0.5763157894736842
+      },
+      "immutability": {
+        "mean": 2.9,
+        "n": 20,
+        "variance": 1.3578947368421053
+      },
+      "prompt_consistency": {
+        "mean": 2.5,
+        "n": 20,
+        "variance": 0.6842105263157895
+      }
+    },
+    "132": {
+      "coherence": {
+        "mean": 3.55,
+        "n": 20,
+        "variance": 0.36578947368421055
+      },
+      "dynamism": {
+        "mean": 2.5,
+        "n": 20,
+        "variance": 1.0
+      },
+      "expected_phenomenon": {
+        "mean": 1.0,
+        "n": 20,
+        "variance": 0.0
+      },
+      "immutability": {
+        "mean": 3.05,
+        "n": 20,
+        "variance": 1.2078947368421051
+      },
+      "prompt_consistency": {
+        "mean": 1.0,
+        "n": 20,
+        "variance": 0.0
+      }
+    },
+    "133": {
+      "coherence": {
+        "mean": 2.6,
+        "n": 20,
+        "variance": 0.35789473684210527
+      },
+      "dynamism": {
+        "mean": 2.05,
+        "n": 20,
+        "variance": 0.47105263157894733
+      },
+      "expected_phenomenon": {
+        "mean": 1.3,
+        "n": 20,
+        "variance": 0.431578947368421
+      },
+      "immutability": {
+        "mean": 2.55,
+        "n": 20,
+        "variance": 1.4184210526315788
+      },
+      "prompt_consistency": {
+        "mean": 2.35,
+        "n": 20,
+        "variance": 1.3973684210526316
+      }
+    },
+    "134": {
+      "coherence": {
+        "mean": 3.25,
+        "n": 20,
+        "variance": 0.618421052631579
+      },
+      "dynamism": {
+        "mean": 2.7,
+        "n": 20,
+        "variance": 1.063157894736842
+      },
+      "expected_phenomenon": {
+        "mean": 1.85,
+        "n": 20,
+        "variance": 1.0815789473684212
+      },
+      "immutability": {
+        "mean": 3.1,
+        "n": 20,
+        "variance": 1.1473684210526316
+      },
+      "prompt_consistency": {
+        "mean": 2.65,
+        "n": 20,
+        "variance": 1.5026315789473685
+      }
+    },
+    "135": {
+      "coherence": {
+        "mean": 2.95,
+        "n": 20,
+        "variance": 0.36578947368421055
+      },
+      "dynamism": {
+        "mean": 2.45,
+        "n": 20,
+        "variance": 0.7868421052631579
+      },
+      "expected_phenomenon": {
+        "mean": 1.35,
+        "n": 20,
+        "variance": 0.5552631578947369
+      },
+      "immutability": {
+        "mean": 3.35,
+        "n": 20,
+        "variance": 0.8710526315789474
+      },
+      "prompt_consistency": {
+        "mean": 2.15,
+        "n": 20,
+        "variance": 1.5026315789473685
+      }
+    },
+    "136": {
+      "coherence": {
+        "mean": 3.4,
+        "n": 20,
+        "variance": 0.46315789473684216
+      },
+      "dynamism": {
+        "mean": 2.75,
+        "n": 20,
+        "variance": 0.7236842105263158
+      },
+      "expected_phenomenon": {
+        "mean": 2.2,
+        "n": 20,
+        "variance": 1.7473684210526317
+      },
+      "immutability": {
+        "mean": 3.7,
+        "n": 20,
+        "variance": 0.6421052631578947
+      },
+      "prompt_consistency": {
+        "mean": 2.7,
+        "n": 20,
+        "variance": 1.8
+      }
+    },
+    "137": {
+      "coherence": {
+        "mean": 2.95,
+        "n": 20,
+        "variance": 0.7868421052631579
+      },
+      "dynamism": {
+        "mean": 2.4,
+        "n": 20,
+        "variance": 1.0947368421052632
+      },
+      "expected_phenomenon": {
+        "mean": 2.0,
+        "n": 20,
+        "variance": 1.894736842105263
+      },
+      "immutability": {
+        "mean": 2.55,
+        "n": 20,
+        "variance": 1.6289473684210527
+      },
+      "prompt_consistency": {
+        "mean": 2.3,
+        "n": 20,
+        "variance": 1.6947368421052633
+      }
+    },
+    "138": {
+      "coherence": {
+        "mean": 3.2,
+        "n": 20,
+        "variance": 0.7999999999999999
+      },
+      "dynamism": {
+        "mean": 2.1,
+        "n": 20,
+        "variance": 0.5157894736842106
+      },
+      "expected_phenomenon": {
+        "mean": 1.4,
+        "n": 20,
+        "variance": 0.25263157894736843
+      },
+      "immutability": {
+        "mean": 3.05,
+        "n": 20,
+        "variance": 1.1026315789473684
+      },
+      "prompt_consistency": {
+        "mean": 2.5,
+        "n": 20,
+        "variance": 0.5789473684210527
+      }
+    },
+    "139": {
+      "coherence": {
+        "mean": 3.5,
+        "n": 20,
+        "variance": 0.6842105263157895
+      },
+      "dynamism": {
+        "mean": 2.05,
+        "n": 20,
+        "variance": 0.6815789473684211
+      },
+      "expected_phenomenon": {
+        "mean": 3.3,
+        "n": 20,
+        "variance": 1.063157894736842
+      },
+      "immutability": {
+        "mean": 2.95,
+        "n": 20,
+        "variance": 1.1026315789473684
+      },
+      "prompt_consistency": {
+        "mean": 2.6,
+        "n": 20,
+        "variance": 0.6736842105263158
+      }
+    },
+    "14": {
+      "coherence": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.39766081871345027
+      },
+      "dynamism": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.4795321637426901
+      },
+      "expected_phenomenon": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 0.8187134502923976
+      },
+      "immutability": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.9532163742690059
+      },
+      "prompt_consistency": {
+        "mean": 2.0526315789473686,
+        "n": 19,
+        "variance": 0.9415204678362572
+      }
+    },
+    "140": {
+      "coherence": {
+        "mean": 2.9,
+        "n": 20,
+        "variance": 1.0421052631578949
+      },
+      "dynamism": {
+        "mean": 2.1,
+        "n": 20,
+        "variance": 0.7263157894736842
+      },
+      "expected_phenomenon": {
+        "mean": 2.55,
+        "n": 20,
+        "variance": 1.313157894736842
+      },
+      "immutability": {
+        "mean": 2.8,
+        "n": 20,
+        "variance": 1.2210526315789474
+      },
+      "prompt_consistency": {
+        "mean": 3.1,
+        "n": 20,
+        "variance": 0.9368421052631579
+      }
+    },
+    "141": {
+      "coherence": {
+        "mean": 3.25,
+        "n": 20,
+        "variance": 0.9342105263157895
+      },
+      "dynamism": {
+        "mean": 2.9,
+        "n": 20,
+        "variance": 1.2526315789473685
+      },
+      "expected_phenomenon": {
+        "mean": 1.3,
+        "n": 20,
+        "variance": 0.6421052631578948
+      },
+      "immutability": {
+        "mean": 3.3,
+        "n": 20,
+        "variance": 1.1684210526315788
+      },
+      "prompt_consistency": {
+        "mean": 2.45,
+        "n": 20,
+        "variance": 1.2078947368421051
+      }
+    },
+    "142": {
+      "coherence": {
+        "mean": 3.7,
+        "n": 20,
+        "variance": 0.3263157894736842
+      },
+      "dynamism": {
+        "mean": 2.7,
+        "n": 20,
+        "variance": 0.9578947368421052
+      },
+      "expected_phenomenon": {
+        "mean": 2.15,
+        "n": 20,
+        "variance": 1.3973684210526316
+      },
+      "immutability": {
+        "mean": 3.6,
+        "n": 20,
+        "variance": 0.46315789473684216
+      },
+      "prompt_consistency": {
+        "mean": 2.75,
+        "n": 20,
+        "variance": 0.618421052631579
+      }
+    },
+    "143": {
+      "coherence": {
+        "mean": 3.1,
+        "n": 20,
+        "variance": 0.831578947368421
+      },
+      "dynamism": {
+        "mean": 2.5,
+        "n": 20,
+        "variance": 1.2105263157894737
+      },
+      "expected_phenomenon": {
+        "mean": 1.05,
+        "n": 20,
+        "variance": 0.05
+      },
+      "immutability": {
+        "mean": 2.8,
+        "n": 20,
+        "variance": 1.5368421052631578
+      },
+      "prompt_consistency": {
+        "mean": 1.3,
+        "n": 20,
+        "variance": 0.5368421052631579
+      }
+    },
+    "144": {
+      "coherence": {
+        "mean": 2.7,
+        "n": 20,
+        "variance": 0.6421052631578947
+      },
+      "dynamism": {
+        "mean": 1.75,
+        "n": 20,
+        "variance": 0.618421052631579
+      },
+      "expected_phenomenon": {
+        "mean": 1.35,
+        "n": 20,
+        "variance": 0.3447368421052632
+      },
+      "immutability": {
+        "mean": 2.35,
+        "n": 20,
+        "variance": 1.6078947368421053
+      },
+      "prompt_consistency": {
+        "mean": 1.95,
+        "n": 20,
+        "variance": 0.8921052631578947
+      }
+    },
+    "145": {
+      "coherence": {
+        "mean": 2.9,
+        "n": 20,
+        "variance": 0.30526315789473685
+      },
+      "dynamism": {
+        "mean": 2.65,
+        "n": 20,
+        "variance": 0.8710526315789474
+      },
+      "expected_phenomenon": {
+        "mean": 1.6,
+        "n": 20,
+        "variance": 1.2
+      },
+      "immutability": {
+        "mean": 3.25,
+        "n": 20,
+        "variance": 0.9342105263157895
+      },
+      "prompt_consistency": {
+        "mean": 3.5,
+        "n": 20,
+        "variance": 0.6842105263157895
+      }
+    },
+    "146": {
+      "coherence": {
+        "mean": 2.05,
+        "n": 20,
+        "variance": 0.5763157894736842
+      },
+      "dynamism": {
+        "mean": 2.0,
+        "n": 20,
+        "variance": 0.8421052631578947
+      },
+      "expected_phenomenon": {
+        "mean": 1.7,
+        "n": 20,
+        "variance": 0.9578947368421052
+      },
+      "immutability": {
+        "mean": 2.7,
+        "n": 20,
+        "variance": 1.2736842105263158
+      },
+      "prompt_consistency": {
+        "mean": 1.85,
+        "n": 20,
+        "variance": 1.0815789473684212
+      }
+    },
+    "147": {
+      "coherence": {
+        "mean": 2.3,
+        "n": 20,
+        "variance": 0.8526315789473684
+      },
+      "dynamism": {
+        "mean": 2.2,
+        "n": 20,
+        "variance": 0.4842105263157894
+      },
+      "expected_phenomenon": {
+        "mean": 1.1,
+        "n": 20,
+        "variance": 0.2
+      },
+      "immutability": {
+        "mean": 2.65,
+        "n": 20,
+        "variance": 1.9236842105263157
+      },
+      "prompt_consistency": {
+        "mean": 1.4,
+        "n": 20,
+        "variance": 0.35789473684210527
+      }
+    },
+    "148": {
+      "coherence": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "dynamism": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 0.8011695906432749
+      },
+      "expected_phenomenon": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.2280701754385965
+      },
+      "immutability": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.7660818713450293
+      },
+      "prompt_consistency": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 1.0292397660818713
+      }
+    },
+    "149": {
+      "coherence": {
+        "mean": 3.6315789473684212,
+        "n": 19,
+        "variance": 0.4678362573099415
+      },
+      "dynamism": {
+        "mean": 3.5789473684210527,
+        "n": 19,
+        "variance": 0.368421052631579
+      },
+      "expected_phenomenon": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 0.5906432748538012
+      },
+      "immutability": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 1.0058479532163742
+      },
+      "prompt_consistency": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 1.473684210526316
+      }
+    },
+    "15": {
+      "coherence": {
+        "mean": 3.6315789473684212,
+        "n": 19,
+        "variance": 0.4678362573099415
+      },
+      "dynamism": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 1.2514619883040936
+      },
+      "expected_phenomenon": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "immutability": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 1.2046783625730995
+      },
+      "prompt_consistency": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 1.0350877192982457
+      }
+    },
+    "150": {
+      "coherence": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.5614035087719298
+      },
+      "dynamism": {
+        "mean": 2.0,
+        "n": 19,
+        "variance": 0.5555555555555556
+      },
+      "expected_phenomenon": {
+        "mean": 1.6842105263157894,
+        "n": 19,
+        "variance": 0.33918128654970764
+      },
+      "immutability": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.9883040935672516
+      },
+      "prompt_consistency": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 1.064327485380117
+      }
+    },
+    "151": {
+      "coherence": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "dynamism": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 0.8947368421052632
+      },
+      "expected_phenomenon": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 0.2631578947368421
+      },
+      "immutability": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 1.0058479532163742
+      },
+      "prompt_consistency": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 0.4795321637426901
+      }
+    },
+    "152": {
+      "coherence": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 1.0350877192982457
+      },
+      "dynamism": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.2573099415204678
+      },
+      "expected_phenomenon": {
+        "mean": 2.0,
+        "n": 19,
+        "variance": 1.1111111111111112
+      },
+      "immutability": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.2573099415204678
+      },
+      "prompt_consistency": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 0.912280701754386
+      }
+    },
+    "153": {
+      "coherence": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.9239766081871348
+      },
+      "dynamism": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.3157894736842106
+      },
+      "expected_phenomenon": {
+        "mean": 1.631578947368421,
+        "n": 19,
+        "variance": 0.8011695906432749
+      },
+      "immutability": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 1.2631578947368423
+      },
+      "prompt_consistency": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.3391812865497076
+      }
+    },
+    "154": {
+      "coherence": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 1.2280701754385965
+      },
+      "dynamism": {
+        "mean": 1.9473684210526316,
+        "n": 19,
+        "variance": 1.0526315789473684
+      },
+      "expected_phenomenon": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.2280701754385965
+      },
+      "immutability": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 1.7017543859649122
+      },
+      "prompt_consistency": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.3157894736842106
+      }
+    },
+    "155": {
+      "coherence": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 1.0994152046783627
+      },
+      "dynamism": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 0.5380116959064327
+      },
+      "expected_phenomenon": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 0.5380116959064327
+      },
+      "immutability": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 1.023391812865497
+      },
+      "prompt_consistency": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 1.0292397660818713
+      }
+    },
+    "156": {
+      "coherence": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 0.9532163742690059
+      },
+      "dynamism": {
+        "mean": 1.6842105263157894,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "expected_phenomenon": {
+        "mean": 1.263157894736842,
+        "n": 19,
+        "variance": 0.4269005847953216
+      },
+      "immutability": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 1.2514619883040936
+      },
+      "prompt_consistency": {
+        "mean": 1.263157894736842,
+        "n": 19,
+        "variance": 0.20467836257309943
+      }
+    },
+    "157": {
+      "coherence": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 1.04093567251462
+      },
+      "dynamism": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 0.9181286549707602
+      },
+      "expected_phenomenon": {
+        "mean": 1.2105263157894737,
+        "n": 19,
+        "variance": 0.17543859649122806
+      },
+      "immutability": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 1.0994152046783627
+      },
+      "prompt_consistency": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 0.2631578947368421
+      }
+    },
+    "158": {
+      "coherence": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 1.0350877192982457
+      },
+      "dynamism": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "expected_phenomenon": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.3157894736842106
+      },
+      "immutability": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.6081871345029239
+      },
+      "prompt_consistency": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 0.8011695906432749
+      }
+    },
+    "159": {
+      "coherence": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 0.5847953216374269
+      },
+      "dynamism": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 0.4736842105263157
+      },
+      "expected_phenomenon": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 0.7017543859649122
+      },
+      "immutability": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.0350877192982457
+      },
+      "prompt_consistency": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.2573099415204678
+      }
+    },
+    "16": {
+      "coherence": {
+        "mean": 3.5789473684210527,
+        "n": 19,
+        "variance": 0.7017543859649122
+      },
+      "dynamism": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.8947368421052632
+      },
+      "expected_phenomenon": {
+        "mean": 1.2105263157894737,
+        "n": 19,
+        "variance": 0.28654970760233917
+      },
+      "immutability": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 1.04093567251462
+      },
+      "prompt_consistency": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 0.7602339181286549
+      }
+    },
+    "160": {
+      "coherence": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.2280701754385965
+      },
+      "dynamism": {
+        "mean": 1.368421052631579,
+        "n": 19,
+        "variance": 0.2456140350877193
+      },
+      "expected_phenomenon": {
+        "mean": 1.263157894736842,
+        "n": 19,
+        "variance": 0.20467836257309943
+      },
+      "immutability": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.2631578947368423
+      },
+      "prompt_consistency": {
+        "mean": 1.368421052631579,
+        "n": 19,
+        "variance": 0.2456140350877193
+      }
+    },
+    "161": {
+      "coherence": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 1.2514619883040936
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "expected_phenomenon": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 0.4795321637426901
+      },
+      "immutability": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "prompt_consistency": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263157
+      }
+    },
+    "162": {
+      "coherence": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "dynamism": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 0.2222222222222222
+      },
+      "expected_phenomenon": {
+        "mean": 2.0,
+        "n": 19,
+        "variance": 1.1111111111111112
+      },
+      "immutability": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.5847953216374269
+      },
+      "prompt_consistency": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 0.7017543859649122
+      }
+    },
+    "163": {
+      "coherence": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.1169590643274854
+      },
+      "dynamism": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 0.9824561403508772
+      },
+      "expected_phenomenon": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 1.0292397660818713
+      },
+      "immutability": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 1.023391812865497
+      },
+      "prompt_consistency": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 0.7076023391812867
+      }
+    },
+    "164": {
+      "coherence": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.8304093567251462
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.6198830409356726
+      },
+      "expected_phenomenon": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 0.5380116959064327
+      },
+      "immutability": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 0.5555555555555556
+      },
+      "prompt_consistency": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.4795321637426901
+      }
+    },
+    "165": {
+      "coherence": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 1.0935672514619883
+      },
+      "dynamism": {
+        "mean": 1.631578947368421,
+        "n": 19,
+        "variance": 1.0233918128654969
+      },
+      "expected_phenomenon": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 0.7017543859649122
+      },
+      "immutability": {
+        "mean": 1.894736842105263,
+        "n": 19,
+        "variance": 1.3216374269005848
+      },
+      "prompt_consistency": {
+        "mean": 1.894736842105263,
+        "n": 19,
+        "variance": 0.7660818713450293
+      }
+    },
+    "166": {
+      "coherence": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.1637426900584795
+      },
+      "dynamism": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 1.3742690058479534
+      },
+      "expected_phenomenon": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 0.7076023391812866
+      },
+      "immutability": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.2573099415204678
+      },
+      "prompt_consistency": {
+        "mean": 2.1052631578947367,
+        "n": 19,
+        "variance": 1.4327485380116958
+      }
+    },
+    "169": {
+      "coherence": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.3859649122807016
+      },
+      "dynamism": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 0.7777777777777778
+      },
+      "expected_phenomenon": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 0.8011695906432749
+      },
+      "immutability": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 1.064327485380117
+      },
+      "prompt_consistency": {
+        "mean": 3.526315789473684,
+        "n": 19,
+        "variance": 0.5964912280701754
+      }
+    },
+    "17": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 1.894736842105263,
+        "n": 19,
+        "variance": 1.432748538011696
+      },
+      "expected_phenomenon": {
+        "mean": 1.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "immutability": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 2.052631578947368
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.5964912280701755
+      }
+    },
+    "171": {
+      "coherence": {
+        "mean": 3.761904761904762,
+        "n": 21,
+        "variance": 0.3904761904761905
+      },
+      "dynamism": {
+        "mean": 3.5714285714285716,
+        "n": 21,
+        "variance": 0.6571428571428573
+      },
+      "expected_phenomenon": {
+        "mean": 2.5714285714285716,
+        "n": 21,
+        "variance": 1.6571428571428573
+      },
+      "immutability": {
+        "mean": 3.5238095238095237,
+        "n": 21,
+        "variance": 0.9619047619047618
+      },
+      "prompt_consistency": {
+        "mean": 2.9523809523809526,
+        "n": 21,
+        "variance": 0.9476190476190476
+      }
+    },
+    "172": {
+      "coherence": {
+        "mean": 3.4761904761904763,
+        "n": 21,
+        "variance": 0.5619047619047619
+      },
+      "dynamism": {
+        "mean": 3.4285714285714284,
+        "n": 21,
+        "variance": 0.5571428571428572
+      },
+      "expected_phenomenon": {
+        "mean": 1.8571428571428572,
+        "n": 21,
+        "variance": 0.1285714285714286
+      },
+      "immutability": {
+        "mean": 3.142857142857143,
+        "n": 21,
+        "variance": 0.7285714285714285
+      },
+      "prompt_consistency": {
+        "mean": 2.761904761904762,
+        "n": 21,
+        "variance": 0.6904761904761905
+      }
+    },
+    "173": {
+      "coherence": {
+        "mean": 2.761904761904762,
+        "n": 21,
+        "variance": 1.4904761904761905
+      },
+      "dynamism": {
+        "mean": 2.4761904761904763,
+        "n": 21,
+        "variance": 1.7619047619047616
+      },
+      "expected_phenomenon": {
+        "mean": 1.1428571428571428,
+        "n": 21,
+        "variance": 0.22857142857142856
+      },
+      "immutability": {
+        "mean": 2.857142857142857,
+        "n": 21,
+        "variance": 1.3285714285714285
+      },
+      "prompt_consistency": {
+        "mean": 1.1904761904761905,
+        "n": 21,
+        "variance": 0.4619047619047619
+      }
+    },
+    "174": {
+      "coherence": {
+        "mean": 3.8095238095238093,
+        "n": 21,
+        "variance": 1.061904761904762
+      },
+      "dynamism": {
+        "mean": 3.761904761904762,
+        "n": 21,
+        "variance": 0.8904761904761905
+      },
+      "expected_phenomenon": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 1.3285714285714285
+      },
+      "immutability": {
+        "mean": 3.7142857142857144,
+        "n": 21,
+        "variance": 0.8142857142857143
+      },
+      "prompt_consistency": {
+        "mean": 3.9047619047619047,
+        "n": 21,
+        "variance": 1.6904761904761905
+      }
+    },
+    "175": {
+      "coherence": {
+        "mean": 3.761904761904762,
+        "n": 21,
+        "variance": 0.3904761904761905
+      },
+      "dynamism": {
+        "mean": 1.619047619047619,
+        "n": 21,
+        "variance": 1.0476190476190477
+      },
+      "expected_phenomenon": {
+        "mean": 1.380952380952381,
+        "n": 21,
+        "variance": 0.5476190476190477
+      },
+      "immutability": {
+        "mean": 3.4285714285714284,
+        "n": 21,
+        "variance": 1.157142857142857
+      },
+      "prompt_consistency": {
+        "mean": 2.1904761904761907,
+        "n": 21,
+        "variance": 0.761904761904762
+      }
+    },
+    "176": {
+      "coherence": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 0.8285714285714285
+      },
+      "dynamism": {
+        "mean": 3.8095238095238093,
+        "n": 21,
+        "variance": 0.6619047619047619
+      },
+      "expected_phenomenon": {
+        "mean": 3.9047619047619047,
+        "n": 21,
+        "variance": 1.0904761904761906
+      },
+      "immutability": {
+        "mean": 3.761904761904762,
+        "n": 21,
+        "variance": 0.5904761904761905
+      },
+      "prompt_consistency": {
+        "mean": 3.9523809523809526,
+        "n": 21,
+        "variance": 1.4476190476190476
+      }
+    },
+    "177": {
+      "coherence": {
+        "mean": 3.380952380952381,
+        "n": 21,
+        "variance": 1.1476190476190475
+      },
+      "dynamism": {
+        "mean": 2.619047619047619,
+        "n": 21,
+        "variance": 1.7476190476190474
+      },
+      "expected_phenomenon": {
+        "mean": 1.5238095238095237,
+        "n": 21,
+        "variance": 0.7619047619047619
+      },
+      "immutability": {
+        "mean": 3.142857142857143,
+        "n": 21,
+        "variance": 1.2285714285714286
+      },
+      "prompt_consistency": {
+        "mean": 1.2380952380952381,
+        "n": 21,
+        "variance": 0.19047619047619047
+      }
+    },
+    "178": {
+      "coherence": {
+        "mean": 3.0476190476190474,
+        "n": 21,
+        "variance": 1.6476190476190478
+      },
+      "dynamism": {
+        "mean": 1.5238095238095237,
+        "n": 21,
+        "variance": 0.7619047619047619
+      },
+      "expected_phenomenon": {
+        "mean": 1.6666666666666667,
+        "n": 21,
+        "variance": 0.9333333333333332
+      },
+      "immutability": {
+        "mean": 2.5238095238095237,
+        "n": 21,
+        "variance": 1.8619047619047617
+      },
+      "prompt_consistency": {
+        "mean": 1.7142857142857142,
+        "n": 21,
+        "variance": 1.1142857142857143
+      }
+    },
+    "179": {
+      "coherence": {
+        "mean": 3.619047619047619,
+        "n": 21,
+        "variance": 0.8476190476190476
+      },
+      "dynamism": {
+        "mean": 1.619047619047619,
+        "n": 21,
+        "variance": 0.9476190476190476
+      },
+      "expected_phenomenon": {
+        "mean": 1.9047619047619047,
+        "n": 21,
+        "variance": 0.8904761904761905
+      },
+      "immutability": {
+        "mean": 2.7142857142857144,
+        "n": 21,
+        "variance": 1.7142857142857142
+      },
+      "prompt_consistency": {
+        "mean": 1.9523809523809523,
+        "n": 21,
+        "variance": 0.7476190476190476
+      }
+    },
+    "18": {
+      "coherence": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.5380116959064327
+      },
+      "dynamism": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 1.5964912280701755
+      },
+      "expected_phenomenon": {
+        "mean": 1.7894736842105263,
+        "n": 19,
+        "variance": 0.7309941520467836
+      },
+      "immutability": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.8187134502923976
+      },
+      "prompt_consistency": {
+        "mean": 2.6315789473684212,
+        "n": 19,
+        "variance": 1.8011695906432748
+      }
+    },
+    "180": {
+      "coherence": {
+        "mean": 3.761904761904762,
+        "n": 21,
+        "variance": 0.4904761904761905
+      },
+      "dynamism": {
+        "mean": 1.8571428571428572,
+        "n": 21,
+        "variance": 0.8285714285714286
+      },
+      "expected_phenomenon": {
+        "mean": 1.6666666666666667,
+        "n": 21,
+        "variance": 0.5333333333333333
+      },
+      "immutability": {
+        "mean": 3.5238095238095237,
+        "n": 21,
+        "variance": 0.7619047619047619
+      },
+      "prompt_consistency": {
+        "mean": 2.1904761904761907,
+        "n": 21,
+        "variance": 0.661904761904762
+      }
+    },
+    "181": {
+      "coherence": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 0.22857142857142856
+      },
+      "dynamism": {
+        "mean": 3.0,
+        "n": 21,
+        "variance": 1.0
+      },
+      "expected_phenomenon": {
+        "mean": 2.4285714285714284,
+        "n": 21,
+        "variance": 0.35714285714285715
+      },
+      "immutability": {
+        "mean": 3.9047619047619047,
+        "n": 21,
+        "variance": 0.1904761904761905
+      },
+      "prompt_consistency": {
+        "mean": 2.1904761904761907,
+        "n": 21,
+        "variance": 0.5619047619047619
+      }
+    },
+    "182": {
+      "coherence": {
+        "mean": 3.9523809523809526,
+        "n": 21,
+        "variance": 0.047619047619047616
+      },
+      "dynamism": {
+        "mean": 1.619047619047619,
+        "n": 21,
+        "variance": 0.9476190476190476
+      },
+      "expected_phenomenon": {
+        "mean": 1.7619047619047619,
+        "n": 21,
+        "variance": 1.4904761904761905
+      },
+      "immutability": {
+        "mean": 3.0952380952380953,
+        "n": 21,
+        "variance": 1.6904761904761905
+      },
+      "prompt_consistency": {
+        "mean": 2.380952380952381,
+        "n": 21,
+        "variance": 1.6476190476190475
+      }
+    },
+    "183": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 21,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 2.1904761904761907,
+        "n": 21,
+        "variance": 1.661904761904762
+      },
+      "expected_phenomenon": {
+        "mean": 1.8095238095238095,
+        "n": 21,
+        "variance": 0.5619047619047619
+      },
+      "immutability": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 0.22857142857142856
+      },
+      "prompt_consistency": {
+        "mean": 2.7142857142857144,
+        "n": 21,
+        "variance": 1.4142857142857141
+      }
+    },
+    "184": {
+      "coherence": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 0.22857142857142856
+      },
+      "dynamism": {
+        "mean": 2.7142857142857144,
+        "n": 21,
+        "variance": 1.1142857142857143
+      },
+      "expected_phenomenon": {
+        "mean": 2.2857142857142856,
+        "n": 21,
+        "variance": 0.6142857142857143
+      },
+      "immutability": {
+        "mean": 2.9523809523809526,
+        "n": 21,
+        "variance": 1.0476190476190477
+      },
+      "prompt_consistency": {
+        "mean": 3.238095238095238,
+        "n": 21,
+        "variance": 1.2904761904761906
+      }
+    },
+    "185": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 21,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 1.9523809523809523,
+        "n": 21,
+        "variance": 1.5476190476190474
+      },
+      "expected_phenomenon": {
+        "mean": 1.5238095238095237,
+        "n": 21,
+        "variance": 0.6619047619047619
+      },
+      "immutability": {
+        "mean": 3.7142857142857144,
+        "n": 21,
+        "variance": 0.5142857142857143
+      },
+      "prompt_consistency": {
+        "mean": 2.619047619047619,
+        "n": 21,
+        "variance": 1.3476190476190477
+      }
+    },
+    "186": {
+      "coherence": {
+        "mean": 3.8095238095238093,
+        "n": 21,
+        "variance": 0.2619047619047619
+      },
+      "dynamism": {
+        "mean": 3.142857142857143,
+        "n": 21,
+        "variance": 1.1285714285714286
+      },
+      "expected_phenomenon": {
+        "mean": 2.4285714285714284,
+        "n": 21,
+        "variance": 1.0571428571428572
+      },
+      "immutability": {
+        "mean": 3.761904761904762,
+        "n": 21,
+        "variance": 0.4904761904761905
+      },
+      "prompt_consistency": {
+        "mean": 2.7142857142857144,
+        "n": 21,
+        "variance": 1.0142857142857142
+      }
+    },
+    "187": {
+      "coherence": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 0.1285714285714286
+      },
+      "dynamism": {
+        "mean": 3.1904761904761907,
+        "n": 21,
+        "variance": 1.2619047619047619
+      },
+      "expected_phenomenon": {
+        "mean": 2.0476190476190474,
+        "n": 21,
+        "variance": 0.3476190476190476
+      },
+      "immutability": {
+        "mean": 3.619047619047619,
+        "n": 21,
+        "variance": 0.7476190476190476
+      },
+      "prompt_consistency": {
+        "mean": 2.5714285714285716,
+        "n": 21,
+        "variance": 1.157142857142857
+      }
+    },
+    "188": {
+      "coherence": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 0.42857142857142855
+      },
+      "dynamism": {
+        "mean": 2.6666666666666665,
+        "n": 21,
+        "variance": 1.7333333333333332
+      },
+      "expected_phenomenon": {
+        "mean": 1.6666666666666667,
+        "n": 21,
+        "variance": 0.7333333333333333
+      },
+      "immutability": {
+        "mean": 3.8095238095238093,
+        "n": 21,
+        "variance": 0.4619047619047619
+      },
+      "prompt_consistency": {
+        "mean": 2.238095238095238,
+        "n": 21,
+        "variance": 0.7904761904761904
+      }
+    },
+    "189": {
+      "coherence": {
+        "mean": 3.857142857142857,
+        "n": 21,
+        "variance": 0.42857142857142855
+      },
+      "dynamism": {
+        "mean": 2.6666666666666665,
+        "n": 21,
+        "variance": 1.7333333333333332
+      },
+      "expected_phenomenon": {
+        "mean": 1.6666666666666667,
+        "n": 21,
+        "variance": 0.7333333333333333
+      },
+      "immutability": {
+        "mean": 3.8095238095238093,
+        "n": 21,
+        "variance": 0.4619047619047619
+      },
+      "prompt_consistency": {
+        "mean": 2.238095238095238,
+        "n": 21,
+        "variance": 0.7904761904761904
+      }
+    },
+    "19": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.4269005847953218
+      },
+      "expected_phenomenon": {
+        "mean": 1.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "immutability": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 1.1345029239766082
+      },
+      "prompt_consistency": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 1.2456140350877194
+      }
+    },
+    "190": {
+      "coherence": {
+        "mean": 1.380952380952381,
+        "n": 21,
+        "variance": 0.44761904761904764
+      },
+      "dynamism": {
+        "mean": 3.9047619047619047,
+        "n": 21,
+        "variance": 0.09047619047619047
+      },
+      "expected_phenomenon": {
+        "mean": 1.9523809523809523,
+        "n": 21,
+        "variance": 1.1476190476190475
+      },
+      "immutability": {
+        "mean": 2.619047619047619,
+        "n": 21,
+        "variance": 1.4476190476190476
+      },
+      "prompt_consistency": {
+        "mean": 1.9523809523809523,
+        "n": 21,
+        "variance": 1.1476190476190475
+      }
+    },
+    "2": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.14035087719298245
+      },
+      "dynamism": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 0.9239766081871346
+      },
+      "expected_phenomenon": {
+        "mean": 1.2105263157894737,
+        "n": 19,
+        "variance": 0.28654970760233917
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.8947368421052633
+      },
+      "prompt_consistency": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 1.0292397660818713
+      }
+    },
+    "20": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 1.6842105263157894,
+        "n": 19,
+        "variance": 1.5614035087719298
+      },
+      "expected_phenomenon": {
+        "mean": 1.263157894736842,
+        "n": 19,
+        "variance": 0.3157894736842105
+      },
+      "immutability": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.9239766081871348
+      },
+      "prompt_consistency": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 1.5847953216374269
+      }
+    },
+    "21": {
+      "coherence": {
+        "mean": 3.7,
+        "n": 20,
+        "variance": 0.5368421052631579
+      },
+      "dynamism": {
+        "mean": 2.95,
+        "n": 20,
+        "variance": 1.4184210526315788
+      },
+      "expected_phenomenon": {
+        "mean": 1.6,
+        "n": 20,
+        "variance": 1.0947368421052632
+      },
+      "immutability": {
+        "mean": 3.55,
+        "n": 20,
+        "variance": 0.6815789473684211
+      },
+      "prompt_consistency": {
+        "mean": 3.25,
+        "n": 20,
+        "variance": 1.25
+      }
+    },
+    "211": {
+      "coherence": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "dynamism": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 0.4853801169590643
+      },
+      "expected_phenomenon": {
+        "mean": 2.6315789473684212,
+        "n": 19,
+        "variance": 0.6900584795321637
+      },
+      "immutability": {
+        "mean": 3.6315789473684212,
+        "n": 19,
+        "variance": 0.35672514619883045
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.7192982456140351
+      }
+    },
+    "212": {
+      "coherence": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 0.7017543859649122
+      },
+      "dynamism": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "expected_phenomenon": {
+        "mean": 2.1052631578947367,
+        "n": 19,
+        "variance": 0.43274853801169594
+      },
+      "immutability": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.4678362573099415
+      },
+      "prompt_consistency": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 0.39766081871345027
+      }
+    },
+    "213": {
+      "coherence": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.7660818713450293
+      },
+      "dynamism": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.6081871345029239
+      },
+      "expected_phenomenon": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 1.3216374269005846
+      },
+      "immutability": {
+        "mean": 3.526315789473684,
+        "n": 19,
+        "variance": 0.2631578947368421
+      },
+      "prompt_consistency": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.9883040935672516
+      }
+    },
+    "214": {
+      "coherence": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 0.6491228070175439
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.7309941520467836
+      },
+      "expected_phenomenon": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 1.1403508771929824
+      },
+      "immutability": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.09941520467836257
+      },
+      "prompt_consistency": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.8771929824561403
+      }
+    },
+    "215": {
+      "coherence": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.7192982456140351
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "expected_phenomenon": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 0.7602339181286549
+      },
+      "immutability": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 0.37426900584795325
+      },
+      "prompt_consistency": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 0.8421052631578947
+      }
+    },
+    "216": {
+      "coherence": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 0.6959064327485379
+      },
+      "dynamism": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.7660818713450293
+      },
+      "expected_phenomenon": {
+        "mean": 1.894736842105263,
+        "n": 19,
+        "variance": 0.32163742690058483
+      },
+      "immutability": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.8421052631578947
+      },
+      "prompt_consistency": {
+        "mean": 1.9473684210526316,
+        "n": 19,
+        "variance": 0.3859649122807018
+      }
+    },
+    "217": {
+      "coherence": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.7192982456140351
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "expected_phenomenon": {
+        "mean": 1.7894736842105263,
+        "n": 19,
+        "variance": 0.8421052631578947
+      },
+      "immutability": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.20467836257309943
+      },
+      "prompt_consistency": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 0.7076023391812867
+      }
+    },
+    "218": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.09941520467836257
+      },
+      "expected_phenomenon": {
+        "mean": 3.526315789473684,
+        "n": 19,
+        "variance": 1.04093567251462
+      },
+      "immutability": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "prompt_consistency": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 1.04093567251462
+      }
+    },
+    "219": {
+      "coherence": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.7309941520467836
+      },
+      "dynamism": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 0.4853801169590643
+      },
+      "expected_phenomenon": {
+        "mean": 2.0,
+        "n": 19,
+        "variance": 0.5555555555555556
+      },
+      "immutability": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 0.4853801169590643
+      },
+      "prompt_consistency": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 0.8713450292397661
+      }
+    },
+    "220": {
+      "coherence": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.6198830409356726
+      },
+      "dynamism": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.7017543859649122
+      },
+      "expected_phenomenon": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.2046783625730995
+      },
+      "immutability": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.20467836257309943
+      },
+      "prompt_consistency": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.1169590643274854
+      }
+    },
+    "221": {
+      "coherence": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.5614035087719298
+      },
+      "dynamism": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.5906432748538012
+      },
+      "expected_phenomenon": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.2573099415204678
+      },
+      "immutability": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 1.1637426900584795
+      }
+    },
+    "222": {
+      "coherence": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.9181286549707602
+      },
+      "dynamism": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "expected_phenomenon": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 1.1403508771929824
+      },
+      "immutability": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.2280701754385965
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.9415204678362572
+      }
+    },
+    "223": {
+      "coherence": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.6959064327485379
+      },
+      "dynamism": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 0.6666666666666666
+      },
+      "expected_phenomenon": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 0.9239766081871346
+      },
+      "immutability": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.2280701754385965
+      },
+      "prompt_consistency": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 0.8421052631578947
+      }
+    },
+    "224": {
+      "coherence": {
+        "mean": 3.6315789473684212,
+        "n": 19,
+        "variance": 0.35672514619883045
+      },
+      "dynamism": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.14035087719298245
+      },
+      "expected_phenomenon": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 1.2280701754385965
+      },
+      "immutability": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "prompt_consistency": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 1.1169590643274854
+      }
+    },
+    "225": {
+      "coherence": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.8421052631578947
+      },
+      "dynamism": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.801169590643275
+      },
+      "expected_phenomenon": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 0.912280701754386
+      },
+      "immutability": {
+        "mean": 3.526315789473684,
+        "n": 19,
+        "variance": 0.5964912280701754
+      },
+      "prompt_consistency": {
+        "mean": 2.736842105263158,
+        "n": 19,
+        "variance": 0.7602339181286549
+      }
+    },
+    "226": {
+      "coherence": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.8947368421052632
+      },
+      "dynamism": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.5789473684210527
+      },
+      "expected_phenomenon": {
+        "mean": 1.894736842105263,
+        "n": 19,
+        "variance": 0.8771929824561404
+      },
+      "immutability": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.3157894736842105
+      },
+      "prompt_consistency": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 0.9181286549707602
+      }
+    },
+    "227": {
+      "coherence": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 0.5906432748538012
+      },
+      "dynamism": {
+        "mean": 2.736842105263158,
+        "n": 19,
+        "variance": 0.6491228070175439
+      },
+      "expected_phenomenon": {
+        "mean": 1.631578947368421,
+        "n": 19,
+        "variance": 0.6900584795321637
+      },
+      "immutability": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.4795321637426901
+      },
+      "prompt_consistency": {
+        "mean": 2.0526315789473686,
+        "n": 19,
+        "variance": 0.8304093567251463
+      }
+    },
+    "228": {
+      "coherence": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.4970760233918129
+      },
+      "dynamism": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 0.4502923976608187
+      },
+      "expected_phenomenon": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 1.023391812865497
+      },
+      "immutability": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.4502923976608187
+      },
+      "prompt_consistency": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 0.783625730994152
+      }
+    },
+    "229": {
+      "coherence": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 0.5380116959064327
+      },
+      "dynamism": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.368421052631579
+      },
+      "expected_phenomenon": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.2046783625730995
+      },
+      "immutability": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.14035087719298245
+      },
+      "prompt_consistency": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 1.0350877192982457
+      }
+    },
+    "230": {
+      "coherence": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.6900584795321637
+      },
+      "dynamism": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 0.7076023391812866
+      },
+      "expected_phenomenon": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.4502923976608186
+      },
+      "immutability": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.3391812865497076
+      },
+      "prompt_consistency": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 1.064327485380117
+      }
+    },
+    "3": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.8947368421052633
+      },
+      "expected_phenomenon": {
+        "mean": 1.4210526315789473,
+        "n": 19,
+        "variance": 0.4795321637426901
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.672514619883041
+      },
+      "prompt_consistency": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 1.4853801169590646
+      }
+    },
+    "36": {
+      "coherence": {
+        "mean": 3.75,
+        "n": 20,
+        "variance": 0.3026315789473684
+      },
+      "dynamism": {
+        "mean": 2.6,
+        "n": 20,
+        "variance": 1.4105263157894736
+      },
+      "expected_phenomenon": {
+        "mean": 1.55,
+        "n": 20,
+        "variance": 0.7868421052631579
+      },
+      "immutability": {
+        "mean": 3.5,
+        "n": 20,
+        "variance": 1.0
+      },
+      "prompt_consistency": {
+        "mean": 2.95,
+        "n": 20,
+        "variance": 1.4184210526315788
+      }
+    },
+    "38": {
+      "coherence": {
+        "mean": 3.7,
+        "n": 20,
+        "variance": 0.6421052631578947
+      },
+      "dynamism": {
+        "mean": 2.25,
+        "n": 20,
+        "variance": 1.4605263157894737
+      },
+      "expected_phenomenon": {
+        "mean": 3.25,
+        "n": 20,
+        "variance": 1.144736842105263
+      },
+      "immutability": {
+        "mean": 3.15,
+        "n": 20,
+        "variance": 1.186842105263158
+      },
+      "prompt_consistency": {
+        "mean": 2.65,
+        "n": 20,
+        "variance": 1.2921052631578949
+      }
+    },
+    "4": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.14035087719298245
+      },
+      "dynamism": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 0.9824561403508772
+      },
+      "expected_phenomenon": {
+        "mean": 1.3157894736842106,
+        "n": 19,
+        "variance": 0.4502923976608187
+      },
+      "immutability": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 1.6491228070175439
+      },
+      "prompt_consistency": {
+        "mean": 2.3684210526315788,
+        "n": 19,
+        "variance": 1.5789473684210524
+      }
+    },
+    "44": {
+      "coherence": {
+        "mean": 3.25,
+        "n": 20,
+        "variance": 1.5657894736842106
+      },
+      "dynamism": {
+        "mean": 2.75,
+        "n": 20,
+        "variance": 1.7763157894736843
+      },
+      "expected_phenomenon": {
+        "mean": 1.55,
+        "n": 20,
+        "variance": 1.1026315789473686
+      },
+      "immutability": {
+        "mean": 3.2,
+        "n": 20,
+        "variance": 1.431578947368421
+      },
+      "prompt_consistency": {
+        "mean": 2.9,
+        "n": 20,
+        "variance": 1.2526315789473685
+      }
+    },
+    "45": {
+      "coherence": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "dynamism": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 1.5847953216374269
+      },
+      "expected_phenomenon": {
+        "mean": 1.7894736842105263,
+        "n": 19,
+        "variance": 0.9532163742690057
+      },
+      "immutability": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 1.842105263157895
+      },
+      "prompt_consistency": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.28654970760233917
+      }
+    },
+    "46": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 1.04093567251462
+      },
+      "expected_phenomenon": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 0.9824561403508772
+      },
+      "immutability": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.0350877192982457
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.2631578947368423
+      }
+    },
+    "47": {
+      "coherence": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 0.8187134502923976
+      },
+      "dynamism": {
+        "mean": 2.263157894736842,
+        "n": 19,
+        "variance": 1.3157894736842106
+      },
+      "expected_phenomenon": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 2.146198830409357
+      },
+      "immutability": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.7017543859649122
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.04093567251462
+      }
+    },
+    "48": {
+      "coherence": {
+        "mean": 3.6315789473684212,
+        "n": 19,
+        "variance": 0.801169590643275
+      },
+      "dynamism": {
+        "mean": 2.1052631578947367,
+        "n": 19,
+        "variance": 1.4327485380116958
+      },
+      "expected_phenomenon": {
+        "mean": 1.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "immutability": {
+        "mean": 2.736842105263158,
+        "n": 19,
+        "variance": 1.6491228070175439
+      },
+      "prompt_consistency": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 1.5087719298245614
+      }
+    },
+    "49": {
+      "coherence": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.1403508771929824
+      },
+      "dynamism": {
+        "mean": 1.5789473684210527,
+        "n": 19,
+        "variance": 1.1461988304093567
+      },
+      "expected_phenomenon": {
+        "mean": 1.5263157894736843,
+        "n": 19,
+        "variance": 0.5964912280701754
+      },
+      "immutability": {
+        "mean": 1.894736842105263,
+        "n": 19,
+        "variance": 1.5438596491228072
+      },
+      "prompt_consistency": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 1.1754385964912282
+      }
+    },
+    "5": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 1.5263157894736843,
+        "n": 19,
+        "variance": 0.929824561403509
+      },
+      "expected_phenomenon": {
+        "mean": 1.1578947368421053,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "immutability": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 1.4853801169590646
+      },
+      "prompt_consistency": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 1.2280701754385965
+      }
+    },
+    "50": {
+      "coherence": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "dynamism": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 1.473684210526316
+      },
+      "expected_phenomenon": {
+        "mean": 1.9473684210526316,
+        "n": 19,
+        "variance": 1.6081871345029237
+      },
+      "immutability": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 1.3625730994152048
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.4853801169590646
+      }
+    },
+    "51": {
+      "coherence": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 1.2456140350877194
+      },
+      "dynamism": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 1.4795321637426901
+      },
+      "expected_phenomenon": {
+        "mean": 2.0526315789473686,
+        "n": 19,
+        "variance": 1.0526315789473684
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.5614035087719298
+      },
+      "prompt_consistency": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 1.0350877192982457
+      }
+    },
+    "54": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.14035087719298245
+      },
+      "dynamism": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 1.2573099415204678
+      },
+      "expected_phenomenon": {
+        "mean": 1.9473684210526316,
+        "n": 19,
+        "variance": 1.0526315789473684
+      },
+      "immutability": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 1.04093567251462
+      },
+      "prompt_consistency": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.9532163742690059
+      }
+    },
+    "55": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263158
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 1.1754385964912282
+      },
+      "expected_phenomenon": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 0.8070175438596492
+      },
+      "immutability": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.21052631578947367
+      },
+      "prompt_consistency": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.8304093567251462
+      }
+    },
+    "56": {
+      "coherence": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.8947368421052632
+      },
+      "dynamism": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.368421052631579
+      },
+      "expected_phenomenon": {
+        "mean": 1.368421052631579,
+        "n": 19,
+        "variance": 0.9122807017543862
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 2.1169590643274856
+      },
+      "prompt_consistency": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.8947368421052632
+      }
+    },
+    "57": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 1.1520467836257309
+      },
+      "expected_phenomenon": {
+        "mean": 1.4210526315789473,
+        "n": 19,
+        "variance": 0.5906432748538012
+      },
+      "immutability": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.3625730994152048
+      },
+      "prompt_consistency": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.1637426900584795
+      }
+    },
+    "58": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263158
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.7309941520467836
+      },
+      "expected_phenomenon": {
+        "mean": 1.263157894736842,
+        "n": 19,
+        "variance": 0.4269005847953216
+      },
+      "immutability": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.25146198830409355
+      },
+      "prompt_consistency": {
+        "mean": 2.473684210526316,
+        "n": 19,
+        "variance": 0.4853801169590643
+      }
+    },
+    "59": {
+      "coherence": {
+        "mean": 3.789473684210526,
+        "n": 19,
+        "variance": 0.5087719298245614
+      },
+      "dynamism": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 1.3976608187134503
+      },
+      "expected_phenomenon": {
+        "mean": 1.4210526315789473,
+        "n": 19,
+        "variance": 0.4795321637426901
+      },
+      "immutability": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 1.04093567251462
+      },
+      "prompt_consistency": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 1.0058479532163742
+      }
+    },
+    "6": {
+      "coherence": {
+        "mean": 3.8947368421052633,
+        "n": 19,
+        "variance": 0.21052631578947367
+      },
+      "dynamism": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 1.5438596491228072
+      },
+      "expected_phenomenon": {
+        "mean": 1.631578947368421,
+        "n": 19,
+        "variance": 0.8011695906432749
+      },
+      "immutability": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 1.654970760233918
+      },
+      "prompt_consistency": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 1.4853801169590646
+      }
+    },
+    "60": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263158
+      },
+      "dynamism": {
+        "mean": 2.1052631578947367,
+        "n": 19,
+        "variance": 1.543859649122807
+      },
+      "expected_phenomenon": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 0.9298245614035088
+      },
+      "immutability": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 1.2748538011695907
+      },
+      "prompt_consistency": {
+        "mean": 1.9473684210526316,
+        "n": 19,
+        "variance": 0.8304093567251462
+      }
+    },
+    "61": {
+      "coherence": {
+        "mean": 3.736842105263158,
+        "n": 19,
+        "variance": 0.6491228070175439
+      },
+      "dynamism": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.912280701754386
+      },
+      "expected_phenomenon": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 1.3625730994152048
+      },
+      "immutability": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "prompt_consistency": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.1637426900584795
+      }
+    },
+    "64": {
+      "coherence": {
+        "mean": 3.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263158
+      },
+      "dynamism": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 1.6198830409356726
+      },
+      "expected_phenomenon": {
+        "mean": 1.9473684210526316,
+        "n": 19,
+        "variance": 0.9415204678362572
+      },
+      "immutability": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.2748538011695905
+      },
+      "prompt_consistency": {
+        "mean": 2.6315789473684212,
+        "n": 19,
+        "variance": 1.4678362573099415
+      }
+    },
+    "7": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 1.8421052631578947
+      },
+      "expected_phenomenon": {
+        "mean": 1.736842105263158,
+        "n": 19,
+        "variance": 1.4269005847953218
+      },
+      "immutability": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 1.719298245614035
+      },
+      "prompt_consistency": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 1.3625730994152048
+      }
+    },
+    "8": {
+      "coherence": {
+        "mean": 4.0,
+        "n": 19,
+        "variance": 0.0
+      },
+      "dynamism": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.7017543859649122
+      },
+      "expected_phenomenon": {
+        "mean": 1.631578947368421,
+        "n": 19,
+        "variance": 1.3567251461988303
+      },
+      "immutability": {
+        "mean": 3.6842105263157894,
+        "n": 19,
+        "variance": 0.4502923976608187
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 2.052631578947368
+      }
+    },
+    "87": {
+      "coherence": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.2514619883040936
+      },
+      "dynamism": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 1.0
+      },
+      "expected_phenomenon": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 0.9181286549707602
+      },
+      "immutability": {
+        "mean": 2.6842105263157894,
+        "n": 19,
+        "variance": 0.8947368421052632
+      },
+      "prompt_consistency": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 1.3157894736842106
+      }
+    },
+    "88": {
+      "coherence": {
+        "mean": 3.473684210526316,
+        "n": 19,
+        "variance": 0.7076023391812867
+      },
+      "dynamism": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 0.8888888888888888
+      },
+      "expected_phenomenon": {
+        "mean": 1.6842105263157894,
+        "n": 19,
+        "variance": 0.2280701754385965
+      },
+      "immutability": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.43274853801169594
+      },
+      "prompt_consistency": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.7660818713450293
+      }
+    },
+    "89": {
+      "coherence": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.8011695906432749
+      },
+      "dynamism": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.8947368421052632
+      },
+      "expected_phenomenon": {
+        "mean": 2.5789473684210527,
+        "n": 19,
+        "variance": 1.590643274853801
+      },
+      "immutability": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 1.0058479532163742
+      },
+      "prompt_consistency": {
+        "mean": 2.789473684210526,
+        "n": 19,
+        "variance": 0.8421052631578947
+      }
+    },
+    "9": {
+      "coherence": {
+        "mean": 3.9473684210526314,
+        "n": 19,
+        "variance": 0.05263157894736842
+      },
+      "dynamism": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 1.3625730994152048
+      },
+      "expected_phenomenon": {
+        "mean": 1.4736842105263157,
+        "n": 19,
+        "variance": 0.8187134502923976
+      },
+      "immutability": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 1.6666666666666667
+      },
+      "prompt_consistency": {
+        "mean": 1.8421052631578947,
+        "n": 19,
+        "variance": 0.8070175438596492
+      }
+    },
+    "90": {
+      "coherence": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 1.5847953216374269
+      },
+      "dynamism": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.5906432748538012
+      },
+      "expected_phenomenon": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 1.1403508771929824
+      },
+      "immutability": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.9883040935672516
+      },
+      "prompt_consistency": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 1.2280701754385965
+      }
+    },
+    "91": {
+      "coherence": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 0.4736842105263157
+      },
+      "dynamism": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.7660818713450293
+      },
+      "expected_phenomenon": {
+        "mean": 2.1052631578947367,
+        "n": 19,
+        "variance": 1.2105263157894735
+      },
+      "immutability": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.4970760233918129
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.719298245614035
+      }
+    },
+    "92": {
+      "coherence": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 0.9415204678362572
+      },
+      "dynamism": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.783625730994152
+      },
+      "expected_phenomenon": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 1.2514619883040936
+      },
+      "immutability": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 0.8888888888888888
+      },
+      "prompt_consistency": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.4970760233918129
+      }
+    },
+    "93": {
+      "coherence": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.5789473684210527
+      },
+      "dynamism": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.9181286549707602
+      },
+      "expected_phenomenon": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.672514619883041
+      },
+      "immutability": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.7660818713450293
+      },
+      "prompt_consistency": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.4736842105263157
+      }
+    },
+    "94": {
+      "coherence": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 1.0994152046783627
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 1.1754385964912282
+      },
+      "expected_phenomenon": {
+        "mean": 2.6315789473684212,
+        "n": 19,
+        "variance": 0.912280701754386
+      },
+      "immutability": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.9883040935672516
+      },
+      "prompt_consistency": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 0.9824561403508772
+      }
+    },
+    "95": {
+      "coherence": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.7309941520467835
+      },
+      "dynamism": {
+        "mean": 2.736842105263158,
+        "n": 19,
+        "variance": 0.7602339181286549
+      },
+      "expected_phenomenon": {
+        "mean": 2.3157894736842106,
+        "n": 19,
+        "variance": 0.783625730994152
+      },
+      "immutability": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.8304093567251462
+      },
+      "prompt_consistency": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.6549707602339181
+      }
+    },
+    "96": {
+      "coherence": {
+        "mean": 3.3157894736842106,
+        "n": 19,
+        "variance": 1.2280701754385965
+      },
+      "dynamism": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 0.5555555555555556
+      },
+      "expected_phenomenon": {
+        "mean": 2.1578947368421053,
+        "n": 19,
+        "variance": 0.9181286549707602
+      },
+      "immutability": {
+        "mean": 2.8947368421052633,
+        "n": 19,
+        "variance": 0.8771929824561403
+      },
+      "prompt_consistency": {
+        "mean": 3.4210526315789473,
+        "n": 19,
+        "variance": 0.4795321637426901
+      }
+    },
+    "97": {
+      "coherence": {
+        "mean": 3.263157894736842,
+        "n": 19,
+        "variance": 1.0935672514619883
+      },
+      "dynamism": {
+        "mean": 2.736842105263158,
+        "n": 19,
+        "variance": 1.0935672514619883
+      },
+      "expected_phenomenon": {
+        "mean": 2.210526315789474,
+        "n": 19,
+        "variance": 1.1754385964912282
+      },
+      "immutability": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 1.0994152046783627
+      },
+      "prompt_consistency": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.5438596491228069
+      }
+    },
+    "98": {
+      "coherence": {
+        "mean": 3.3684210526315788,
+        "n": 19,
+        "variance": 0.912280701754386
+      },
+      "dynamism": {
+        "mean": 3.210526315789474,
+        "n": 19,
+        "variance": 0.9532163742690059
+      },
+      "expected_phenomenon": {
+        "mean": 2.526315789473684,
+        "n": 19,
+        "variance": 0.9298245614035088
+      },
+      "immutability": {
+        "mean": 3.0,
+        "n": 19,
+        "variance": 1.3333333333333333
+      },
+      "prompt_consistency": {
+        "mean": 3.1578947368421053,
+        "n": 19,
+        "variance": 0.8070175438596492
+      }
+    },
+    "99": {
+      "coherence": {
+        "mean": 3.1052631578947367,
+        "n": 19,
+        "variance": 0.8771929824561403
+      },
+      "dynamism": {
+        "mean": 3.0526315789473686,
+        "n": 19,
+        "variance": 0.9415204678362572
+      },
+      "expected_phenomenon": {
+        "mean": 2.4210526315789473,
+        "n": 19,
+        "variance": 1.1461988304093567
+      },
+      "immutability": {
+        "mean": 2.8421052631578947,
+        "n": 19,
+        "variance": 0.8070175438596491
+      },
+      "prompt_consistency": {
+        "mean": 2.9473684210526314,
+        "n": 19,
+        "variance": 1.0526315789473684
+      }
+    }
+  }
+}
