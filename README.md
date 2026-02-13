@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/VideoScience-Logo-v1.png" alt="vsci-bench-logo" width="180" align="center">
+  <img src="assets/VideoScience-Logo-v1.png" alt="vsci-bench-logo" width="220" align="center">
 </p>
 
 
