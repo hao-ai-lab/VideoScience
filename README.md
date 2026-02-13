@@ -17,7 +17,7 @@
 **VideoScience-Bench** evaluates whether video generation models can go beyond *looking plausible* to *being scientifically correct*.
 
 - **200** undergraduate-level scientific scenarios (physics + chemistry), 160 for T2V evaluation, and 40 for I2V evaluation
-- **14 topics**, **103 concepts**, and **multi-concept scientific reasoning required** in a single prompt
+- **12 topics**, **103 concepts**, and **multi-concept scientific reasoning required** in a single prompt
 - Evaluation along **5 dimensions** (Prompt Consistency, Phenomenon Congruency, Correct Dynamism, Immutability, Spatio-Temporal Coherence)
 
 **VideoScience-Judge** is an auto evaluation pipeline that supports:
@@ -44,25 +44,23 @@
 
 VideoScience-Bench is curated to stress **scientific reasoning** in video generation: each prompt typically requires **≥2 interacting scientific concepts** to produce the correct phenomenon (not just “everyday plausibility”).
 
-### Topics (14)
+### Topics (12)
 
-**Physics (9):**
+**Physics (7):**
 - Classical Mechanics
-- Optics
 - Thermodynamics
-- Fluid Mechanics
 - Electromagnetism
-- Wave
-- Energy
+- Optics
+- Fluid Mechanics
 - Material Mechanics
 - Modern Physics
 
 **Chemistry (5):**
 - Redox Reactions
-- Liquid Chemistry
 - Acid-Base
 - Reaction Kinetics
-- Material Chemistry
+- Solution and Phase Chemistry
+- Materials and Solid-State Chemistry
 
 ### What each example contains
 
