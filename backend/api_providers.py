@@ -1211,13 +1211,16 @@ class FastVideoAPI:
             )
         
         # Set attention backend based on model type
-        # FastWan DMD models need VIDEO_SPARSE_ATTN
+        # FastWan DMD models can use VIDEO_SPARSE_ATTN, base models use FLASH_ATTN
         model_lower = model_path.lower()
         if "fastwan" in model_lower or "fast-wan" in model_lower:
             if "fullattn" in model_lower:
                 os.environ["FASTVIDEO_ATTENTION_BACKEND"] = "FLASH_ATTN"
             else:
                 os.environ["FASTVIDEO_ATTENTION_BACKEND"] = "VIDEO_SPARSE_ATTN"
+        else:
+            # For base Wan models, use Flash Attention
+            os.environ["FASTVIDEO_ATTENTION_BACKEND"] = "FLASH_ATTN"
         
         # Initialize generator following example.py pattern
         print(f"[DEBUG] FastVideo initializing local generator with model: {model_path}")
