@@ -1,6 +1,9 @@
+<p align="center">
+  <img src="/home/ubuntu/VideoScience/assets/VideoScience-Logo-v1.png" alt="vsci-bench-logo" width="180" align="center">
+</p>
+
+
 <div align="center"><h1>&nbsp;VideoScience-Bench: Benchmarking Scientific Reasoning in Video Generations</h1></div>
-
-
 
 
 <p align="center">
@@ -14,9 +17,11 @@
 
 ## What this repo provides
 
-**VideoScience-Bench** evaluates whether video generation models can go beyond *looking plausible* to *being scientifically correct*.
+**VideoScience-Bench** evaluates whether video models can go beyond *looking plausible* to *being scientifically correct*.
 
-- **200** undergraduate-level scientific scenarios (physics + chemistry), 160 for T2V evaluation, and 40 for I2V evaluation
+- **200** undergraduate-level scientific scenarios (physics + chemistry)
+  - 160 for T2V evaluation
+  - and 40 for I2V evaluation
 - **12 topics**, **103 concepts**, and **multi-concept scientific reasoning required** in a single prompt
 - Evaluation along **5 dimensions** (Prompt Consistency, Phenomenon Congruency, Correct Dynamism, Immutability, Spatio-Temporal Coherence)
 
@@ -42,7 +47,7 @@
 
 ## Dataset Overview
 
-VideoScience-Bench is curated to stress **scientific reasoning** in video generation: each prompt typically requires **≥2 interacting scientific concepts** to produce the correct phenomenon (not just “everyday plausibility”).
+VideoScience-Bench is curated to stress **scientific reasoning** in video generation: each prompt typically requires **at least 2 interacting scientific concepts** to produce the correct phenomenon.
 
 ### Topics (12)
 
@@ -80,6 +85,8 @@ from datasets import load_dataset
 
 ds = load_dataset("lmgame/VideoScienceBench")
 data = ds["test"]
+
+# sanity check an example with
 print(data[0]["prompt"])
 print(data[0]["expected phenomenon"])
 print(data[0]["keywords"])
