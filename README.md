@@ -16,15 +16,15 @@
 
 **VideoScience-Bench** evaluates whether video generation models can go beyond *looking plausible* to *being scientifically correct*.
 
-- **200** curated undergraduate-level scientific scenarios (physics + chemistry)
+- **200** curated undergraduate-level scientific scenarios (physics + chemistry), 160 for T2V evaluation, and 40 for I2V evaluation
 - **14 topics**, **103 concepts**, and **multi-concept “cascading effects”** in a single prompt
 - Evaluation along **5 dimensions** (Prompt Consistency, Phenomenon Congruency, Correct Dynamism, Immutability, Spatio-Temporal Coherence)
 
-**VideoScience-Judge** is a scalable evaluation pipeline that:
-1) generates a **prompt-specific checklist**,  
-2) selects **key frames / salient moments**,  
-3) extracts **CV-grounded evidence** (e.g., tracks, motion, color changes), and  
-4) uses a **reasoning-capable VLM** to grade against the checklist.
+**VideoScience-Judge** is a scalable evaluation pipeline:
+1) **Prompt-specific checklist** generation
+2) **CV-grounded evidence extraction** (e.g., object detection, object tracking, motion tracking)
+3) **Salient key frames selection** where scientific phenomena occur
+4) final grading with a **reasoning-capable VLM**
 
 ---
 
@@ -33,8 +33,8 @@
 - [Dataset Overview](#dataset-overview)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Evaluation Metrics](#evaluation-metrics)
-- [VideoScience-Judge vs. Human Annotations](#videoscience-judge-vs-human-annotations)
+- [Understand Evaluation Metrics](#evaluation-metrics)
+- [VideoScience-Judge Results](#videoscience-judge-results)
 - [Citation](#citation)
 - [License](#license)
 
@@ -81,7 +81,7 @@ Common fields (as in the HF release):
 from datasets import load_dataset
 
 ds = load_dataset("lmgame/VideoScienceBench")
-data = ds["test"]  # 160 prompts in the HF release
+data = ds["test"]
 print(data[0]["prompt"])
 print(data[0]["expected phenomenon"])
 print(data[0]["keywords"])
@@ -170,9 +170,6 @@ We evaluate each generated video on **five dimensions** (Likert **1–4**):
 - **Correct Dynamism (CDN)**: are motions / dynamics physically consistent?
 - **Immutability (IMB)**: are static attributes preserved (no flicker/identity drift)?
 - **Spatio-Temporal Coherence (STC)**: is the video coherent over time and space?
-
-A commonly used weighted aggregate (paper setting):
-- PCG **0.30**, PCS **0.20**, STC **0.20**, CDN **0.15**, IMB **0.15**
 
 ---
 
