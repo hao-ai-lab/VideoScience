@@ -16,11 +16,11 @@
 
 **VideoScience-Bench** evaluates whether video generation models can go beyond *looking plausible* to *being scientifically correct*.
 
-- **200** curated undergraduate-level scientific scenarios (physics + chemistry), 160 for T2V evaluation, and 40 for I2V evaluation
-- **14 topics**, **103 concepts**, and **multi-concept “cascading effects”** in a single prompt
+- **200** undergraduate-level scientific scenarios (physics + chemistry), 160 for T2V evaluation, and 40 for I2V evaluation
+- **14 topics**, **103 concepts**, and **multi-concept scientific reasoning required** in a single prompt
 - Evaluation along **5 dimensions** (Prompt Consistency, Phenomenon Congruency, Correct Dynamism, Immutability, Spatio-Temporal Coherence)
 
-**VideoScience-Judge** is a scalable evaluation pipeline:
+**VideoScience-Judge** is an auto evaluation pipeline that supports:
 1) **Prompt-specific checklist** generation
 2) **CV-grounded evidence extraction** (e.g., object detection, object tracking, motion tracking)
 3) **Salient key frames selection** where scientific phenomena occur
@@ -135,9 +135,9 @@ export FASTVIDEO_MODEL_PATH="FastVideo/FastWan2.1-T2V-1.3B-Diffusers"
 
 ## Usage
 
-### 1) Batched video generation (from CSV)
+### 1) Batched video generation
 
-1. Download the CSV data file under `data/database/data.csv`.
+1. Download the CSV data file under `data/database/data_filtered.jsonl`.
 2. Launch the script:
 
 ```bash
